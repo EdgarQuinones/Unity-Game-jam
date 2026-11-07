@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
 
+    // Combat & Actions 
+    private Vector2 facingDirection = Vector2.down;
+    public Vector2 FacingDirection => facingDirection; // Read only
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,14 +26,16 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+
+        if (moveInput.sqrMagnitude > 0.01f)
+        {
+            facingDirection = moveInput.normalized; 
+        } 
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(
-        moveInput.x * moveSpeed,
-        rb.linearVelocity.y
-        );
+        rb.linearVelocity = moveInput.normalized * moveSpeed;
     }
 
 }
