@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,11 @@ public class GameManager : MonoBehaviour
         Boss,
         Complete
     }
+
+    [Header("Encounter Phase")]
+    [SerializeField] private EnemyAI[] encounterEnemies;
+    private int resolvedEnemies = 0;
+    private HashSet<EnemyAI> resolvedEnemySet = new HashSet<EnemyAI>();
 
     [Header("Cleaning Phase")]
     [SerializeField] private float cleaningDuration = 60f;
@@ -56,6 +63,40 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Cleaning Phase Ended!");
         Debug.Log("Encounter Phase Started!");
+
+        resolvedEnemies = 0;
+        resolvedEnemySet.Clear();
+    }
+
+    public void EnemyResolved(EnemyAI enemy)
+    {
+        if (currentPhase != GamePhase.Encounter)
+            return;
+
+        if (enemy == null || !resolvedEnemySet.Add(enemy))
+            return;
+
+        resolvedEnemies++;
+
+        Debug.Log($"Enemies resolved: {resolvedEnemies}/{encounterEnemies.Length}");
+
+        if (resolvedEnemies >= encounterEnemies.Length)
+        {
+            EndEncounterPhase();
+        }
+    }
+
+    private void EndEncounterPhase()
+    {
+        if (currentPhase != GamePhase.Encounter)
+            return;
+
+        currentPhase = GamePhase.Boss;
+
+        Debug.Log("Encounter Complete!");
+        Debug.Log("Boss Phase Started!");
+
+        // Later: Spawn boss
     }
 
     public void PuzzleCompleted()

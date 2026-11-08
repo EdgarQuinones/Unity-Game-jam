@@ -349,3 +349,4 @@ MonoBehaviour:
   lightCD: 1.5
   stunDuration: 3
   stunCooldown: 5
+  stunRadius: 1.5

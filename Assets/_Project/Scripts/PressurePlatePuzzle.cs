@@ -30,7 +30,6 @@ public class PressurePlatePuzzle : MonoBehaviour
         {
             currentStep++;
 
-            Debug.Log("Correct plate!");
 
             if (currentStep >= correctSequence.Length)
             {
@@ -47,7 +46,6 @@ public class PressurePlatePuzzle : MonoBehaviour
         else
         {
             currentStep = 0;
-            Debug.Log("Wrong plate! Sequence reset.");
 
             catHappiness.ModifyHappiness(-5);
 

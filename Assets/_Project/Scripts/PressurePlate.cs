@@ -20,7 +20,6 @@ public class PressurePlate : MonoBehaviour
         if (puzzle.ActivatePlate(plateID))
         {
             isPressed = true;
-            Debug.Log($"Plate {plateID} pressed!");
         }
     }
 
