@@ -4,7 +4,12 @@ public class PressurePlatePuzzle : MonoBehaviour
 {
     [SerializeField] private int[] correctSequence = { 2, 1, 3 };
 
+    [SerializeField] private PressurePlate[] plates;
+
+    private CatHappiness catHappiness;
+
     private int currentStep = 0;
+
     private bool isCompleted = false;
 
     private GameManager gameManager;
@@ -12,33 +17,48 @@ public class PressurePlatePuzzle : MonoBehaviour
     private void Awake()
     {
         gameManager = FindFirstObjectByType<GameManager>();
+        catHappiness = FindFirstObjectByType<CatHappiness>();
     }
 
-    public void ActivatePlate(int plateID)
+    public bool ActivatePlate(int plateID)
     {
-        if (gameManager.CurrentPhase != GameManager.GamePhase.Cleaning)
-            return;
-
-        if (isCompleted) return;
+        if (isCompleted ||
+            gameManager.CurrentPhase != GameManager.GamePhase.Cleaning)
+            return false;
 
         if (plateID == correctSequence[currentStep])
         {
             currentStep++;
 
-            Debug.Log("Correct plate!");
 
             if (currentStep >= correctSequence.Length)
             {
                 isCompleted = true;
                 Debug.Log("Puzzle completed!");
 
+                catHappiness.ModifyHappiness(10);
+
                 gameManager.PuzzleCompleted();
             }
+
+            return true;
         }
         else
         {
             currentStep = 0;
-            Debug.Log("Wrong plate! Sequence reset.");
+
+            catHappiness.ModifyHappiness(-5);
+
+            ResetAllPlates();
+            return false;
+        }
+    }
+
+    private void ResetAllPlates()
+    {
+        foreach (PressurePlate plate in plates)
+        {
+            plate.ResetPlate();
         }
     }
 }

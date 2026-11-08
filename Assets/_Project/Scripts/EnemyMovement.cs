@@ -17,6 +17,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (ai.CurrentState != EnemyAI.EnemyState.Chase)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
         switch (ai.CurrentState)
         {
             case EnemyAI.EnemyState.Chase:
@@ -25,6 +32,9 @@ public class EnemyMovement : MonoBehaviour
 
             case EnemyAI.EnemyState.Attack:
                 Stop();
+                break;
+            case EnemyAI.EnemyState.Stunned:
+                rb.linearVelocity = Vector2.zero;
                 break;
         }
     }
