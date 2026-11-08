@@ -47,7 +47,6 @@ public class EnemyCombat : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
-            Debug.Log("Enemy Hit");
             Health playerHealth = hit.GetComponent<Health>();
 
             if (playerHealth != null)

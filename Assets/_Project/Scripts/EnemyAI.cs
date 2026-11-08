@@ -5,7 +5,8 @@ public class EnemyAI : MonoBehaviour
     public enum EnemyState
     {
         Chase,
-        Attack
+        Attack,
+        Stunned
     }
 
     [Header("AI Settings")]
@@ -13,6 +14,8 @@ public class EnemyAI : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform player;
+
+    private float stunEndTime;
 
     private EnemyState currentState = EnemyState.Chase;
 
@@ -36,6 +39,12 @@ public class EnemyAI : MonoBehaviour
     {
         if (player == null) return;
 
+        if (Time.time < stunEndTime)
+        {
+            currentState = EnemyState.Stunned;
+            return;
+        }
+
         float distance = Vector2.Distance(
             transform.position,
             player.position
@@ -50,4 +59,22 @@ public class EnemyAI : MonoBehaviour
             currentState = EnemyState.Chase;
         }
     }
+
+    public void Stun(float duration)
+    {
+        stunEndTime = Mathf.Max(stunEndTime, Time.time + duration);
+        currentState = EnemyState.Stunned;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying) return;
+
+        if (currentState == EnemyState.Stunned)
+        {
+            Gizmos.color = Color.cyan;
+            Gizmos.DrawWireSphere(transform.position, 1f);
+        }
+    }
+
 }

@@ -34,7 +34,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Seal",
+                    "name": "Stun",
                     "type": "Button",
                     "id": "852140f2-7766-474d-8707-702459ba45f3",
                     "expectedControlType": "",
@@ -437,7 +437,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Seal",
+                    "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -448,7 +448,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "Seal",
+                    "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

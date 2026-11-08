@@ -13,6 +13,12 @@ public class PlayerCombat : MonoBehaviour
     // Movement
     private PlayerMovement movement;
 
+    // Sun
+    [SerializeField] private float stunDuration = 3f;
+    [SerializeField] private float stunCooldown = 5f;
+    [SerializeField] private float stunRadius = 1.5f;
+    private float nextStunTime;
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -52,6 +58,31 @@ public class PlayerCombat : MonoBehaviour
         }
     }
 
+    public void OnStun(InputAction.CallbackContext context)
+    {
+        if (!context.performed || Time.time < nextStunTime)
+            return;
+
+        // Set when the stun can be used again
+        nextStunTime = Time.time + stunCooldown;
+
+        Vector2 stunPosition = transform.position;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            stunPosition,
+            1.5f,
+            enemyLayer
+        );
+
+        foreach (Collider2D hit in hits)
+        {
+            EnemyAI enemy = hit.GetComponent<EnemyAI>();
+
+            if (enemy != null)
+                enemy.Stun(stunDuration);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();
@@ -65,6 +96,9 @@ public class PlayerCombat : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition, attackRadius);
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, stunRadius);
     }
 
 }
