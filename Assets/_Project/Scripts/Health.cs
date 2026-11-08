@@ -37,6 +37,8 @@ public class Health : MonoBehaviour
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - damage);
 
+        //Debug.Log($"{gameObject.name} took {damage} damage! Health: {CurrentHealth}/{MaxHealth}");
+
         // Wake up stunned enemies when damaged
         EnemyAI enemyAI = GetComponent<EnemyAI>();
 

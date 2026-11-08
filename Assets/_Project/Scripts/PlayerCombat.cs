@@ -21,14 +21,37 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] private float sealRange = 1f;
     [SerializeField] private float sealRadius = 0.5f;
 
+    // Components
     private PlayerMovement movement;
+    private CatHappiness catHappiness;
 
+    // Cooldowns
     private float nextAttackTime = 0f;
     private float nextStunTime = 0f;
 
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        catHappiness = FindFirstObjectByType<CatHappiness>();
+    }
+
+    // CAT HAPPINESS HIT CHANCE
+    private bool ShouldAttackHit()
+    {
+        float happiness = catHappiness != null
+            ? catHappiness.CurrentHappiness
+            : 50f;
+
+        float hitChance = happiness switch
+        {
+            >= 90f => 1.00f,
+            >= 75f => 0.95f,
+            >= 50f => 0.80f,
+            >= 25f => 0.70f,
+            _ => 0.60f
+        };
+
+        return Random.value < hitChance;
     }
 
     // NORMAL ATTACK
@@ -41,6 +64,12 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         nextAttackTime = Time.time + lightCD;
+
+        if (!ShouldAttackHit())
+        {
+            Debug.Log("Cat Happiness: Attack misfired!");
+            return;
+        }
 
         Attack();
     }
@@ -64,7 +93,9 @@ public class PlayerCombat : MonoBehaviour
             Health enemyHealth = hit.GetComponentInParent<Health>();
 
             if (enemyHealth != null)
+            {
                 enemyHealth.TakeDamage(attackDamage);
+            }
         }
     }
 
@@ -74,19 +105,27 @@ public class PlayerCombat : MonoBehaviour
         if (!context.performed)
             return;
 
-        // Sealing takes priority over stunning
+        // Sealing takes priority and never misfires
         if (TrySealEnemy())
             return;
 
-        // Only stun uses a cooldown
+        // Check stun cooldown
         if (Time.time < nextStunTime)
             return;
 
         nextStunTime = Time.time + stunCooldown;
 
+        // Player stun can misfire based on happiness
+        if (!ShouldAttackHit())
+        {
+            Debug.Log("Cat Happiness: Stun misfired!");
+            return;
+        }
+
         StunNearbyEnemies();
     }
 
+    // SEALING
     private bool TrySealEnemy()
     {
         Vector2 direction = movement.FacingDirection;
@@ -127,9 +166,13 @@ public class PlayerCombat : MonoBehaviour
             return false;
 
         closestEnemy.Seal();
+
+        Debug.Log($"Sealed {closestEnemy.gameObject.name}!");
+
         return true;
     }
 
+    // AOE STUN
     private void StunNearbyEnemies()
     {
         Vector2 stunPosition = transform.position;
@@ -150,10 +193,13 @@ public class PlayerCombat : MonoBehaviour
                     stunDuration,
                     EnemyAI.StunType.Player
                 );
+
+                Debug.Log($"Player stunned {enemy.gameObject.name}!");
             }
         }
     }
 
+    // DEBUG GIZMOS
     private void OnDrawGizmosSelected()
     {
         PlayerMovement playerMovement =
@@ -171,11 +217,11 @@ public class PlayerCombat : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosition, attackRadius);
 
-        // AOE Stun - Cyan
+        // AOE stun - Cyan
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, stunRadius);
 
-        // Sealing area - Green
+        // Seal range - Green
         Vector2 sealPosition =
             (Vector2)transform.position +
             direction * sealRange;

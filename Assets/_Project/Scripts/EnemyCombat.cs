@@ -13,9 +13,16 @@ public class EnemyCombat : MonoBehaviour
     private EnemyAI ai;
     private float nextAttackTime = 0f;
 
+    // Karma
+    [Header("Karma Scaling")]
+    [SerializeField] private float minDamageMultiplier = 0.5f;
+    [SerializeField] private float maxDamageMultiplier = 1.5f;
+    private Karma karma;
+
     private void Awake()
     {
         ai = GetComponent<EnemyAI>();
+        karma = FindFirstObjectByType<Karma>();
     }
 
     private void Update()
@@ -51,7 +58,14 @@ public class EnemyCombat : MonoBehaviour
 
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(attackDamage);
+                float karmaMultiplier = karma != null
+                    ? Mathf.Lerp(minDamageMultiplier, maxDamageMultiplier,
+                        karma.CurrentKarma / 100f)
+                    : 1f;
+
+                float finalDamage = attackDamage * karmaMultiplier;
+
+                playerHealth.TakeDamage(finalDamage);
             }
         }
     }

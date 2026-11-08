@@ -110,8 +110,7 @@ public class EnemyAI : MonoBehaviour
         if (!CanBeSealed)
             return;
 
-        if (gameManager != null)
-            gameManager.EnemyResolved(this);
+        gameManager.EnemyResolved(this);
 
         isSealed = true;
 

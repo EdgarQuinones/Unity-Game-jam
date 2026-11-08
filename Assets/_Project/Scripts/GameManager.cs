@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -62,10 +61,15 @@ public class GameManager : MonoBehaviour
         currentPhase = GamePhase.Encounter;
 
         Debug.Log("Cleaning Phase Ended!");
-        Debug.Log("Encounter Phase Started!");
 
         resolvedEnemies = 0;
         resolvedEnemySet.Clear();
+
+        foreach (EnemyAI enemy in encounterEnemies)
+        {
+            if (enemy != null)
+                enemy.gameObject.SetActive(true);
+        }
     }
 
     public void EnemyResolved(EnemyAI enemy)
@@ -94,7 +98,6 @@ public class GameManager : MonoBehaviour
         currentPhase = GamePhase.Boss;
 
         Debug.Log("Encounter Complete!");
-        Debug.Log("Boss Phase Started!");
 
         // Later: Spawn boss
     }

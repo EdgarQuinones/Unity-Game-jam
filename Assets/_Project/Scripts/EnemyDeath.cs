@@ -32,6 +32,7 @@ public class EnemyDeath : MonoBehaviour
     private void HandleDeath()
     {
         karma.ModifyKarma(karmaOnKill);
+
         if (gameManager != null)
             gameManager.EnemyResolved(enemyAI);
 
