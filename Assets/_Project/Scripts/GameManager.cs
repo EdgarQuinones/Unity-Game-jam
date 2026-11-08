@@ -11,13 +11,16 @@ public class GameManager : MonoBehaviour
         Complete
     }
 
+    [Header("Cleaning Phase")]
+    [SerializeField] private float cleaningDuration = 60f;
+
     [Header("Encounter Phase")]
     [SerializeField] private EnemyAI[] encounterEnemies;
     private int resolvedEnemies = 0;
     private HashSet<EnemyAI> resolvedEnemySet = new HashSet<EnemyAI>();
 
-    [Header("Cleaning Phase")]
-    [SerializeField] private float cleaningDuration = 60f;
+    [Header("Boss Phase")]
+    [SerializeField] private EnemyAI boss;
 
     [SerializeField] private int totalPuzzles = 1;
     private int completedPuzzles = 0;
@@ -98,8 +101,10 @@ public class GameManager : MonoBehaviour
         currentPhase = GamePhase.Boss;
 
         Debug.Log("Encounter Complete!");
+        Debug.Log("Boss Phase Started!");
 
-        // Later: Spawn boss
+        if (boss != null)
+            boss.gameObject.SetActive(true);
     }
 
     public void PuzzleCompleted()
@@ -115,6 +120,19 @@ public class GameManager : MonoBehaviour
         {
             EndCleaningPhase();
         }
+    }
+
+    public void BossResolved()
+    {
+        if (currentPhase != GamePhase.Boss)
+            return;
+
+        currentPhase = GamePhase.Complete;
+
+        Debug.Log("Boss Sealed!");
+        Debug.Log("Level Complete!");
+
+        // Later: Activate Lucky Slot Machine
     }
 
 }

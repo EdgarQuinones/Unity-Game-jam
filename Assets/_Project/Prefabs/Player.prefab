@@ -329,6 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   maxHealth: 100
+  spriteRenderer: {fileID: 0}
+  flashDuration: 0.15
 --- !u!114 &3581616840509590024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,10 +345,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackRange: 1
   attackRadius: 0.5
+  attackDamage: 10
+  lightCD: 1.5
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  lightCD: 1.5
   stunDuration: 3
   stunCooldown: 5
   stunRadius: 1.5
+  sealRange: 1
+  sealRadius: 0.5

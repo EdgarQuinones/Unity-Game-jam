@@ -32,6 +32,8 @@ public class EnemyAI : MonoBehaviour
     public Transform Target => player;
     public StunType CurrentStunType { get; private set; }
 
+    [SerializeField] private bool isBoss = false;
+
     public bool CanBeSealed =>
         !isSealed &&
         currentState == EnemyState.Stunned &&
@@ -109,9 +111,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (!CanBeSealed)
             return;
-
-        gameManager.EnemyResolved(this);
-
+    
+        if (gameManager != null)
+            if (isBoss)
+                gameManager.BossResolved();
+            else
+                gameManager.EnemyResolved(this);
+    
         isSealed = true;
 
         if (karma != null)
