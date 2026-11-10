@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     }
 
     [Header("Cleaning Phase")]
-    [SerializeField] private float cleaningDuration = 60f;
+    [SerializeField] private CleaningPuzzle[] puzzleGroups;
 
     [Header("Encounter Phase")]
     [SerializeField] private EnemyAI[] encounterEnemies;
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int totalPuzzles;
     private int completedPuzzles = 0;
+    private readonly List<CleaningPuzzle> cleaningPuzzles = new List<CleaningPuzzle>();
+    private readonly HashSet<CleaningPuzzle> completedPuzzleSet = new HashSet<CleaningPuzzle>();
 
     private float timeRemaining;
     private GamePhase currentPhase;
@@ -58,9 +60,51 @@ public class GameManager : MonoBehaviour
     private void StartCleaningPhase()
     {
         currentPhase = GamePhase.Cleaning;
-        timeRemaining = cleaningDuration;
+        timeRemaining = 10f + totalPuzzles * 20f;
 
-        Debug.Log("Cleaning Phase Started!");
+        if (puzzleGroups == null || puzzleGroups.Length == 0)
+            puzzleGroups = GetComponentsInChildren<CleaningPuzzle>(true);
+
+        List<CleaningPuzzle> availablePuzzles = new List<CleaningPuzzle>();
+        foreach (CleaningPuzzle puzzle in puzzleGroups)
+        {
+            if (puzzle == null)
+            {
+                Debug.LogError("Cleaning puzzle list contains a missing reference.", this);
+                continue;
+            }
+
+            if (availablePuzzles.Contains(puzzle))
+            {
+                Debug.LogWarning($"Duplicate cleaning puzzle ignored: {puzzle.name}.", puzzle);
+                continue;
+            }
+
+            availablePuzzles.Add(puzzle);
+            puzzle.gameObject.SetActive(false);
+        }
+
+        for (int i = availablePuzzles.Count - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            CleaningPuzzle temporary = availablePuzzles[i];
+            availablePuzzles[i] = availablePuzzles[randomIndex];
+            availablePuzzles[randomIndex] = temporary;
+        }
+
+        int selectedCount = Mathf.Min(totalPuzzles, availablePuzzles.Count);
+        for (int i = 0; i < selectedCount; i++)
+        {
+            CleaningPuzzle puzzle = availablePuzzles[i];
+            cleaningPuzzles.Add(puzzle);
+            puzzle.gameObject.SetActive(true);
+            Debug.Log($"Randomly selected cleaning puzzle: {puzzle.name}.", puzzle);
+        }
+
+        if (availablePuzzles.Count < totalPuzzles)
+            Debug.LogError($"Cleaning requires {totalPuzzles} puzzles but only {availablePuzzles.Count} unique puzzles are assigned; completion is not possible before timeout.", this);
+
+        Debug.Log($"Cleaning Phase Started! Required puzzles: {totalPuzzles}; time: {timeRemaining} seconds.");
     }
 
     public void EndCleaningPhase()
@@ -69,6 +113,12 @@ public class GameManager : MonoBehaviour
             return;
 
         currentPhase = GamePhase.Encounter;
+
+        foreach (CleaningPuzzle puzzle in cleaningPuzzles)
+        {
+            if (puzzle != null)
+                puzzle.gameObject.SetActive(false);
+        }
 
         Debug.Log("Cleaning Phase Ended!");
 
@@ -114,10 +164,16 @@ public class GameManager : MonoBehaviour
             boss.gameObject.SetActive(true);
     }
 
-    public void PuzzleCompleted()
+    public void PuzzleCompleted(CleaningPuzzle puzzle)
     {
         if (currentPhase != GamePhase.Cleaning)
             return;
+
+        if (puzzle == null || !cleaningPuzzles.Contains(puzzle) || !completedPuzzleSet.Add(puzzle))
+        {
+            Debug.LogWarning("Ignored completion from a missing, unselected, or already completed cleaning puzzle.", this);
+            return;
+        }
 
         completedPuzzles++;
 

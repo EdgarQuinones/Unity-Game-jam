@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class PressurePlatePuzzle : MonoBehaviour
+public class PressurePlatePuzzle : CleaningPuzzle
 {
-    [SerializeField] private int[] correctSequence = { 2, 1, 3 };
+    private int[] correctSequence;
 
     [SerializeField] private PressurePlate[] plates;
 
@@ -18,27 +18,70 @@ public class PressurePlatePuzzle : MonoBehaviour
     {
         gameManager = FindFirstObjectByType<GameManager>();
         catHappiness = FindFirstObjectByType<CatHappiness>();
+        GenerateSequence();
+    }
+
+    private void GenerateSequence()
+    {
+        if (plates == null || plates.Length == 0)
+        {
+            Debug.LogError($"{name}: no pressure plates assigned; puzzle cannot be solved.", this);
+            return;
+        }
+
+        correctSequence = new int[plates.Length];
+        for (int i = 0; i < plates.Length; i++)
+        {
+            if (plates[i] == null)
+            {
+                Debug.LogError($"{name}: pressure plate {i} is missing; puzzle cannot be solved.", this);
+                correctSequence = null;
+                return;
+            }
+
+            correctSequence[i] = plates[i].PlateID;
+            for (int j = 0; j < i; j++)
+            {
+                if (correctSequence[j] == correctSequence[i])
+                {
+                    Debug.LogError($"{name}: duplicate plate ID {correctSequence[i]}; puzzle cannot be solved.", this);
+                    correctSequence = null;
+                    return;
+                }
+            }
+        }
+
+        for (int i = correctSequence.Length - 1; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+            int temporary = correctSequence[i];
+            correctSequence[i] = correctSequence[randomIndex];
+            correctSequence[randomIndex] = temporary;
+        }
+
+        Debug.Log($"{name}: generated plate sequence: {string.Join(" -> ", correctSequence)}", this);
     }
 
     public bool ActivatePlate(int plateID)
     {
-        if (isCompleted ||
+        if (correctSequence == null || isCompleted ||
             gameManager.CurrentPhase != GameManager.GamePhase.Cleaning)
             return false;
 
         if (plateID == correctSequence[currentStep])
         {
+            Debug.Log($"{name}: correct plate {plateID}.");
             currentStep++;
 
 
             if (currentStep >= correctSequence.Length)
             {
                 isCompleted = true;
-                Debug.Log("Puzzle completed!");
+                Debug.Log($"{name} completed!");
 
                 catHappiness.ModifyHappiness(10);
 
-                gameManager.PuzzleCompleted();
+                ReportCompletion();
             }
 
             return true;
@@ -46,6 +89,8 @@ public class PressurePlatePuzzle : MonoBehaviour
         else
         {
             currentStep = 0;
+
+            Debug.Log($"{name}: incorrect plate {plateID}; sequence reset.");
 
             catHappiness.ModifyHappiness(-5);
 

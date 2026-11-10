@@ -3,6 +3,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private int plateID;
+    public int PlateID => plateID;
 
     private PressurePlatePuzzle puzzle;
     private bool isPressed = false;
