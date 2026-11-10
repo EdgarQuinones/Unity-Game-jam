@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b49792488977204387c173ba181324c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  startingHappiness: 100
+  startingHappiness: 50
 --- !u!114 &934636329
 MonoBehaviour:
   m_ObjectHideFlags: 0

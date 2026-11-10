@@ -16,25 +16,25 @@ At the start of each run, three independent 1–9 rolls determine:
 
 | Roll | 1–3 | 4–6 | 7–9 |
 | --- | --- | --- | --- |
-| Cleaning | 3 puzzle sequences | 2 sequences | 1 sequence |
+| Cleaning | 3 puzzles | 2 puzzles | 1 puzzle |
 | Encounter | 4 enemies | 3 enemies | 2 enemies |
 | Boss | Faster attacks | Normal attacks | Slower attacks |
 
-The reusable puzzle resets between successful sequences. Planned cleaning times are 30, 50 and 70 seconds for one, two and three sequences respectively. Puzzle successes improve Happiness; mistakes or failure can reduce it.
+Select one, two or three distinct puzzles from the available Cleaning puzzle pool. The reusable pressure-plate prefab can provide multiple instances; each generates its own random sequence, which stays the same when a wrong attempt resets. Cleaning times are 30, 50 and 70 seconds for one, two and three puzzles respectively. Puzzle successes improve Happiness; mistakes can reduce it. Future puzzle types can replace individual pressure-plate instances.
 
 Regular enemies can be killed, increasing Karma Debt, or environmentally stunned and sealed, reducing it. Resolving them advances the encounter. The Fire Dragon is planned to have approximately 200 HP, a charge, cone fire breath, warnings and recovery. It can be killed or sealed after being weakened below a threshold and meeting an environmental condition; either outcome wins.
 
 ## Hybrid Lucky Reel
 
-Three separately stored 1–9 numbers are generated per spin. Q manually spins with a 12-second cooldown; automatic spins occur every 30 seconds; any two spins must be at least five seconds apart. Manual and automatic spins share outcomes. Spins are disabled during transitions, Game Over and Victory.
+Three separately stored 1–9 numbers are generated per spin. Q manually spins with a 12-second cooldown; automatic spins are configured for every 20 seconds; any two spins must be at least five seconds apart. Manual and automatic spins share outcomes. Spins are disabled during Game Over and Victory; transition-state restrictions remain planned.
 
 For the temporary MVP classification, average the three numbers: below 4 is Bad, 4 to below 7 is Neutral, and 7 or above is Good. Special combinations are intended to override ordinary tiers later; currently triple matches are logged and still use the average.
 
-Happiness is planned to influence favorable versus unfavorable outcome probabilities. Karma Debt determines the intended type of good outcome: 50 or above favors offensive effects; below 50 favors peaceful effects. Weighting, special-combination effects and probabilities remain to be implemented and balanced; special combinations need not use natural independent-roll probabilities.
+Happiness weights each displayed number: higher Happiness favors higher values, while every number remains possible. Karma Debt selects the type of Good Encounter and Boss outcome: 50 or above is offensive; below 50 is peaceful. Karma does not affect Cleaning, Neutral or Bad outcomes for the MVP. Special-combination effects and probabilities remain to be implemented and balanced.
 
 Planned phase effects:
 
-- **Cleaning:** bad loses 10 seconds; neutral gains 10 seconds; good completes a sequence.
+- **Cleaning:** bad loses 10 seconds; neutral gains 10 seconds with no cap; good completes one selected unfinished puzzle and grants its normal Happiness reward. Reaching zero time transitions to Encounter.
 - **Encounter:** bad temporarily speeds enemies; neutral heals; good damages enemies at high Karma or environmentally stuns them at low Karma.
 - **Boss:** bad temporarily speeds boss attacks; neutral heals; good damages the boss at high Karma or helps weaken/stun it for sealing at low Karma. Sealing requirements must still be respected.
 
