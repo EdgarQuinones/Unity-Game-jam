@@ -30,14 +30,19 @@ public class LuckyReel : MonoBehaviour
     private float lastSpinTime = float.NegativeInfinity;
     private GameManager gameManager;
     private CatHappiness catHappiness;
+    private Karma karma;
 
     private void Awake()
     {
         gameManager = GetComponent<GameManager>();
         catHappiness = GetComponent<CatHappiness>();
+        karma = GetComponent<Karma>();
 
         if (catHappiness == null)
             Debug.LogWarning("LuckyReel requires CatHappiness on the same GameObject; using neutral odds.", this);
+
+        if (karma == null)
+            Debug.LogWarning("LuckyReel requires Karma on the same GameObject to select good combat fortune.", this);
     }
 
     private void Start()
@@ -164,11 +169,27 @@ public class LuckyReel : MonoBehaviour
 
             case GameManager.GamePhase.Encounter:
                 Debug.Log($"Encounter outcome: {outcome}");
+                if (outcome == LuckOutcome.Good)
+                    LogCombatFortune();
                 break;
 
             case GameManager.GamePhase.Boss:
                 Debug.Log($"Boss outcome: {outcome}");
+                if (outcome == LuckOutcome.Good)
+                    LogCombatFortune();
                 break;
         }
+    }
+
+    private void LogCombatFortune()
+    {
+        if (karma == null)
+        {
+            Debug.LogWarning("Cannot select combat fortune: Karma is missing.", this);
+            return;
+        }
+
+        string fortuneType = karma.CurrentKarma >= 50 ? "Offensive" : "Peaceful";
+        Debug.Log($"Karma Debt: {karma.CurrentKarma} -> {fortuneType} fortune selected (effect not implemented).");
     }
 }
