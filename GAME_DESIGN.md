@@ -28,7 +28,9 @@ Regular enemies can be killed, increasing Karma Debt, or environmentally stunned
 
 Three separately stored 1–9 numbers are generated per spin. Q manually spins with a 12-second cooldown; automatic spins occur every 30 seconds; any two spins must be at least five seconds apart. Manual and automatic spins share outcomes. Spins are disabled during transitions, Game Over and Victory.
 
-Happiness influences favorable versus unfavorable outcome probabilities. Karma Debt determines the type of good outcome: 50 or above favors offensive effects; below 50 favors peaceful effects. Exact tiers, special-combination effects and probabilities remain to be agreed and balanced; special combinations need not use natural independent-roll probabilities.
+For the temporary MVP classification, average the three numbers: below 4 is Bad, 4 to below 7 is Neutral, and 7 or above is Good. Special combinations are intended to override ordinary tiers later; currently triple matches are logged and still use the average.
+
+Happiness is planned to influence favorable versus unfavorable outcome probabilities. Karma Debt determines the intended type of good outcome: 50 or above favors offensive effects; below 50 favors peaceful effects. Weighting, special-combination effects and probabilities remain to be implemented and balanced; special combinations need not use natural independent-roll probabilities.
 
 Planned phase effects:
 
