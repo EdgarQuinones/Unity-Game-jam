@@ -4,6 +4,13 @@ using UnityEngine.InputSystem;
 
 public class LuckyReel : MonoBehaviour
 {
+    private enum LuckOutcome
+    {
+        Bad,
+        Neutral,
+        Good
+    }
+
     [Header("Spin Timers")]
     [SerializeField] private float manualCooldown = 12f;
     [SerializeField] private float autoSpinInterval = 30f;
@@ -18,6 +25,12 @@ public class LuckyReel : MonoBehaviour
     private float nextManualSpinTime;
     private float nextAutoSpinTime;
     private float lastSpinTime = float.NegativeInfinity;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = GetComponent<GameManager>();
+    }
 
     private void Start()
     {
@@ -61,6 +74,16 @@ public class LuckyReel : MonoBehaviour
 
     private bool CanSpin()
     {
+        if (gameManager == null)
+            return false;
+
+        GameManager.GamePhase phase = gameManager.CurrentPhase;
+
+        if (phase != GameManager.GamePhase.Cleaning &&
+            phase != GameManager.GamePhase.Encounter &&
+            phase != GameManager.GamePhase.Boss)
+            return false;
+
         return Time.time >= lastSpinTime + minimumSpinGap;
     }
 
@@ -78,6 +101,40 @@ public class LuckyReel : MonoBehaviour
         if (Reel1 == Reel2 && Reel2 == Reel3)
         {
             Debug.Log("TRIPLE MATCH!");
+        }
+
+        LuckOutcome outcome = GetOutcome();
+        RouteOutcome(outcome);
+    }
+
+    private LuckOutcome GetOutcome()
+    {
+        float average = Total / 3f;
+
+        if (average < 4f)
+            return LuckOutcome.Bad;
+
+        if (average < 7f)
+            return LuckOutcome.Neutral;
+
+        return LuckOutcome.Good;
+    }
+
+    private void RouteOutcome(LuckOutcome outcome)
+    {
+        switch (gameManager.CurrentPhase)
+        {
+            case GameManager.GamePhase.Cleaning:
+                Debug.Log($"Cleaning outcome: {outcome}");
+                break;
+
+            case GameManager.GamePhase.Encounter:
+                Debug.Log($"Encounter outcome: {outcome}");
+                break;
+
+            case GameManager.GamePhase.Boss:
+                Debug.Log($"Boss outcome: {outcome}");
+                break;
         }
     }
 }

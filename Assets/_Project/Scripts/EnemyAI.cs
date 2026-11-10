@@ -146,8 +146,8 @@ public class EnemyAI : MonoBehaviour
     private void OnEnable()
     {
         // Temporary testing only
-        Debug.Log($"ENEMY ENVIRONMENTAL STUN (DEV ONLY)!");
-        Stun(10f, StunType.Environmental);
+        //Debug.Log($"ENEMY ENVIRONMENTAL STUN (DEV ONLY)!");
+        //Stun(10f, StunType.Environmental);
     }
 
     public void WakeUp()
