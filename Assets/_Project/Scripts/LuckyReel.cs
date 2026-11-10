@@ -13,7 +13,7 @@ public class LuckyReel : MonoBehaviour
 
     [Header("Spin Timers")]
     [SerializeField] private float manualCooldown = 12f;
-    [SerializeField] private float autoSpinInterval = 30f;
+    [SerializeField] private float automaticSpinInterval = 20f;
     [SerializeField] private float minimumSpinGap = 5f;
 
     [Header("Happiness Odds")]
@@ -47,8 +47,8 @@ public class LuckyReel : MonoBehaviour
 
     private void Start()
     {
-        // First automatic spin occurs after 30 seconds
-        nextAutoSpinTime = Time.time + autoSpinInterval;
+        // First automatic spin occurs after the configured interval.
+        nextAutoSpinTime = Time.time + automaticSpinInterval;
     }
 
     private void Update()
@@ -63,7 +63,7 @@ public class LuckyReel : MonoBehaviour
 
         Spin();
 
-        nextAutoSpinTime = Time.time + autoSpinInterval;
+        nextAutoSpinTime = Time.time + automaticSpinInterval;
     }
 
     // Called by Q through Unity Events
@@ -165,6 +165,18 @@ public class LuckyReel : MonoBehaviour
         {
             case GameManager.GamePhase.Cleaning:
                 Debug.Log($"Cleaning outcome: {outcome}");
+                switch (outcome)
+                {
+                    case LuckOutcome.Bad:
+                        gameManager.AdjustCleaningTime(-10f);
+                        break;
+                    case LuckOutcome.Neutral:
+                        gameManager.AdjustCleaningTime(10f);
+                        break;
+                    case LuckOutcome.Good:
+                        gameManager.CompleteRandomCleaningPuzzle();
+                        break;
+                }
                 break;
 
             case GameManager.GamePhase.Encounter:

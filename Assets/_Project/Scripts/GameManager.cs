@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
             CleaningPuzzle puzzle = availablePuzzles[i];
             cleaningPuzzles.Add(puzzle);
             puzzle.gameObject.SetActive(true);
-            Debug.Log($"Randomly selected cleaning puzzle: {puzzle.name}.", puzzle);
+            //Debug.Log($"Randomly selected cleaning puzzle: {puzzle.name}.", puzzle);
         }
 
         if (availablePuzzles.Count < totalPuzzles)
@@ -162,6 +162,44 @@ public class GameManager : MonoBehaviour
 
         if (boss != null)
             boss.gameObject.SetActive(true);
+    }
+
+    public void AdjustCleaningTime(float seconds)
+    {
+        if (currentPhase != GamePhase.Cleaning)
+            return;
+
+        timeRemaining = Mathf.Max(0f, timeRemaining + seconds);
+        Debug.Log($"Cleaning time adjusted by {seconds:+0.##;-0.##;0} seconds; remaining: {timeRemaining:F1} seconds.");
+
+        if (timeRemaining <= 0f)
+        {
+            Debug.Log("Cleaning time ran out due to a Lucky Reel outcome.");
+            EndCleaningPhase();
+        }
+    }
+
+    public void CompleteRandomCleaningPuzzle()
+    {
+        if (currentPhase != GamePhase.Cleaning)
+            return;
+
+        List<CleaningPuzzle> unfinished = new List<CleaningPuzzle>();
+        foreach (CleaningPuzzle puzzle in cleaningPuzzles)
+        {
+            if (puzzle != null && !completedPuzzleSet.Contains(puzzle))
+                unfinished.Add(puzzle);
+        }
+
+        if (unfinished.Count == 0)
+        {
+            Debug.LogWarning("Lucky Reel could not complete a puzzle: no unfinished selected puzzles remain.", this);
+            return;
+        }
+
+        CleaningPuzzle selected = unfinished[Random.Range(0, unfinished.Count)];
+        Debug.Log($"Lucky Reel selected {selected.name} for automatic completion.", selected);
+        selected.CompleteFromLuckyReel();
     }
 
     public void PuzzleCompleted(CleaningPuzzle puzzle)

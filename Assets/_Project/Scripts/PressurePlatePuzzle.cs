@@ -59,7 +59,7 @@ public class PressurePlatePuzzle : CleaningPuzzle
             correctSequence[randomIndex] = temporary;
         }
 
-        Debug.Log($"{name}: generated plate sequence: {string.Join(" -> ", correctSequence)}", this);
+        //Debug.Log($"{name}: generated plate sequence: {string.Join(" -> ", correctSequence)}", this);
     }
 
     public bool ActivatePlate(int plateID)
@@ -76,12 +76,7 @@ public class PressurePlatePuzzle : CleaningPuzzle
 
             if (currentStep >= correctSequence.Length)
             {
-                isCompleted = true;
-                Debug.Log($"{name} completed!");
-
-                catHappiness.ModifyHappiness(10);
-
-                ReportCompletion();
+                CompletePuzzle();
             }
 
             return true;
@@ -99,11 +94,45 @@ public class PressurePlatePuzzle : CleaningPuzzle
         }
     }
 
+    public override void CompleteFromLuckyReel()
+    {
+        if (isCompleted || gameManager == null ||
+            gameManager.CurrentPhase != GameManager.GamePhase.Cleaning)
+            return;
+
+        Debug.Log($"{name}: completed by Lucky Reel.", this);
+        CompletePuzzle();
+    }
+
+    private void CompletePuzzle()
+    {
+        if (isCompleted)
+            return;
+
+        isCompleted = true;
+        Debug.Log($"{name} completed!");
+        catHappiness.ModifyHappiness(10);
+        ReportCompletion();
+    }
+
     private void ResetAllPlates()
     {
         foreach (PressurePlate plate in plates)
         {
             plate.ResetPlate();
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying || !isCompleted || plates == null)
+            return;
+
+        Gizmos.color = Color.green;
+        foreach (PressurePlate plate in plates)
+        {
+            if (plate != null)
+                Gizmos.DrawWireSphere(plate.transform.position, 0.65f);
         }
     }
 }

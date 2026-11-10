@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class CleaningPuzzle : MonoBehaviour
 {
+    public abstract void CompleteFromLuckyReel();
+
     protected void ReportCompletion()
     {
         GameManager manager = FindFirstObjectByType<GameManager>();

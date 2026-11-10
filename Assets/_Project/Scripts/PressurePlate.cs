@@ -28,4 +28,13 @@ public class PressurePlate : MonoBehaviour
     {
         isPressed = false;
     }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying || !isPressed)
+            return;
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, new Vector3(0.8f, 0.8f, 0.1f));
+    }
 }
