@@ -16,6 +16,9 @@ public class LuckyReel : MonoBehaviour
     [SerializeField] private float autoSpinInterval = 30f;
     [SerializeField] private float minimumSpinGap = 5f;
 
+    [Header("Happiness Odds")]
+    [SerializeField, Range(0f, 0.9f)] private float happinessBiasStrength = 0.8f;
+
     public int Reel1 { get; private set; }
     public int Reel2 { get; private set; }
     public int Reel3 { get; private set; }
@@ -26,10 +29,15 @@ public class LuckyReel : MonoBehaviour
     private float nextAutoSpinTime;
     private float lastSpinTime = float.NegativeInfinity;
     private GameManager gameManager;
+    private CatHappiness catHappiness;
 
     private void Awake()
     {
         gameManager = GetComponent<GameManager>();
+        catHappiness = GetComponent<CatHappiness>();
+
+        if (catHappiness == null)
+            Debug.LogWarning("LuckyReel requires CatHappiness on the same GameObject; using neutral odds.", this);
     }
 
     private void Start()
@@ -89,12 +97,19 @@ public class LuckyReel : MonoBehaviour
 
     private void Spin()
     {
-        Reel1 = Random.Range(1, 10);
-        Reel2 = Random.Range(1, 10);
-        Reel3 = Random.Range(1, 10);
+        int happiness = catHappiness != null ? catHappiness.CurrentHappiness : 50;
+        float bias = (Mathf.Clamp(happiness, 0, 100) - 50f) / 50f;
+        bias *= Mathf.Clamp(happinessBiasStrength, 0f, 0.9f);
+        Reel1 = RollNumber(bias);
+        Reel2 = RollNumber(bias);
+        Reel3 = RollNumber(bias);
 
         lastSpinTime = Time.time;
 
+        float lowChance = (3f - 2.25f * bias) / 9f;
+        float highChance = (3f + 2.25f * bias) / 9f;
+        Debug.Log($"Lucky odds: Happiness {happiness}, bias {bias:F2}; " +
+                  $"per reel 1-3: {lowChance:P1}, 7-9: {highChance:P1}");
         Debug.Log($"Lucky Spin: {Reel1}-{Reel2}-{Reel3}");
         Debug.Log($"Total: {Total}");
 
@@ -105,6 +120,25 @@ public class LuckyReel : MonoBehaviour
 
         LuckOutcome outcome = GetOutcome();
         RouteOutcome(outcome);
+    }
+
+    private int RollNumber(float bias)
+    {
+        // At 50 all numbers are equally likely. Keep every weight positive so
+        // any combination remains possible even at extreme happiness levels.
+        float roll = Random.value * 9f;
+
+        for (int number = 1; number <= 9; number++)
+        {
+            float weight = 1f + bias * (number - 5) / 4f;
+            if (roll < weight)
+                return number;
+
+            roll -= weight;
+        }
+
+        // Random.value can include its upper endpoint.
+        return 9;
     }
 
     private LuckOutcome GetOutcome()
