@@ -30,6 +30,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Private local Cline instructions
+/.clinerules/personal.md
+
 # Gradle cache directory
 .gradle/
 
