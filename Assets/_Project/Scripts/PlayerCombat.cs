@@ -23,7 +23,6 @@ public class PlayerCombat : MonoBehaviour
 
     // Components
     private PlayerMovement movement;
-    private CatHappiness catHappiness;
 
     // Cooldowns
     private float nextAttackTime = 0f;
@@ -32,29 +31,8 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
-        catHappiness = FindFirstObjectByType<CatHappiness>();
     }
 
-    // CAT HAPPINESS HIT CHANCE
-    private bool ShouldAttackHit()
-    {
-        float happiness = catHappiness != null
-            ? catHappiness.CurrentHappiness
-            : 50f;
-
-        float hitChance = happiness switch
-        {
-            >= 90f => 1.00f,
-            >= 75f => 0.95f,
-            >= 50f => 0.80f,
-            >= 25f => 0.70f,
-            _ => 0.60f
-        };
-
-        return Random.value < hitChance;
-    }
-
-    // NORMAL ATTACK
     public void OnAttack(InputAction.CallbackContext context)
     {
         if (!context.performed)
@@ -64,12 +42,6 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         nextAttackTime = Time.time + lightCD;
-
-        if (!ShouldAttackHit())
-        {
-            Debug.Log("Cat Happiness: Attack misfired!");
-            return;
-        }
 
         Attack();
     }
@@ -105,7 +77,7 @@ public class PlayerCombat : MonoBehaviour
         if (!context.performed)
             return;
 
-        // Sealing takes priority and never misfires
+        // Sealing takes priority over stunning
         if (TrySealEnemy())
             return;
 
@@ -114,13 +86,6 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         nextStunTime = Time.time + stunCooldown;
-
-        // Player stun can misfire based on happiness
-        if (!ShouldAttackHit())
-        {
-            Debug.Log("Cat Happiness: Stun misfired!");
-            return;
-        }
 
         StunNearbyEnemies();
     }

@@ -237,4 +237,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47c52b81af54294e946da7b584fdd50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  karmaOnKill: 0
+  karmaOnKill: 25

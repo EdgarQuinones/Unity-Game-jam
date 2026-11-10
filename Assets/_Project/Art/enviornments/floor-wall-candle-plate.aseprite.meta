@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d2b71eb004a664e409ae69b44283e884
+guid: 65c0145bce2e13647bc5fd7bb5190e72
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -127,9 +127,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: door.wall.stone.pole
+  - name: floor.wall.candle.plate
     originalName: 
-    pivot: {x: 0.5267857, y: -0.20574161}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -137,9 +137,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 224
-      height: 209
-    spriteID: 71737c8aae264ee4ba8de6eb290e8547
+      width: 256
+      height: 256
+    spriteID: 6f1e4bc4106236140847cfdb807e0f15
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -153,25 +153,25 @@ ScriptedImporter:
   asepriteLayers:
   - layerIndex: 0
     uuid:
-      value0: 3348808839
+      value0: 1994493817
       value1: 0
       value2: 0
       value3: 0
     guid: 0
-    name: door.wall.stone.pole
+    name: floor.wall.candle.plate
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: door.wall.stone.pole
+    - name: floor-wall-candle-plate
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 32
-        y: 43
-        width: 224
-        height: 209
-      spriteId: 71737c8aae264ee4ba8de6eb290e8547
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      spriteId: 6f1e4bc4106236140847cfdb807e0f15
     linkedCells: []
     tileCells: []
     tileSetIndex: 0
@@ -181,5 +181,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 300, y: 300}
-  previousTextureSize: {x: 256, y: 256}
+  canvasSize: {x: 256, y: 256}
+  previousTextureSize: {x: 512, y: 512}

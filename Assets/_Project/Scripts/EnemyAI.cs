@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     public StunType CurrentStunType { get; private set; }
 
     [SerializeField] private bool isBoss = false;
-
+    public bool IsBoss => isBoss;
     public bool CanBeSealed =>
         !isSealed &&
         currentState == EnemyState.Stunned &&
@@ -146,7 +146,8 @@ public class EnemyAI : MonoBehaviour
     private void OnEnable()
     {
         // Temporary testing only
-         Stun(10f, StunType.Environmental);
+        Debug.Log($"ENEMY ENVIRONMENTAL STUN (DEV ONLY)!");
+        Stun(10f, StunType.Environmental);
     }
 
     public void WakeUp()

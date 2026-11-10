@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
         Cleaning,
         Encounter,
         Boss,
-        Complete
+        Complete,
+        GameOver
     }
 
     [Header("Cleaning Phase")]
@@ -22,15 +23,21 @@ public class GameManager : MonoBehaviour
     [Header("Boss Phase")]
     [SerializeField] private EnemyAI boss;
 
-    [SerializeField] private int totalPuzzles = 1;
+    [SerializeField] private int totalPuzzles;
     private int completedPuzzles = 0;
 
     private float timeRemaining;
     private GamePhase currentPhase;
     public GamePhase CurrentPhase => currentPhase;
 
+    private RunManager runManager;
+
     private void Start()
     {
+        runManager = FindFirstObjectByType<RunManager>();
+
+        totalPuzzles = runManager.PuzzleCount;
+
         StartCleaningPhase();
     }
 
@@ -129,10 +136,21 @@ public class GameManager : MonoBehaviour
 
         currentPhase = GamePhase.Complete;
 
-        Debug.Log("Boss Sealed!");
+        Debug.Log("Boss Defeated!");
         Debug.Log("Level Complete!");
 
         // Later: Activate Lucky Slot Machine
+    }
+
+    public void GameOver()
+    {
+        if (currentPhase == GamePhase.GameOver ||
+            currentPhase == GamePhase.Complete)
+            return;
+
+        currentPhase = GamePhase.GameOver;
+
+        Debug.Log("GAME OVER!");
     }
 
 }
