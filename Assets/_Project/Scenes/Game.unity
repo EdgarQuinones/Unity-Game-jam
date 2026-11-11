@@ -1477,14 +1477,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 2181534650560328327, guid: 9dbc614ff72aea14489ad6d040e9838e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4184855340253556216, guid: 9dbc614ff72aea14489ad6d040e9838e, type: 3}
-      propertyPath: m_Mass
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 4189810716868521568, guid: 9dbc614ff72aea14489ad6d040e9838e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.09180999
@@ -1524,10 +1516,6 @@ PrefabInstance:
     - target: {fileID: 4189810716868521568, guid: 9dbc614ff72aea14489ad6d040e9838e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4820706147376648481, guid: 9dbc614ff72aea14489ad6d040e9838e, type: 3}
-      propertyPath: maxHealth
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
