@@ -4,6 +4,8 @@ using UnityEngine;
 public class DragonCharge : MonoBehaviour
 {
     private enum ChargeState { Waiting, Warning, Charging, Recovery }
+    public bool IsAttacking => state != ChargeState.Waiting;
+    public bool IsRestoringPlayerCollision => playerCollisionIgnored;
 
     [Header("Charge Timing")]
     [SerializeField] private float timeBetweenCharges = 4f;
