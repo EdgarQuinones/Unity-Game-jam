@@ -185,15 +185,19 @@ public class LuckyReel : MonoBehaviour
                 if (outcome == LuckOutcome.Bad)
                     gameManager.BoostEncounterEnemySpeed();
                 else if (outcome == LuckOutcome.Neutral)
-                    gameManager.HealPlayerFromEncounter();
+                    gameManager.HealPlayerFromCombatReel();
                 else if (outcome == LuckOutcome.Good)
                     ApplyGoodEncounterFortune();
                 break;
 
             case GameManager.GamePhase.Boss:
                 Debug.Log($"Boss outcome: {outcome}");
-                if (outcome == LuckOutcome.Good)
-                    LogCombatFortune();
+                if (outcome == LuckOutcome.Bad)
+                    gameManager.BoostBossAttackSpeed();
+                else if (outcome == LuckOutcome.Neutral)
+                    gameManager.HealPlayerFromCombatReel();
+                else if (outcome == LuckOutcome.Good)
+                    ApplyGoodBossFortune();
                 break;
         }
     }
@@ -207,12 +211,10 @@ public class LuckyReel : MonoBehaviour
         }
 
         int karmaDebt = karma.CurrentKarma;
-        string fortuneType = karmaDebt < 45 ? "Peaceful" : karmaDebt > 55 ? "Offensive" : "Neutral";
-        Debug.Log($"Karma Debt: {karmaDebt} -> {fortuneType} Encounter fortune.");
         gameManager.ApplyGoodEncounterFortune(karmaDebt);
     }
 
-    private void LogCombatFortune()
+    private void ApplyGoodBossFortune()
     {
         if (karma == null)
         {
@@ -220,7 +222,29 @@ public class LuckyReel : MonoBehaviour
             return;
         }
 
-        string fortuneType = karma.CurrentKarma >= 50 ? "Offensive" : "Peaceful";
-        Debug.Log($"Karma Debt: {karma.CurrentKarma} -> {fortuneType} fortune selected (effect not implemented).");
+        int karmaDebt = karma.CurrentKarma;
+        if (karmaDebt > 55)
+        {
+            Debug.Log($"Karma Debt: {karmaDebt} -> Offensive Boss fortune.");
+            gameManager.DamageBossFromReel();
+        }
+        else if (karmaDebt < 45)
+        {
+            Debug.Log($"Karma Debt: {karmaDebt} -> Peaceful Boss fortune.");
+            gameManager.StunBossFromReel();
+        }
+        else
+        {
+            if (Random.value < 0.5f)
+            {
+                Debug.Log($"Karma Debt: {karmaDebt} -> Fate chose Offensive Boss fortune.");
+                gameManager.DamageBossFromReel();
+            }
+            else
+            {
+                Debug.Log($"Karma Debt: {karmaDebt} -> Fate chose Peaceful Boss fortune.");
+                gameManager.StunBossFromReel();
+            }
+        }
     }
 }

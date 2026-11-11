@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7940509683503684299}
   - component: {fileID: 8434321563221395623}
   - component: {fileID: 2679590407858739243}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: 3DWall
   m_TagString: Pillar
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 7483271040176492483}
   - component: {fileID: 5626671921741052465}
   - component: {fileID: 225662700938886839}
-  m_Layer: 10
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Pillar
   m_Icon: {fileID: 0}

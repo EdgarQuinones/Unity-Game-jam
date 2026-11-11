@@ -33,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     public StunType CurrentStunType { get; private set; }
 
     [SerializeField] private bool isBoss = false;
-    [SerializeField, Range(0f, 1f)] private float bossSealHealthThreshold = 0.2f;
+    [SerializeField, Range(0f, 1f)] private float bossSealHealthThreshold = 0.25f;
     private Health health;
     public bool IsBoss => isBoss;
     private bool IsEnvironmentallyStunned =>

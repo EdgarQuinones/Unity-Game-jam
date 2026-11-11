@@ -201,9 +201,64 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void HealPlayerFromEncounter()
+    public void BoostBossAttackSpeed()
     {
-        if (currentPhase != GamePhase.Encounter)
+        if (currentPhase != GamePhase.Boss)
+            return;
+
+        if (boss == null || !boss.gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("Cannot boost boss attack speed: boss is missing or inactive.", this);
+            return;
+        }
+
+        DragonAttackCoordinator coordinator = boss.GetComponent<DragonAttackCoordinator>();
+        if (coordinator != null)
+            coordinator.ApplyAttackSpeedBoost(1.5f, 12f);
+        else
+            Debug.LogWarning("Cannot boost boss attack speed: DragonAttackCoordinator is missing.", boss);
+    }
+
+    public void DamageBossFromReel()
+    {
+        if (currentPhase != GamePhase.Boss)
+            return;
+
+        if (boss == null || !boss.gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("Cannot damage boss: boss is missing or inactive.", this);
+            return;
+        }
+
+        Health bossHealth = boss.GetComponent<Health>();
+        if (bossHealth == null)
+        {
+            Debug.LogWarning("Cannot damage boss: Health is missing.", boss);
+            return;
+        }
+
+        Debug.Log("Good Boss fortune deals 20 damage to the boss.", boss);
+        bossHealth.TakeDamage(20f);
+    }
+
+    public void StunBossFromReel()
+    {
+        if (currentPhase != GamePhase.Boss)
+            return;
+
+        if (boss == null || !boss.gameObject.activeInHierarchy)
+        {
+            Debug.LogWarning("Cannot stun boss: boss is missing or inactive.", this);
+            return;
+        }
+
+        boss.Stun(3f, EnemyAI.StunType.Player);
+        Debug.Log("Good Boss fortune applied a regular stun; an existing environmental stun is preserved.", boss);
+    }
+
+    public void HealPlayerFromCombatReel()
+    {
+        if (currentPhase != GamePhase.Encounter && currentPhase != GamePhase.Boss)
             return;
 
         if (playerHealth == null)
@@ -214,7 +269,7 @@ public class GameManager : MonoBehaviour
 
         float healthBefore = playerHealth.CurrentHealth;
         playerHealth.Heal(20f);
-        Debug.Log($"Encounter reel healed player by {playerHealth.CurrentHealth - healthBefore:0.##}; health: {playerHealth.CurrentHealth:0.##}/{playerHealth.MaxHealth:0.##}.", playerHealth);
+        Debug.Log($"{currentPhase} reel healed player by {playerHealth.CurrentHealth - healthBefore:0.##}; health: {playerHealth.CurrentHealth:0.##}/{playerHealth.MaxHealth:0.##}.", playerHealth);
     }
 
     public void BoostEncounterEnemySpeed()
@@ -240,7 +295,11 @@ public class GameManager : MonoBehaviour
         if (currentPhase != GamePhase.Encounter)
             return;
 
-        if (karmaDebt < 45)
+        bool peaceful = karmaDebt < 45 || (karmaDebt <= 55 && Random.value < 0.5f);
+        string fortuneType = peaceful ? "Peaceful" : "Offensive";
+        Debug.Log($"Karma Debt: {karmaDebt} -> {(karmaDebt >= 45 && karmaDebt <= 55 ? "Fate chose " : "")}{fortuneType} Encounter fortune.");
+
+        if (peaceful)
         {
             List<EnemyAI> eligibleEnemies = new List<EnemyAI>();
             List<EnemyAI> alreadyStunnedEnemies = new List<EnemyAI>();
@@ -275,23 +334,15 @@ public class GameManager : MonoBehaviour
             if (enemy == null || !enemy.gameObject.activeInHierarchy || resolvedEnemySet.Contains(enemy))
                 continue;
 
-            if (karmaDebt > 55)
+            Health enemyHealth = enemy.GetComponent<Health>();
+            if (enemyHealth == null)
             {
-                Health enemyHealth = enemy.GetComponent<Health>();
-                if (enemyHealth == null)
-                {
-                    Debug.LogWarning($"{enemy.name} cannot receive reel damage: Health is missing.", enemy);
-                    continue;
-                }
+                Debug.LogWarning($"{enemy.name} cannot receive reel damage: Health is missing.", enemy);
+                continue;
+            }
 
-                Debug.Log($"Good Encounter fortune deals 20 damage to {enemy.name}.", enemy);
-                enemyHealth.TakeDamage(20f);
-            }
-            else
-            {
-                enemy.Stun(3f, EnemyAI.StunType.Player);
-                Debug.Log($"Good Encounter fortune regularly stuns {enemy.name} for at least 3 seconds.", enemy);
-            }
+            Debug.Log($"Good Encounter fortune deals 20 damage to {enemy.name}.", enemy);
+            enemyHealth.TakeDamage(20f);
         }
     }
 

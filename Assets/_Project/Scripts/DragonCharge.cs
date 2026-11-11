@@ -28,8 +28,10 @@ public class DragonCharge : MonoBehaviour
     private EnemyCombat combat;
     private Karma karma;
     private RunManager runManager;
+    private DragonAttackCoordinator coordinator;
     private float ChargeWait => Mathf.Max(0f, timeBetweenCharges) /
-        (runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f);
+        ((runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f) *
+         (coordinator != null ? coordinator.AttackSpeedMultiplier : 1f));
     private ChargeState state;
     private float stateEndTime;
     private Vector2 chargeDirection;
@@ -50,6 +52,7 @@ public class DragonCharge : MonoBehaviour
         combat = GetComponent<EnemyCombat>();
         karma = FindFirstObjectByType<Karma>();
         runManager = FindFirstObjectByType<RunManager>();
+        coordinator = GetComponent<DragonAttackCoordinator>();
         bossCollider = GetComponent<Collider2D>();
 
         if (warningLine != null)
@@ -60,6 +63,12 @@ public class DragonCharge : MonoBehaviour
     {
         state = ChargeState.Waiting;
         stateEndTime = Time.time + ChargeWait;
+    }
+
+    public void AdjustWaitingTime(float previousMultiplier, float newMultiplier)
+    {
+        if (isActiveAndEnabled && state == ChargeState.Waiting)
+            stateEndTime = Time.time + Mathf.Max(0f, stateEndTime - Time.time) * previousMultiplier / newMultiplier;
     }
 
     private void Update()
@@ -131,8 +140,9 @@ public class DragonCharge : MonoBehaviour
         warningLine.SetPosition(1, start + (Vector3)(chargeDirection * chargeDistance));
         warningLine.enabled = true;
         state = ChargeState.Warning;
-        stateEndTime = Time.time + Mathf.Max(0f, warningDuration);
-        Debug.Log($"{name}: dragon charge warning.", this);
+        stateEndTime = Time.time + Mathf.Max(0f, warningDuration) *
+            (coordinator != null && coordinator.AttackSpeedMultiplier > 1f ? 0.75f : 1f);
+        //Debug.Log($"{name}: dragon charge warning.", this);
     }
 
     private void BeginCharge()
@@ -150,7 +160,7 @@ public class DragonCharge : MonoBehaviour
         }
         state = ChargeState.Charging;
         stateEndTime = Time.time + chargeDistance / chargeSpeed;
-        Debug.Log($"{name}: dragon charge started.", this);
+        //Debug.Log($"{name}: dragon charge started.", this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -162,7 +172,7 @@ public class DragonCharge : MonoBehaviour
         {
             body.linearVelocity = Vector2.zero;
             ai.Stun(pillarStunDuration, EnemyAI.StunType.Environmental);
-            Debug.Log($"{name}: hit a pillar and was environmentally stunned for {pillarStunDuration} seconds.", this);
+            //Debug.Log($"{name}: hit a pillar and was environmentally stunned for {pillarStunDuration} seconds.", this);
             CancelCharge();
         }
         else
@@ -192,7 +202,7 @@ public class DragonCharge : MonoBehaviour
                 if (playerHealth != null) playerHealth.TakeDamage(finalDamage);
                 if (playerMovement != null && playerMovement.gameObject.activeInHierarchy)
                     playerMovement.ApplyStun(playerStunDuration);
-                Debug.Log($"{name}: charge hit player for {finalDamage} damage.", this);
+                //Debug.Log($"{name}: charge hit player for {finalDamage} damage.", this);
                 return;
             }
         }
@@ -228,7 +238,7 @@ public class DragonCharge : MonoBehaviour
         body.linearVelocity = Vector2.zero;
         state = ChargeState.Recovery;
         stateEndTime = Time.time + Mathf.Max(0f, recoveryDuration);
-        Debug.Log($"{name}: dragon charge recovery.", this);
+        //Debug.Log($"{name}: dragon charge recovery.", this);
     }
 
     private void FinishCharge()
@@ -242,7 +252,7 @@ public class DragonCharge : MonoBehaviour
     {
         ReleaseControls();
         state = ChargeState.Waiting;
-        Debug.Log($"{name}: dragon charge interrupted.", this);
+        //Debug.Log($"{name}: dragon charge interrupted.", this);
     }
 
     private void ReleaseControls()

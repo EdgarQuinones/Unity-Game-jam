@@ -8,6 +8,27 @@ public class DragonAttackCoordinator : MonoBehaviour
     private EnemyAI ai;
     private bool chargeTurn;
     private bool attackStarted;
+    private int consecutiveAttacks;
+    private float speedBoostEndTime;
+    public float AttackSpeedMultiplier { get; private set; } = 1f;
+
+    public void ApplyAttackSpeedBoost(float multiplier, float duration)
+    {
+        if (multiplier <= 1f || duration <= 0f)
+            return;
+
+        SetAttackSpeedMultiplier(multiplier);
+        speedBoostEndTime = Time.time + duration;
+        Debug.Log($"{name}: boss attack speed boosted to {multiplier}x for {duration} seconds (refreshed).", this);
+    }
+
+    private void SetAttackSpeedMultiplier(float multiplier)
+    {
+        float previous = AttackSpeedMultiplier;
+        AttackSpeedMultiplier = multiplier;
+        charge.AdjustWaitingTime(previous, multiplier);
+        breath.AdjustWaitingTime(previous, multiplier);
+    }
 
     private void Awake()
     {
@@ -22,11 +43,18 @@ public class DragonAttackCoordinator : MonoBehaviour
     {
         chargeTurn = true;
         attackStarted = false;
+        consecutiveAttacks = 0;
         charge.enabled = true;
     }
 
     private void Update()
     {
+        if (AttackSpeedMultiplier > 1f && Time.time >= speedBoostEndTime)
+        {
+            SetAttackSpeedMultiplier(1f);
+            Debug.Log($"{name}: boss attack speed boost expired.", this);
+        }
+
         bool active = chargeTurn ? charge.IsAttacking : breath.IsAttacking;
         if (active)
         {
@@ -44,7 +72,11 @@ public class DragonAttackCoordinator : MonoBehaviour
         if (chargeTurn) charge.enabled = false;
         else breath.enabled = false;
 
-        chargeTurn = !chargeTurn;
+        consecutiveAttacks++;
+        bool nextCharge = consecutiveAttacks >= 2 ? !chargeTurn : Random.value < 0.5f;
+        if (nextCharge != chargeTurn)
+            consecutiveAttacks = 0;
+        chargeTurn = nextCharge;
         attackStarted = false;
         if (chargeTurn) charge.enabled = true;
         else breath.enabled = true;
@@ -52,6 +84,8 @@ public class DragonAttackCoordinator : MonoBehaviour
 
     private void OnDisable()
     {
+        AttackSpeedMultiplier = 1f;
+        speedBoostEndTime = 0f;
         if (charge != null) charge.enabled = false;
         if (breath != null) breath.enabled = false;
     }

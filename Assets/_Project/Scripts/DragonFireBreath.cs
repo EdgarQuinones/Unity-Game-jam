@@ -30,8 +30,10 @@ public class DragonFireBreath : MonoBehaviour
     private EnemyCombat combat;
     private Karma karma;
     private RunManager runManager;
+    private DragonAttackCoordinator coordinator;
     private float BreathWait => Mathf.Max(0f, timeBetweenBreaths) /
-        (runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f);
+        ((runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f) *
+         (coordinator != null ? coordinator.AttackSpeedMultiplier : 1f));
     private DragonCharge charge;
     private Mesh coneMesh;
     private MeshRenderer coneRenderer;
@@ -54,6 +56,7 @@ public class DragonFireBreath : MonoBehaviour
         combat = GetComponent<EnemyCombat>();
         karma = FindFirstObjectByType<Karma>();
         runManager = FindFirstObjectByType<RunManager>();
+        coordinator = GetComponent<DragonAttackCoordinator>();
         charge = GetComponent<DragonCharge>();
 
         GameObject visual = new GameObject("Fire Breath Cone");
@@ -76,6 +79,12 @@ public class DragonFireBreath : MonoBehaviour
     {
         state = BreathState.Waiting;
         stateEndTime = Time.time + BreathWait;
+    }
+
+    public void AdjustWaitingTime(float previousMultiplier, float newMultiplier)
+    {
+        if (isActiveAndEnabled && state == BreathState.Waiting)
+            stateEndTime = Time.time + Mathf.Max(0f, stateEndTime - Time.time) * previousMultiplier / newMultiplier;
     }
 
     private void Update()

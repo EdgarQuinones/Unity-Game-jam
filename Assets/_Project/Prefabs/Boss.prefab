@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8469008672689950625}
   - component: {fileID: 8794751488409243449}
   - component: {fileID: 1960897511313865736}
+  - component: {fileID: 2295662976685564505}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Enemy
@@ -36,7 +37,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.084337, y: 1.0040162, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8435589882645989238}
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82aeb7874e9fe4b46b3a4ab41f405940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  attackRange: 1.5
+  attackRange: 2
   player: {fileID: 0}
   isBoss: 1
   bossSealHealthThreshold: 0.1
@@ -221,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd938b120fd6db429b0c0887c6566e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  attackDamage: 1
+  attackDamage: 10
   attackRange: 1.5
   attackRadius: 0.5
   attackCooldown: 1.5
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2181534650560328327}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b7b9ed5c0afc6d4f98aee7d3884318f, type: 3}
   m_Name: 
@@ -262,7 +263,7 @@ MonoBehaviour:
   chargeDistance: 6
   chargeDamage: 20
   playerStunDuration: 0.75
-  pillarStunDuration: 5
+  pillarStunDuration: 2.5
   warningLine: {fileID: 1693021377297157601}
 --- !u!114 &1960897511313865736
 MonoBehaviour:
@@ -280,14 +281,26 @@ MonoBehaviour:
   warningDuration: 1
   burstDuration: 0.25
   recoveryDuration: 1
-  range: 4
-  angle: 90
+  range: 6
+  angle: 45
   damage: 20
   coneMaterial: {fileID: 2100000, guid: 0b788dd26f7b4b9f9a146b7e503bfa93, type: 2}
   warningColor: {r: 1, g: 1, b: 0, a: 0.5}
   fireColor: {r: 1, g: 0.25, b: 0, a: 0.8}
   sortingLayer: Ground
   sortingOrder: 5
+--- !u!114 &2295662976685564505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181534650560328327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c77e33e04021141986c292ba1e8231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DragonAttackCoordinator
 --- !u!1 &5514140957005290113
 GameObject:
   m_ObjectHideFlags: 0
