@@ -38,6 +38,7 @@ The owner identified these as likely priorities, not an irrevocable schedule. In
 
 ## Remaining integration and validation
 
+- [ ] Add a player-facing action log / chat-style text box later to explain reel results and their effects, Karma Debt changes, and how Karma affects enemy damage and good fortune.
 - [ ] Apply Opening Fortune enemy count and boss speed; RunManager calculates them but GameManager does not consume them.
 - [ ] Verify Karma starts at 50 and kills increase it and seals decrease it in play. Reel combat Karma selection currently logs only.
 - [ ] Implement and balance special combinations; triples currently log and use ordinary average tiers.

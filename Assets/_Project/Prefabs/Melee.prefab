@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackRange: 1.5
   player: {fileID: 0}
+  isBoss: 0
 --- !u!114 &9027678733438518589
 MonoBehaviour:
   m_ObjectHideFlags: 0

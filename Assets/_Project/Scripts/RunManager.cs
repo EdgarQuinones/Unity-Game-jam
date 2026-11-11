@@ -31,8 +31,8 @@ public class RunManager : MonoBehaviour
         BossSpeedMultiplier = BossRoll <= 3 ? 1.25f :
                               BossRoll <= 6 ? 1f : 0.75f;
 
-        //Debug.Log($"Cleaning: {CleaningRoll} -> {PuzzleCount} puzzles");
-        //Debug.Log($"Encounter: {EncounterRoll} -> {EnemyCount} enemies");
-        //Debug.Log($"Boss: {BossRoll} -> {BossSpeedMultiplier}x attack speed");
+        Debug.Log($"Cleaning: {CleaningRoll} -> {PuzzleCount} puzzles");
+        Debug.Log($"Encounter: {EncounterRoll} -> {EnemyCount} enemies");
+        Debug.Log($"Boss: {BossRoll} -> {BossSpeedMultiplier}x attack speed");
     }
 }

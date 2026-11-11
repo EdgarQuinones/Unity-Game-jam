@@ -15,6 +15,7 @@ public class LuckyReel : MonoBehaviour
     [SerializeField] private float manualCooldown = 12f;
     [SerializeField] private float automaticSpinInterval = 20f;
     [SerializeField] private float minimumSpinGap = 5f;
+    [SerializeField] private float firstSpin = 5f;
 
     [Header("Happiness Odds")]
     [SerializeField, Range(0f, 0.9f)] private float happinessBiasStrength = 0.8f;
@@ -48,7 +49,7 @@ public class LuckyReel : MonoBehaviour
     private void Start()
     {
         // First automatic spin occurs after the configured interval.
-        nextAutoSpinTime = Time.time + automaticSpinInterval;
+        nextAutoSpinTime = firstSpin;
     }
 
     private void Update()
@@ -113,10 +114,10 @@ public class LuckyReel : MonoBehaviour
 
         float lowChance = (3f - 2.25f * bias) / 9f;
         float highChance = (3f + 2.25f * bias) / 9f;
-        Debug.Log($"Lucky odds: Happiness {happiness}, bias {bias:F2}; " +
-                  $"per reel 1-3: {lowChance:P1}, 7-9: {highChance:P1}");
+        //Debug.Log($"Lucky odds: Happiness {happiness}, bias {bias:F2}; " +
+        //          $"per reel 1-3: {lowChance:P1}, 7-9: {highChance:P1}");
         Debug.Log($"Lucky Spin: {Reel1}-{Reel2}-{Reel3}");
-        Debug.Log($"Total: {Total}");
+        //Debug.Log($"Total: {Total}");
 
         if (Reel1 == Reel2 && Reel2 == Reel3)
         {
@@ -181,8 +182,12 @@ public class LuckyReel : MonoBehaviour
 
             case GameManager.GamePhase.Encounter:
                 Debug.Log($"Encounter outcome: {outcome}");
-                if (outcome == LuckOutcome.Good)
-                    LogCombatFortune();
+                if (outcome == LuckOutcome.Bad)
+                    gameManager.BoostEncounterEnemySpeed();
+                else if (outcome == LuckOutcome.Neutral)
+                    gameManager.HealPlayerFromEncounter();
+                else if (outcome == LuckOutcome.Good)
+                    ApplyGoodEncounterFortune();
                 break;
 
             case GameManager.GamePhase.Boss:
@@ -191,6 +196,20 @@ public class LuckyReel : MonoBehaviour
                     LogCombatFortune();
                 break;
         }
+    }
+
+    private void ApplyGoodEncounterFortune()
+    {
+        if (karma == null)
+        {
+            Debug.LogWarning("Cannot select combat fortune: Karma is missing.", this);
+            return;
+        }
+
+        int karmaDebt = karma.CurrentKarma;
+        string fortuneType = karmaDebt < 45 ? "Peaceful" : karmaDebt > 55 ? "Offensive" : "Neutral";
+        Debug.Log($"Karma Debt: {karmaDebt} -> {fortuneType} Encounter fortune.");
+        gameManager.ApplyGoodEncounterFortune(karmaDebt);
     }
 
     private void LogCombatFortune()

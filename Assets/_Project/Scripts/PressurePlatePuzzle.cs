@@ -87,7 +87,7 @@ public class PressurePlatePuzzle : CleaningPuzzle
 
             Debug.Log($"{name}: incorrect plate {plateID}; sequence reset.");
 
-            catHappiness.ModifyHappiness(-5);
+            catHappiness.ModifyHappiness(-1);
 
             ResetAllPlates();
             return false;
