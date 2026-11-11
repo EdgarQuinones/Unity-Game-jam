@@ -161,7 +161,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -191,6 +191,7 @@ MonoBehaviour:
   attackRange: 1.5
   player: {fileID: 0}
   isBoss: 0
+  bossSealHealthThreshold: 0.1
 --- !u!114 &9027678733438518589
 MonoBehaviour:
   m_ObjectHideFlags: 0

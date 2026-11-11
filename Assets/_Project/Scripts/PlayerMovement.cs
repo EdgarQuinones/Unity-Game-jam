@@ -15,6 +15,16 @@ public class PlayerMovement : MonoBehaviour
     // Combat & Actions 
     private Vector2 facingDirection = Vector2.down;
     public Vector2 FacingDirection => facingDirection; // Read only
+    private float stunEndTime;
+    public bool IsStunned => Time.time < stunEndTime;
+
+    public void ApplyStun(float duration)
+    {
+        if (duration <= 0f) return;
+        stunEndTime = Mathf.Max(stunEndTime, Time.time + duration);
+        rb.linearVelocity = Vector2.zero;
+        Debug.Log($"{name} stunned for {duration} seconds.", this);
+    }
 
     private void Awake()
     {
@@ -35,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveInput.normalized * moveSpeed;
+        rb.linearVelocity = IsStunned ? Vector2.zero : moveInput.normalized * moveSpeed;
     }
 
 }

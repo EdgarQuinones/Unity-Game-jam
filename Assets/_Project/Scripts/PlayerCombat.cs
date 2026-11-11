@@ -35,7 +35,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || movement.IsStunned)
             return;
 
         if (Time.time < nextAttackTime)
@@ -74,7 +74,7 @@ public class PlayerCombat : MonoBehaviour
     // E BUTTON - SEAL OR STUN
     public void OnStun(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || movement.IsStunned)
             return;
 
         // Sealing takes priority over stunning
@@ -152,7 +152,7 @@ public class PlayerCombat : MonoBehaviour
         {
             EnemyAI enemy = hit.GetComponentInParent<EnemyAI>();
 
-            if (enemy != null)
+            if (enemy != null && !enemy.IsBoss)
             {
                 enemy.Stun(
                     stunDuration,

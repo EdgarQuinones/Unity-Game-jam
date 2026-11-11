@@ -33,17 +33,23 @@ public class EnemyAI : MonoBehaviour
     public StunType CurrentStunType { get; private set; }
 
     [SerializeField] private bool isBoss = false;
+    [SerializeField, Range(0f, 1f)] private float bossSealHealthThreshold = 0.2f;
+    private Health health;
     public bool IsBoss => isBoss;
-    public bool CanBeSealed =>
+    private bool IsEnvironmentallyStunned =>
         !isSealed &&
         currentState == EnemyState.Stunned &&
         CurrentStunType == StunType.Environmental &&
         Time.time < stunEndTime;
+    public bool CanBeSealed => IsEnvironmentallyStunned &&
+        (!isBoss || (health != null && health.CurrentHealth > 0f &&
+                     health.CurrentHealth <= health.MaxHealth * bossSealHealthThreshold));
 
     GameManager gameManager;
 
     private void Awake()
     {
+        health = GetComponent<Health>();
         if (player == null)
         {
             GameObject playerObject =
@@ -93,7 +99,7 @@ public class EnemyAI : MonoBehaviour
             return;
 
         // Player stun cannot overwrite environmental stun
-        if (CanBeSealed && type == StunType.Player)
+        if (IsEnvironmentallyStunned && type == StunType.Player)
             return;
 
         stunEndTime = Mathf.Max(
@@ -153,6 +159,10 @@ public class EnemyAI : MonoBehaviour
     public void WakeUp()
     {
         if (currentState != EnemyState.Stunned)
+            return;
+
+        // A boss's environmental stun is a damage window and cannot be ended by a hit.
+        if (isBoss && IsEnvironmentallyStunned)
             return;
 
         stunEndTime = 0f;
