@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class EnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private EnemyAI ai;
     private Health health;
+    private NavMeshAgent agent;
+    private float nextPathUpdate;
+    private bool navigationWarningLogged;
     private float speedMultiplier = 1f;
     private float speedBoostEndTime;
 
@@ -17,6 +21,13 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         ai = GetComponent<EnemyAI>();
         health = GetComponent<Health>();
+        agent = GetComponent<NavMeshAgent>();
+        if (!ai.IsBoss && agent != null)
+        {
+            agent.updatePosition = false;
+            agent.updateRotation = false;
+            agent.updateUpAxis = false;
+        }
     }
 
     public void ApplySpeedBoost(float multiplier, float duration)
@@ -53,6 +64,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!ai.IsBoss && agent != null && agent.enabled)
+        {
+            UpdateNavigation();
+            return;
+        }
 
         if (ai.CurrentState != EnemyAI.EnemyState.Chase)
         {
@@ -73,6 +89,40 @@ public class EnemyMovement : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;
                 break;
         }
+    }
+
+    private void UpdateNavigation()
+    {
+        if (!agent.isOnNavMesh)
+        {
+            rb.linearVelocity = Vector2.zero;
+            if (!navigationWarningLogged)
+            {
+                Debug.LogWarning($"{name}: NavMesh Agent is not on the baked NavMesh; check its starting position and surface alignment.", this);
+                navigationWarningLogged = true;
+            }
+            return;
+        }
+
+        navigationWarningLogged = false;
+        agent.nextPosition = transform.position;
+        if (ai.CurrentState != EnemyAI.EnemyState.Chase || ai.Target == null || !ai.Target.gameObject.activeInHierarchy)
+        {
+            agent.isStopped = true;
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        agent.isStopped = false;
+        agent.speed = moveSpeed * speedMultiplier;
+        if (Time.time >= nextPathUpdate)
+        {
+            agent.SetDestination(ai.Target.position);
+            nextPathUpdate = Time.time + 0.2f;
+        }
+
+        Vector3 desired = agent.desiredVelocity;
+        rb.linearVelocity = new Vector2(desired.x, desired.y);
     }
 
     private void Chase()
