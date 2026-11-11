@@ -18,9 +18,9 @@ The intended MVP loop is:
 
 ## Current status
 
-This is an **in-development game jam project**, not a finished release. The project includes player movement and combat, enemy behaviors, health, a pressure-plate puzzle, progression states, and Opening Fortune calculations. Killing and sealing enemies affect Karma.
+This is an **in-development game jam project**, not a finished release. Opening Fortune controls Cleaning puzzle count, Encounter enemy count and dragon attack pacing. Cleaning and Encounter reel effects are implemented; the owner reported testing the core effects and regular-enemy NavMesh movement.
 
-The Lucky Reel supports manual and automatic spins, classifies the three-number average as Bad, Neutral, or Good, and logs the result for the current gameplay phase. **The phase-specific reel effects are not implemented yet.** Happiness-weighted rolls, special-combination effects, some fortune modifiers, boss-specific mechanics, and a complete victory/game-over/restart flow are also still in progress. Some existing behavior and scene setup may need further testing.
+The dragon alternates a telegraphed charge and cone fire breath; a pillar collision environmentally stuns it. Charge and breath use Karma-scaled damage, and Opening Fortune changes the wait between attacks. Boss reel effects, complete victory/game-over/restart presentation, special combinations and full integration testing remain in progress. See TODO.md for verified versus untested behavior.
 
 See [GAME_DESIGN.md](GAME_DESIGN.md) for the intended mechanics and [TODO.md](TODO.md) for the development checklist; status details in those documents may need updating as work progresses.
 
@@ -33,7 +33,7 @@ See [GAME_DESIGN.md](GAME_DESIGN.md) for the intended mechanics and [TODO.md](TO
 | E | Stun, or seal an eligible enemy |
 | Q | Spin the Lucky Reel |
 
-The reel uses a 12-second manual cooldown, a 30-second automatic spin interval, and a minimum five-second gap between spins. Sealing requires an eligible environmental stun; the existing environmental stun is currently a development test behavior.
+The reel uses a 12-second manual cooldown and a minimum five-second gap between spins; automatic timing is Inspector-configurable. Sealing requires an environmental stun; the dragon additionally has an Inspector-configurable health threshold.
 
 ## Open the project
 
@@ -42,7 +42,7 @@ The reel uses a 12-second manual cooldown, a 30-second automatic spin interval, 
 3. Open the project and allow Unity to import the assets and resolve its packages.
 4. Open `Assets/_Project/Scenes/Game.unity` and press **Play**.
 
-The project uses Unity's Input System, Cinemachine, and the Universal Render Pipeline. Package versions are listed in `Packages/manifest.json`. The Game scene is configured in the build settings; an exported build has not been verified here.
+The project uses Unity's Input System, Cinemachine, AI Navigation, and the Universal Render Pipeline. Regular enemies use NavMesh paths with Rigidbody2D movement. Navigation uses separate 3D bake geometry aligned with 2D gameplay colliders; rebake after changing the layout. Package versions are listed in `Packages/manifest.json`. The Game scene is configured in the build settings; an exported build has not been verified here.
 
 ## Project structure
 

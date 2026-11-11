@@ -26,6 +26,10 @@ public class DragonCharge : MonoBehaviour
     private EnemyAI ai;
     private EnemyMovement movement;
     private EnemyCombat combat;
+    private Karma karma;
+    private RunManager runManager;
+    private float ChargeWait => Mathf.Max(0f, timeBetweenCharges) /
+        (runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f);
     private ChargeState state;
     private float stateEndTime;
     private Vector2 chargeDirection;
@@ -44,6 +48,8 @@ public class DragonCharge : MonoBehaviour
         ai = GetComponent<EnemyAI>();
         movement = GetComponent<EnemyMovement>();
         combat = GetComponent<EnemyCombat>();
+        karma = FindFirstObjectByType<Karma>();
+        runManager = FindFirstObjectByType<RunManager>();
         bossCollider = GetComponent<Collider2D>();
 
         if (warningLine != null)
@@ -53,7 +59,7 @@ public class DragonCharge : MonoBehaviour
     private void OnEnable()
     {
         state = ChargeState.Waiting;
-        stateEndTime = Time.time + Mathf.Max(0f, timeBetweenCharges);
+        stateEndTime = Time.time + ChargeWait;
     }
 
     private void Update()
@@ -65,7 +71,7 @@ public class DragonCharge : MonoBehaviour
         {
             if (controlsTaken)
                 CancelCharge();
-            stateEndTime = Time.time + Mathf.Max(0f, timeBetweenCharges);
+            stateEndTime = Time.time + ChargeWait;
             return;
         }
 
@@ -181,10 +187,12 @@ public class DragonCharge : MonoBehaviour
                 playerHit = true;
                 Health playerHealth = ai.Target.GetComponentInParent<Health>();
                 PlayerMovement playerMovement = ai.Target.GetComponentInParent<PlayerMovement>();
-                if (playerHealth != null) playerHealth.TakeDamage(chargeDamage);
+                float multiplier = karma != null ? Mathf.Lerp(0.5f, 1.5f, karma.CurrentKarma / 100f) : 1f;
+                float finalDamage = chargeDamage * multiplier;
+                if (playerHealth != null) playerHealth.TakeDamage(finalDamage);
                 if (playerMovement != null && playerMovement.gameObject.activeInHierarchy)
                     playerMovement.ApplyStun(playerStunDuration);
-                Debug.Log($"{name}: charge hit player for {chargeDamage} damage.", this);
+                Debug.Log($"{name}: charge hit player for {finalDamage} damage.", this);
                 return;
             }
         }
@@ -227,7 +235,7 @@ public class DragonCharge : MonoBehaviour
     {
         ReleaseControls();
         state = ChargeState.Waiting;
-        stateEndTime = Time.time + Mathf.Max(0f, timeBetweenCharges);
+        stateEndTime = Time.time + ChargeWait;
     }
 
     private void CancelCharge()

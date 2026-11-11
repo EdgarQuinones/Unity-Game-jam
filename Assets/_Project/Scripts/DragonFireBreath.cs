@@ -28,6 +28,10 @@ public class DragonFireBreath : MonoBehaviour
     private Rigidbody2D body;
     private EnemyMovement movement;
     private EnemyCombat combat;
+    private Karma karma;
+    private RunManager runManager;
+    private float BreathWait => Mathf.Max(0f, timeBetweenBreaths) /
+        (runManager != null && runManager.BossSpeedMultiplier > 0f ? runManager.BossSpeedMultiplier : 1f);
     private DragonCharge charge;
     private Mesh coneMesh;
     private MeshRenderer coneRenderer;
@@ -48,6 +52,8 @@ public class DragonFireBreath : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         movement = GetComponent<EnemyMovement>();
         combat = GetComponent<EnemyCombat>();
+        karma = FindFirstObjectByType<Karma>();
+        runManager = FindFirstObjectByType<RunManager>();
         charge = GetComponent<DragonCharge>();
 
         GameObject visual = new GameObject("Fire Breath Cone");
@@ -69,7 +75,7 @@ public class DragonFireBreath : MonoBehaviour
     private void OnEnable()
     {
         state = BreathState.Waiting;
-        stateEndTime = Time.time + Mathf.Max(0f, timeBetweenBreaths);
+        stateEndTime = Time.time + BreathWait;
     }
 
     private void Update()
@@ -77,7 +83,7 @@ public class DragonFireBreath : MonoBehaviour
         if (ai.CurrentState == EnemyAI.EnemyState.Stunned || ai.Target == null || !ai.Target.gameObject.activeInHierarchy)
         {
             if (controlsTaken) CancelBreath();
-            stateEndTime = Time.time + Mathf.Max(0f, timeBetweenBreaths);
+            stateEndTime = Time.time + BreathWait;
             return;
         }
 
@@ -171,8 +177,10 @@ public class DragonFireBreath : MonoBehaviour
             Health playerHealth = ai.Target.GetComponentInParent<Health>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damage);
-                Debug.Log($"{name}: fire breath hit player for {damage} damage.", this);
+                float multiplier = karma != null ? Mathf.Lerp(0.5f, 1.5f, karma.CurrentKarma / 100f) : 1f;
+                float finalDamage = damage * multiplier;
+                playerHealth.TakeDamage(finalDamage);
+                Debug.Log($"{name}: fire breath hit player for {finalDamage} damage.", this);
             }
         }
         state = BreathState.Burst;
@@ -191,7 +199,7 @@ public class DragonFireBreath : MonoBehaviour
             controlsTaken = false;
         }
         state = BreathState.Waiting;
-        stateEndTime = Time.time + Mathf.Max(0f, timeBetweenBreaths);
+        stateEndTime = Time.time + BreathWait;
     }
 
     private void OnDisable()

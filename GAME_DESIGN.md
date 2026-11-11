@@ -22,7 +22,7 @@ At the start of each run, three independent 1–9 rolls determine:
 
 Select one, two or three distinct puzzles from the available Cleaning puzzle pool. The reusable pressure-plate prefab can provide multiple instances; each generates its own random sequence, which stays the same when a wrong attempt resets. Cleaning times are 30, 50 and 70 seconds for one, two and three puzzles respectively. Puzzle successes improve Happiness; mistakes can reduce it. Future puzzle types can replace individual pressure-plate instances.
 
-Regular enemies can be killed, increasing Karma Debt, or environmentally stunned and sealed, reducing it. Resolving them advances the encounter. The Fire Dragon is planned to have approximately 200 HP, a charge, cone fire breath, warnings and recovery. It can be killed or sealed after being weakened below a threshold and meeting an environmental condition; either outcome wins.
+Regular enemies can be killed, increasing Karma Debt, or environmentally stunned and sealed, reducing it. Resolving them advances the encounter. The Fire Dragon has a charge, cone fire breath, warnings and recovery. A charge into a pillar environmentally stuns it; sealing requires environmental stun and health at or below its configured threshold. The saved scene boss has 200 HP; confirm the Inspector threshold. Either kill or seal is intended to win.
 
 ## Hybrid Lucky Reel
 
@@ -30,12 +30,12 @@ Three separately stored 1–9 numbers are generated per spin. Q manually spins w
 
 For the temporary MVP classification, average the three numbers: below 4 is Bad, 4 to below 7 is Neutral, and 7 or above is Good. Special combinations are intended to override ordinary tiers later; currently triple matches are logged and still use the average.
 
-Happiness weights each displayed number: higher Happiness favors higher values, while every number remains possible. Karma Debt selects the type of Good Encounter and Boss outcome: 50 or above is offensive; below 50 is peaceful. Karma does not affect Cleaning, Neutral or Bad outcomes for the MVP. Special-combination effects and probabilities remain to be implemented and balanced.
+Happiness weights each displayed number: higher Happiness favors higher values, while every number remains possible. For Good Encounter outcomes, Karma Debt 0–44 is Peaceful, 45–55 Neutral, and 56–100 Offensive. Boss Good effects and their neutral outcome remain to be designed and implemented. Karma does not affect Cleaning, Neutral or Bad reel outcomes for the MVP. Special-combination effects and probabilities remain to be implemented and balanced.
 
 Planned phase effects:
 
 - **Cleaning:** bad loses 10 seconds; neutral gains 10 seconds with no cap; good completes one selected unfinished puzzle and grants its normal Happiness reward. Reaching zero time transitions to Encounter.
-- **Encounter:** bad temporarily speeds enemies; neutral heals; good damages enemies at high Karma or environmentally stuns them at low Karma.
+- **Encounter:** bad temporarily speeds enemies; neutral heals; good damages all active enemies at high Karma, regularly stuns them at neutral Karma, or environmentally stuns one active enemy at low Karma.
 - **Boss:** bad temporarily speeds boss attacks; neutral heals; good damages the boss at high Karma or helps weaken/stun it for sealing at low Karma. Sealing requirements must still be respected.
 
 Temporary effects must expire, avoid infinite stacking or permanent stat corruption, and reset on a new run. Special combinations such as 8-8-8 and 7-7-7 are design ideas; their effects are not established here.

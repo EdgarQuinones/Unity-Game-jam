@@ -34,21 +34,40 @@ The owner identified these as likely priorities, not an irrevocable schedule. In
 - [ ] Verify edge cases if not already covered: a Good damage roll kills the last enemy and starts Boss; a repeated Bad roll refreshes the boost and eventually restores it.
 - [ ] Add player-visible sealable-stun feedback for builds; the current green indicator is an Editor Gizmo.
 
-### Fire Dragon and boss resolution
-- [ ] Configure approximately 200 HP and activation after Encounter; apply Opening Fortune attack-speed multiplier.
-- [ ] Implement Dragon Charge, pillar collision stun, cone Fire Breath, warnings, cooldown and recovery; apply agreed Karma-based boss damage scaling.
-- [ ] Allow death at 0 HP; require low HP and waterfall/environmental stun before sealing with E. Verify Karma changes, one-time resolution and Victory.
-- [ ] Boss reel effects: Bad temporarily increases boss attack speed; Neutral heals; Good at Karma 50+ damages boss; Good below 50 helps weaken or stun for sealing without bypassing requirements.
-- [ ] Restore temporary boss modifiers and prevent indefinite stacking.
+### Fire Dragon
+- [x] Scene boss configured with 200 HP and activates after Encounter; owner reported testing.
+- [x] Charge with locked warning line, player hit/stun, recovery, and pillar environmental stun; owner reported testing.
+- [x] Cone fire breath with warning, single burst and recovery; alternates with charge; owner reported testing.
+- [x] Charge and breath use Karma-based damage scaling (0.5×–1.5×); implementation needs Play-mode validation.
+- [x] Opening Fortune adjusts charge and breath wait time by 1.25×/1×/0.75× frequency; warning, execution and recovery unchanged. Play-mode validation needed.
+
+### Boss Kill / Seal — next session
+- [ ] Verify death at 0 HP and Victory transition.
+- [ ] Verify low-health threshold, pillar environmental stun and E sealing; confirm saved Inspector threshold (code default 20%).
+- [ ] Decide and implement waterfall environmental stun if still desired; pillar stun currently exists.
+- [ ] Verify Karma changes for both outcomes, one-time boss resolution, and Victory.
+
+### Boss Lucky Effects — next session
+- [ ] Bad: temporarily increase boss attack frequency; restore modifier and avoid indefinite stacking.
+- [ ] Neutral: heal player.
+- [ ] Good + high Karma: damage boss.
+- [ ] Good + low Karma: help weaken or stun boss while preserving sealing requirements.
+- [ ] Decide Good outcome for neutral Karma; current boss placeholder still uses the older two-way threshold.
+- [ ] Action bar/log: decide scope and timing alongside UI work.
 
 ## Remaining integration and validation
 
 - [ ] Add a player-facing action log / chat-style text box later to explain reel results and their effects, Karma Debt changes, and how Karma affects enemy damage and good fortune.
-- [ ] Apply Opening Fortune boss speed; RunManager calculates it but GameManager does not consume it. Encounter enemy count is applied.
+- [ ] Play-test Opening Fortune boss attack pacing for all three roll tiers.
 - [ ] Verify Karma starts at 50 and kills increase it and seals decrease it in play. Boss reel effects remain unimplemented.
 - [ ] Implement and balance special combinations; triples currently log and use ordinary average tiers.
 - [ ] Define transition-state spin restrictions if a transition state is added. Owner reported GameOver/Victory spin blocking and player-death-to-GameOver worked.
 - [ ] Complete and test victory, game over, restart, temporary-effect cleanup, full loop and an exported build.
+
+### Today's additional progress
+- [x] Regular enemies use AI Navigation paths with Rigidbody2D movement; owner reported it works. Boss navigation remains unchanged.
+- [ ] Recheck enemy NavMesh paths, stun/resume and speed boost; keep 3D navigation bake geometry aligned with 2D gameplay colliders and rebake after changes.
+- [ ] Thursday: UI and art, including player-facing action feedback; confirm scope with owner.
 
 ## Friday testing and edge cases — November 13, 2026
 
