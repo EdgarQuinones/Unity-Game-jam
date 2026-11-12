@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -429,7 +431,7 @@ public class GameManager : MonoBehaviour
 
         completedPuzzles++;
 
-        Debug.Log($"Completed: {completedPuzzles}/{totalPuzzles}");
+        //Debug.Log($"Completed: {completedPuzzles}/{totalPuzzles}");
 
         if (completedPuzzles >= totalPuzzles)
         {
@@ -444,10 +446,10 @@ public class GameManager : MonoBehaviour
 
         currentPhase = GamePhase.Complete;
 
-        Debug.Log("Boss Defeated!");
-        Debug.Log("Level Complete!");
+        //Debug.Log("Boss Defeated!");
+        //Debug.Log("Level Complete!");
 
-        // Later: Activate Lucky Slot Machine
+        StartCoroutine(LoadEndingScene(GameOverFlow.RunResult.Victory));
     }
 
     public void GameOver()
@@ -458,7 +460,16 @@ public class GameManager : MonoBehaviour
 
         currentPhase = GamePhase.GameOver;
 
-        Debug.Log("GAME OVER!");
+        //Debug.Log("GAME OVER!");
+        StartCoroutine(LoadEndingScene(GameOverFlow.RunResult.Defeat));
+    }
+
+    private IEnumerator LoadEndingScene(GameOverFlow.RunResult result)
+    {
+        GameOverFlow.SetResult(result);
+        // Let death and sealing callbacks finish before unloading the scene.
+        yield return null;
+        SceneManager.LoadScene("GameOver");
     }
 
 }

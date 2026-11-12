@@ -37,7 +37,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!context.performed || movement.IsStunned)
+        if (!context.performed || movement.IsStunned || PauseManager.IsPaused)
             return;
 
         if (Time.time < nextAttackTime)
@@ -76,7 +76,7 @@ public class PlayerCombat : MonoBehaviour
     // E BUTTON - SEAL OR STUN
     public void OnStun(InputAction.CallbackContext context)
     {
-        if (!context.performed || movement.IsStunned)
+        if (!context.performed || movement.IsStunned || PauseManager.IsPaused)
             return;
 
         if (gameManager != null && gameManager.CurrentPhase == GameManager.GamePhase.Cleaning)

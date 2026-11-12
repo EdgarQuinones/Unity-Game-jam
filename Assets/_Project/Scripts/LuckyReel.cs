@@ -88,7 +88,7 @@ public class LuckyReel : MonoBehaviour
 
     private bool CanSpin()
     {
-        if (gameManager == null)
+        if (gameManager == null || PauseManager.IsPaused)
             return false;
 
         GameManager.GamePhase phase = gameManager.CurrentPhase;

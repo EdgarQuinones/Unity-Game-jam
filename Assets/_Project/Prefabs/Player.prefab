@@ -362,7 +362,7 @@ MonoBehaviour:
   lightCD: 1.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   stunDuration: 3
   stunCooldown: 5
   stunRadius: 1.5

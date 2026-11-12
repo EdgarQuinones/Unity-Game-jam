@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LanternPuzzle
       objectReference: {fileID: 0}
+    - target: {fileID: 4339192299667079187, guid: a2c42e6c37a8dca45b2933fb2cc593bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7262103388566215915, guid: a2c42e6c37a8dca45b2933fb2cc593bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -270,7 +274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228720342336569528, guid: 077b6196f25973340ba9e1110e49afa3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8623346293079703219, guid: 077b6196f25973340ba9e1110e49afa3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -319,7 +323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000, guid: 232c37883b3041f3a46bb2e10318387d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1001, guid: 232c37883b3041f3a46bb2e10318387d, type: 3}
       propertyPath: m_LocalPosition.x

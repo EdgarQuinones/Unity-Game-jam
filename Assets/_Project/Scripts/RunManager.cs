@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class RunManager : MonoBehaviour
 {
+    private static bool hasPendingFortune;
+    private static int pendingCleaningRoll;
+    private static int pendingEncounterRoll;
+    private static int pendingBossRoll;
+
     public int CleaningRoll { get; private set; }
     public int EncounterRoll { get; private set; }
     public int BossRoll { get; private set; }
@@ -13,14 +18,41 @@ public class RunManager : MonoBehaviour
 
     private void Awake()
     {
-        GenerateFortune();
+        if (hasPendingFortune)
+        {
+            SetFortune(pendingCleaningRoll, pendingEncounterRoll, pendingBossRoll);
+            hasPendingFortune = false;
+        }
+        else
+        {
+            SetFortune(Random.Range(1, 10), Random.Range(1, 10), Random.Range(1, 10));
+        }
     }
 
-    private void GenerateFortune()
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ClearPendingOnPlay()
     {
-        CleaningRoll = Random.Range(1, 10);
-        EncounterRoll = Random.Range(1, 10);
-        BossRoll = Random.Range(1, 10);
+        hasPendingFortune = false;
+    }
+
+    public static void PrepareFortune(out int cleaning, out int encounter, out int boss)
+    {
+        cleaning = pendingCleaningRoll = Random.Range(1, 10);
+        encounter = pendingEncounterRoll = Random.Range(1, 10);
+        boss = pendingBossRoll = Random.Range(1, 10);
+        hasPendingFortune = true;
+    }
+
+    public static void ClearPendingFortune()
+    {
+        hasPendingFortune = false;
+    }
+
+    private void SetFortune(int cleaning, int encounter, int boss)
+    {
+        CleaningRoll = cleaning;
+        EncounterRoll = encounter;
+        BossRoll = boss;
 
         PuzzleCount = CleaningRoll <= 3 ? 3 :
                       CleaningRoll <= 6 ? 2 : 1;
