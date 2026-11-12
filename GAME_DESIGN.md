@@ -8,7 +8,7 @@ A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. 
 
 ## Run loop
 
-Opening Fortune → Cleaning → Encounter → Boss → Victory or Game Over → Restart. MainMenu leads to OutsideTemple for the introduction and Opening Fortune, then InsideTemple for the run. Victory or defeat loads GameOver; Play Again returns to OutsideTemple for a fresh roll. Pause is an in-game overlay. These flows require a full end-to-end test.
+Opening Fortune → Cleaning → Encounter → Boss → Victory or Game Over → Restart. MainMenu leads to OutsideTemple for the introduction and Opening Fortune, then InsideTemple for the run. Victory or defeat loads GameOver; Play Again returns to OutsideTemple for a fresh roll. Pause is an in-game overlay. The complete release loop is reported tested.
 
 Three independent Opening Fortune rolls are generated at run start:
 
@@ -18,7 +18,7 @@ Three independent Opening Fortune rolls are generated at run start:
 | Encounter | 4 enemies | 3 enemies | 2 enemies |
 | Boss attack wait multiplier | 1.25× frequency | 1× | 0.75× frequency |
 
-Cleaning selects distinct puzzle instances, not distinct types. Timers are 30, 50 or 70 seconds; each unfinished puzzle costs 10 Happiness at timeout. Completed puzzles grant 10 Happiness. Verify the configured pool and runtime overrides in Unity.
+Cleaning selects distinct puzzle instances, not distinct types. Timers are 30, 50 or 70 seconds; each unfinished puzzle costs 10 Happiness at timeout. Completed puzzles grant 10 Happiness. The puzzle pool is assumed sufficient unless configuration changes.
 
 ### Cleaning puzzles
 

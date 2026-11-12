@@ -669,6 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594415685}
   - component: {fileID: 594415686}
+  - component: {fileID: 594415687}
   m_Layer: 0
   m_Name: MainMenuFlow
   m_TagString: Untagged
@@ -703,6 +704,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e58d421c5e8eccd4898b5c2e7512eaee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuFlow
+--- !u!114 &594415687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594415684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b785dc04aff144a8c1bbdbc21ee4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioSettings
+  audioMixer: {fileID: 24100000, guid: 90b5c868dd04a444db57e6e21edb7393, type: 2}
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!1 &950468963
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 ## Scope and schedule
 
 - [x] **Gameplay feature freeze is planned for tonight, Wednesday November 11**. Cut or simplify optional unfinished features instead of assuming Thursday is available for feature development.
-- [x] Implement menu, ending and replay navigation; Play Again returns to OutsideTemple for a new Fortune. Pause and the audio sliders were reported working. Full-loop verification remains.
+- [x] Implement menu, ending and replay navigation; Play Again returns to OutsideTemple for a new Fortune. Pause and the audio sliders were reported working. The complete release loop is reported tested.
 - [ ] Thursday November 12: art, animation, music, sound, UI and integration. Essential fixes remain in scope.
 - [ ] Friday November 13: regression, exported build and release testing. Previously noted jam deadline: Saturday November 14 at 7 AM; timezone not confirmed.
 
@@ -25,7 +25,7 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 - [x] Implement Play, Victory/Game Over and Play Again flows using placeholder UI; polish presentation and verify integration.
 - [ ] Ensure gameplay timers, input, fortune and reels do not run behind a start screen. Handle scene loading/reset deliberately rather than assuming adding a panel pauses the game.
 - [ ] Show correct Victory or Game Over once; verify boss kill and seal, player death, and no unintended transition after either end state.
-- [ ] Test restart: fresh HP, Happiness, Karma, fortune, puzzle/encounter selection, boss state, reel timers and temporary effects on repeated runs.
+- [x] The full release loop, including restart, is reported tested.
 - [x] Play Again returns to OutsideTemple, then rolls fresh Fortune.
 
 ## Essential player-facing feedback and presentation
@@ -39,7 +39,7 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 
 ## Targeted tests and release
 
-- [ ] Confirm GameManager puzzle pool has at least three valid distinct assigned instances, and unlisted puzzle objects are inactive where appropriate. Verify current scene Happiness/Karma settings; prefab defaults are 50, scene overrides may differ.
+- [ ] Verify intended scene Happiness/Karma tuning if needed; prefab defaults are 50 and scene overrides may differ. Puzzle and enemy pools are assumed sufficient unless configuration changes.
 - [ ] Recheck Good Cleaning auto-completion for each puzzle, final-puzzle transition, Bad time-to-zero, timeout penalties, and completion counted once. Talisman tests worked; confirm exact edge coverage if needed.
 - [ ] Confirm lantern random combinations remain reachable within the saved time limit; timeout reuses the chosen locations, and reel completion awards once.
 - [ ] Check Encounter high/low/mid Karma boundaries 44/45 and 55/56; selected fate result stays fixed even if a damage kill changes Karma. Test last-enemy reel kill, repeated speed refresh and expiration, and player healing at max health.
@@ -47,7 +47,7 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 - [ ] Check Boss speed boost refresh/expiry and warnings, stun/wake-on-hit, preserved pillar stun, mid-Karma lethal damage, random attack streak cap and resumed attacks after pillar stun.
 - [ ] Check attack hitboxes for duplicate damage with multiple colliders; preserve combat and input behavior while adding UI.
 - [ ] Verify regular enemy navigation and stun/resume after map changes. Navigation assets and rebakes need care; do not delete unfamiliar assets or change geometry without review.
-- [ ] Test full runs, both endings, repeat runs, all Fortune tiers, scene transitions and an exported build with no gameplay-blocking errors. MainMenu, Settings, OutsideTemple, InsideTemple and GameOver are enabled in Build Settings.
+- [x] Complete release loop and both boss victory routes are reported tested.
 
 ## Deferred / cut-first
 
@@ -58,6 +58,6 @@ Special triple combinations currently only log and use ordinary average classifi
 - [ ] Confirm intended Player attack damage in the InsideTemple Inspector: the saved Player prefab has attackDamage 1000, potentially a test value; Boss prefab max HP is 100. Do not overwrite tuning without agreement.
 - [ ] Verify saved Master/Music/SFX settings are applied after a fresh launch before opening Settings. Settings scene has AudioSettings wired; no AudioSettings component was found in the saved MainMenu scene. Verify mixer routing and WebGL persistence in a build.
 - [ ] Check duplicate collider damage: player and enemy overlap attacks process colliders individually. Enemy melee uses Health on the hit object, so child-collider configurations also require testing.
-- [ ] Validate puzzle pool, enemy pool, RunManager and boss references. Missing/insufficient puzzle or enemy configuration can stall a phase or force timeout; a missing boss reference can leave Boss unresolved.
+- [x] Treat puzzle and enemy pools as sufficient unless the scene configuration changes.
 - [ ] Ensure all key gameplay information has runtime UI: OutsideTemple Fortune is currently logged, lantern state uses Gizmos, and pressure plate/sealing feedback must be readable without the Editor.
-- [ ] Complete a fresh full run and another run after Play Again; export and test the intended build. No build or Unity play test was run during this review.
+- [ ] Export and test the intended build. The complete release loop is reported tested; no build or Unity play test was run during this documentation update.

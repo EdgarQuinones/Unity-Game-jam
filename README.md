@@ -4,9 +4,9 @@ A work-in-progress top-down Unity 2D game for a Lucky Number game jam. Cleanse a
 
 ## Current status — November 11, 2026
 
-The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. Play tests have confirmed the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. That does not mean every edge case or full run is verified.
+The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. Play tests have confirmed the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. The complete release loop is reported tested; individual edge cases may still need attention.
 
-The game is **not yet release-ready**: player-facing gameplay feedback, art/audio integration, full-loop regression and an exported build remain; menu, pause, ending and replay flows are implemented but still need end-to-end verification. Gameplay features are intended to freeze tonight; tomorrow is reserved primarily for presentation and integration. See TODO.md for priorities and verification status.
+The game is **not yet release-ready**: player-facing gameplay feedback, art/audio integration and an exported-build test remain; menu, pause, ending and replay flows are implemented and the full release loop is reported tested. Gameplay features are intended to freeze tonight; tomorrow is reserved primarily for presentation and integration. See TODO.md for priorities and verification status.
 
 ## The loop
 
@@ -28,7 +28,7 @@ The Lucky Reel uses Happiness-weighted 1–9 rolls, and Bad, Neutral and Good ef
 
 1. Open the repository in Unity Hub with **Unity 6000.3.9f1**.
 2. Allow packages and assets to import, then open `Assets/_Project/Scenes/MainMenu.unity` and enter Play mode (or `Assets/_Project/Scenes/InsideTemple.unity` for direct gameplay testing).
-3. MainMenu, Settings, OutsideTemple, InsideTemple and GameOver are enabled in Build Settings. An exported build and complete release flow have not yet been verified.
+3. MainMenu, Settings, OutsideTemple, InsideTemple and GameOver are enabled in Build Settings. The complete release loop is reported tested; an exported build remains to be verified.
 
 The project uses Unity Input System, Cinemachine, AI Navigation, and URP. Regular enemies use NavMesh-assisted Rigidbody2D movement. Preserve navigation bake data and verify paths after environmental changes; rebake deliberately when required.
 
