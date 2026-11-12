@@ -8,7 +8,7 @@ A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. 
 
 ## Run loop
 
-Opening Fortune → Cleaning → Encounter → Boss → Victory or Game Over → Restart. The game-state transitions exist; player-facing start, endings and restart are still to be implemented.
+Opening Fortune → Cleaning → Encounter → Boss → Victory or Game Over → Restart. MainMenu leads to OutsideTemple for the introduction and Opening Fortune, then InsideTemple for the run. Victory or defeat loads GameOver; Play Again returns to OutsideTemple for a fresh roll. Pause is an in-game overlay. These flows require a full end-to-end test.
 
 Three independent Opening Fortune rolls are generated at run start:
 
@@ -50,4 +50,4 @@ Happiness and Karma Debt are clamped to 0–100; prefab defaults are 50 each. Ha
 
 ## Presentation and finish
 
-Make player-facing start, Victory, Game Over and restart flow; explain controls, Opening Fortune, reel outcomes, phase goals and Karma/Happiness. Provide readable pressure-plate clues, lantern state/countdown and environmental-stun/seal eligibility indicators in builds; Gizmos and Console logs are Editor-only. Art, animations, music, sound, and polished UI follow. Confirm full-run behavior and an exported build before release.
+Polish and verify the existing start, Victory, Game Over and replay flow; explain controls, Opening Fortune, reel outcomes, phase goals and Karma/Happiness. Provide readable pressure-plate clues, lantern state/countdown and environmental-stun/seal eligibility indicators in builds; Gizmos and Console logs are Editor-only. Art, animations, music, sound, and polished UI follow. Confirm full-run behavior and an exported build before release.

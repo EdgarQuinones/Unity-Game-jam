@@ -5,7 +5,7 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 ## Scope and schedule
 
 - [x] **Gameplay feature freeze is planned for tonight, Wednesday November 11**. Cut or simplify optional unfinished features instead of assuming Thursday is available for feature development.
-- [ ] Finish essential start, end and restart flow; agree whether Play Again starts immediately or returns to a start screen. The proposed UI uses simple temporary buttons/panels, then receives presentation polish.
+- [x] Implement menu, ending and replay navigation; Play Again returns to OutsideTemple for a new Fortune. Pause and the audio sliders were reported working. Full-loop verification remains.
 - [ ] Thursday November 12: art, animation, music, sound, UI and integration. Essential fixes remain in scope.
 - [ ] Friday November 13: regression, exported build and release testing. Previously noted jam deadline: Saturday November 14 at 7 AM; timezone not confirmed.
 
@@ -22,11 +22,11 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 
 ## Next: playable start, endings and restart
 
-- [ ] Agree and implement minimal Play, Victory/Game Over and Play Again flow, one manageable step at a time. Placeholder buttons may be polished tomorrow.
+- [x] Implement Play, Victory/Game Over and Play Again flows using placeholder UI; polish presentation and verify integration.
 - [ ] Ensure gameplay timers, input, fortune and reels do not run behind a start screen. Handle scene loading/reset deliberately rather than assuming adding a panel pauses the game.
 - [ ] Show correct Victory or Game Over once; verify boss kill and seal, player death, and no unintended transition after either end state.
-- [ ] Implement and test restart: fresh HP, Happiness, Karma, fortune, puzzle/encounter selection, boss state, reel timers and temporary effects on repeated runs.
-- [ ] Decide whether Play Again immediately starts a run or returns to the menu; no decision recorded yet.
+- [ ] Test restart: fresh HP, Happiness, Karma, fortune, puzzle/encounter selection, boss state, reel timers and temporary effects on repeated runs.
+- [x] Play Again returns to OutsideTemple, then rolls fresh Fortune.
 
 ## Essential player-facing feedback and presentation
 
@@ -47,8 +47,17 @@ Updated November 11, 2026. [x] means implemented or reported working in play tes
 - [ ] Check Boss speed boost refresh/expiry and warnings, stun/wake-on-hit, preserved pillar stun, mid-Karma lethal damage, random attack streak cap and resumed attacks after pillar stun.
 - [ ] Check attack hitboxes for duplicate damage with multiple colliders; preserve combat and input behavior while adding UI.
 - [ ] Verify regular enemy navigation and stun/resume after map changes. Navigation assets and rebakes need care; do not delete unfamiliar assets or change geometry without review.
-- [ ] Test full runs, both endings, repeat runs, all Fortune tiers, scene transitions and an exported build with no gameplay-blocking errors. Game.unity is currently the only enabled build scene; confirm the eventual menu scene/build order if one is added.
+- [ ] Test full runs, both endings, repeat runs, all Fortune tiers, scene transitions and an exported build with no gameplay-blocking errors. MainMenu, Settings, OutsideTemple, InsideTemple and GameOver are enabled in Build Settings.
 
 ## Deferred / cut-first
 
 Special triple combinations currently only log and use ordinary average classification. Additional puzzle systems, rooms, upgrades and other unapproved features are not required for this freeze. Do not add packages or architecture without approval.
+
+## Final code review: concrete checks
+
+- [ ] Confirm intended Player attack damage in the InsideTemple Inspector: the saved Player prefab has attackDamage 1000, potentially a test value; Boss prefab max HP is 100. Do not overwrite tuning without agreement.
+- [ ] Verify saved Master/Music/SFX settings are applied after a fresh launch before opening Settings. Settings scene has AudioSettings wired; no AudioSettings component was found in the saved MainMenu scene. Verify mixer routing and WebGL persistence in a build.
+- [ ] Check duplicate collider damage: player and enemy overlap attacks process colliders individually. Enemy melee uses Health on the hit object, so child-collider configurations also require testing.
+- [ ] Validate puzzle pool, enemy pool, RunManager and boss references. Missing/insufficient puzzle or enemy configuration can stall a phase or force timeout; a missing boss reference can leave Boss unresolved.
+- [ ] Ensure all key gameplay information has runtime UI: OutsideTemple Fortune is currently logged, lantern state uses Gizmos, and pressure plate/sealing feedback must be readable without the Editor.
+- [ ] Complete a fresh full run and another run after Play Again; export and test the intended build. No build or Unity play test was run during this review.
