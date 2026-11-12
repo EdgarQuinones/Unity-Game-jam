@@ -23,6 +23,7 @@ public class PlayerCombat : MonoBehaviour
 
     // Components
     private PlayerMovement movement;
+    private GameManager gameManager;
 
     // Cooldowns
     private float nextAttackTime = 0f;
@@ -31,6 +32,7 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
@@ -76,6 +78,18 @@ public class PlayerCombat : MonoBehaviour
     {
         if (!context.performed || movement.IsStunned)
             return;
+
+        if (gameManager != null && gameManager.CurrentPhase == GameManager.GamePhase.Cleaning)
+        {
+            TalismanPuzzle puzzle = FindFirstObjectByType<TalismanPuzzle>();
+            if (puzzle != null && puzzle.TryCleanseNearest(transform.position))
+                return;
+
+            LanternPuzzle lanternPuzzle = FindFirstObjectByType<LanternPuzzle>();
+            if (lanternPuzzle != null)
+                lanternPuzzle.TryLightNearest(transform.position);
+            return;
+        }
 
         // Sealing takes priority over stunning
         if (TrySealEnemy())
