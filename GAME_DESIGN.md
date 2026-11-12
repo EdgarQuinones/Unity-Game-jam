@@ -1,49 +1,53 @@
-# Help Lucky Cat — MVP design
+﻿# Help Lucky Cat — current design
 
-This document describes the current approved design direction, not a claim that every mechanic is implemented. See `TODO.md` for implementation status.
+Updated November 11, 2026. This describes the approved gameplay direction and current implementation; see TODO.md for testing and remaining work. Inspector overrides and play tests determine actual runtime behavior.
 
 ## Vision and scope
 
-A short, replayable, top-down Unity 2D action game for the Lucky Number game jam. In an East Asian-inspired supernatural temple, the player helps Lucky Cat through puzzles, spirits and a Fire Dragon. Luck influences the entire run, not just its final reward.
-
-The MVP uses one handcrafted room, one reusable pressure-plate puzzle, one regular enemy type, one boss, Opening Fortune, a Hybrid Lucky Reel, Happiness, Karma Debt, killing and peaceful sealing, victory, game over and restarting the same scene. Additional rooms, permanent upgrades, win streaks, dash and ranged attacks are outside this scope.
+A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. Help Lucky Cat cleanse the temple, resolve spirits and confront the Fire Dragon. The owner intends to freeze gameplay features tonight, November 11; unfinished extras are cut or simplified. November 12 is for art, music, sound and UI integration. Bug fixes and essential release work remain necessary.
 
 ## Run loop
 
-Opening Fortune → Cleaning → Encounter → Fire Dragon → Victory or Game Over → Restart.
+Opening Fortune → Cleaning → Encounter → Boss → Victory or Game Over → Restart. The game-state transitions exist; player-facing start, endings and restart are still to be implemented.
 
-At the start of each run, three independent 1–9 rolls determine:
+Three independent Opening Fortune rolls are generated at run start:
 
 | Roll | 1–3 | 4–6 | 7–9 |
 | --- | --- | --- | --- |
 | Cleaning | 3 puzzles | 2 puzzles | 1 puzzle |
 | Encounter | 4 enemies | 3 enemies | 2 enemies |
-| Boss | Faster attacks | Normal attacks | Slower attacks |
+| Boss attack wait multiplier | 1.25× frequency | 1× | 0.75× frequency |
 
-Select one, two or three distinct puzzles from the available Cleaning puzzle pool. The reusable pressure-plate prefab can provide multiple instances; each generates its own random sequence, which stays the same when a wrong attempt resets. Cleaning times are 30, 50 and 70 seconds for one, two and three puzzles respectively. Puzzle successes improve Happiness; mistakes can reduce it. Future puzzle types can replace individual pressure-plate instances.
+Cleaning selects distinct puzzle instances, not distinct types. Timers are 30, 50 or 70 seconds; each unfinished puzzle costs 10 Happiness at timeout. Completed puzzles grant 10 Happiness. Verify the configured pool and runtime overrides in Unity.
 
-Regular enemies can be killed, increasing Karma Debt, or environmentally stunned and sealed, reducing it. Resolving them advances the encounter. The Fire Dragon has a charge, cone fire breath, warnings and recovery. A charge into a pillar environmentally stuns it; sealing requires environmental stun and health at or below its configured threshold. The saved scene boss has 200 HP; confirm the Inspector threshold. Either kill or seal is intended to win.
+### Cleaning puzzles
 
-## Hybrid Lucky Reel
+- **Pressure plates:** enter a randomly generated sequence; a wrong plate resets progress and costs 1 Happiness. The same sequence is retained during retries.
+- **Talismans:** randomly activate a fixed number of placed locations (code default 4); press E near the nearest active talisman to cleanse it. Cleanse all selected to finish.
+- **Lanterns:** randomly activate a fixed number of placed lanterns (code default 4). E lights them in any order; the first starts an Inspector-configured timer. Timeout resets the same selected lanterns for another attempt. The owner reported the puzzle works and is easy but acceptable.
 
-Three separately stored 1–9 numbers are generated per spin. Q manually spins with a 12-second cooldown; automatic spins are configured for every 20 seconds; any two spins must be at least five seconds apart. Manual and automatic spins share outcomes. Spins are disabled during Game Over and Victory; transition-state restrictions remain planned.
+All three use CleaningPuzzle and support Good-reel completion. Talisman and lantern interactions are separate from combat; if both are in range, talisman takes priority. Lit lantern indication is currently an Editor Gizmo, not player-facing feedback. A visible lit state, countdown and clear instructions remain needed.
 
-For the temporary MVP classification, average the three numbers: below 4 is Bad, 4 to below 7 is Neutral, and 7 or above is Good. Special combinations are intended to override ordinary tiers later; currently triple matches are logged and still use the average.
+## Combat and dragon
 
-Happiness weights each displayed number: higher Happiness favors higher values, while every number remains possible. For Good Encounter outcomes, Karma Debt 0–44 is Peaceful, 45–55 Neutral, and 56–100 Offensive. Boss Good effects and their neutral outcome remain to be designed and implemented. Karma does not affect Cleaning, Neutral or Bad reel outcomes for the MVP. Special-combination effects and probabilities remain to be implemented and balanced.
+Movement uses WASD/arrows; left click attacks. E is the spiritual ability: cleanse/light during Cleaning, and stun or seal during combat. Regular player stun is not sealable and wakes on damage. Environmental stun enables sealing, which decreases Karma Debt; killing raises it. The waterfall is a pass-through trigger that environmentally stuns regular enemies on entry, not the dragon, with per-enemy per-waterfall cooldown. Entry must happen again after cooldown.
 
-Planned phase effects:
+The Fire Dragon uses a charge and fire breath with warnings and recovery. After an initial charge, attacks are selected randomly with at most two of one type consecutively. A charge into a pillar environmentally stuns the dragon; sealing also requires health above zero and at or below its configured threshold. The Boss prefab currently has 100 max HP and a 10% seal threshold; scene overrides and tuning must be checked before making balance claims. Boss melee uses Enemy AI attack range for state selection and Enemy Combat range/radius for its hit area; the owner adjusted the former after testing. Both killing and sealing can resolve the boss; verify both complete victory paths.
 
-- **Cleaning:** bad loses 10 seconds; neutral gains 10 seconds with no cap; good completes one selected unfinished puzzle and grants its normal Happiness reward. Reaching zero time transitions to Encounter.
-- **Encounter:** bad temporarily speeds enemies; neutral heals; good damages all active enemies at high Karma, regularly stuns them at neutral Karma, or environmentally stuns one active enemy at low Karma.
-- **Boss:** bad temporarily speeds boss attacks; neutral heals; good damages the boss at high Karma or helps weaken/stun it for sealing at low Karma. Sealing requirements must still be respected.
+## Lucky Reel
 
-Temporary effects must expire, avoid infinite stacking or permanent stat corruption, and reset on a new run. Special combinations such as 8-8-8 and 7-7-7 are design ideas; their effects are not established here.
+Three 1–9 numbers are drawn, biased by Happiness while every number remains possible. Their average is Bad below 4, Neutral from 4 to below 7, and Good at least 7. Q requests a manual spin; code defaults include 12-second manual cooldown, 20-second automatic interval, five-second first automatic spin and five-second shared minimum gap. Inspect saved overrides. Spins are blocked in Complete and GameOver. Triple matches do not have distinct gameplay effects; special combinations are a cut-first extra, not a release requirement.
 
-## Player and values
+| Phase | Bad | Neutral | Good |
+| --- | --- | --- | --- |
+| Cleaning | −10 seconds | +10 seconds, no cap | Complete one selected unfinished puzzle with its usual reward |
+| Encounter | 1.5× enemy movement for 8 seconds; refresh, no stacking | Heal up to 20 HP | Low Karma: environmental stun one enemy for 8 seconds, preferring an enemy not already sealable. High: 20 damage to all active unresolved enemies. |
+| Boss | 1.5× attack frequency for 12 seconds; warnings that begin while boosted are 25% shorter; refresh, no stacking | Heal up to 20 HP | Low Karma: regular 3-second stun, wakes on hit; high: 20 damage, potentially lethal. |
 
-- Controls: WASD movement, left click melee, E stun or seal, Q reel; use the existing Input System and Unity Events.
-- Normal attacks, stuns and sealing have no passive random failure. Range, hitbox and eligibility still matter.
-- Happiness: 0–100, starting at 50; determines quality of luck.
-- Karma Debt: 0–100, starting at 50; kills increase it, seals decrease it, and it directs good-roll effects. Any enemy-damage scaling should remain modest.
-- Karma-at-100 instant loss and vision-darkening are not approved MVP mechanics.
+For Good combat results, low Karma Debt is 0–44, neutral is 45–55, high is 56–100. At neutral Karma, fate randomly selects the corresponding Peaceful or Offensive result with equal probability in either combat phase. Offensive damage may kill. Boss regular stun never grants environmental sealing eligibility and does not replace an existing pillar stun.
+
+Happiness and Karma Debt are clamped to 0–100; prefab defaults are 50 each. Happiness biases reel quality; Karma guides Good combat effects and scales incoming enemy damage. Actual scene overrides must be verified. Normal attacks and stun/seal inputs have no passive random failure.
+
+## Presentation and finish
+
+Make player-facing start, Victory, Game Over and restart flow; explain controls, Opening Fortune, reel outcomes, phase goals and Karma/Happiness. Provide readable pressure-plate clues, lantern state/countdown and environmental-stun/seal eligibility indicators in builds; Gizmos and Console logs are Editor-only. Art, animations, music, sound, and polished UI follow. Confirm full-run behavior and an exported build before release.

@@ -1,99 +1,54 @@
-﻿# Help Lucky Cat — development status
+﻿# Help Lucky Cat — development status and next steps
 
-Status as of November 10, 2026. Combines code inspection and the owner's reported Unity tests; implemented does not mean every path has been play-tested. See GAME_DESIGN.md and .clinerules/project.md. Verify current source and scene wiring before changes.
+Updated November 11, 2026. [x] means implemented or owner-reported working as specifically described, not blanket regression coverage. [ ] identifies work or verification still needed. See GAME_DESIGN.md for rules. Verify Inspector overrides and scene wiring before changing behavior.
 
-## Latest session: Cleaning and Lucky Reel
+## Scope and schedule
 
-- [x] Happiness weights actual 1–9 reel numbers, with all numbers possible; owner reported it seemed to work well.
-- [x] Good Encounter rolls apply Karma-dependent effects; Boss good-roll effects remain unimplemented.
-- [x] Automatic interval is 20 seconds in the saved Game scene; manual cooldown 12 seconds, minimum shared gap 5 seconds. Recheck complete timing in Play mode.
-- [x] Opening Fortune selects 1–3 distinct Cleaning puzzle instances randomly; owner reported testing the separate-puzzle setup.
-- [x] Track each selected puzzle once; set 30/50/70-second timers; pressure-plate success awards +10 Happiness, wrong input -1; timeout costs 10 Happiness per unfinished puzzle.
-- [x] Each pressure-plate puzzle generates a random permutation of assigned plate IDs, retaining it on retry. The generated-answer log is commented out.
-- [x] Implement Cleaning reel effects: Bad -10 seconds, Neutral +10 without cap, Good completes one random unfinished selected puzzle and grants its usual +10 Happiness. Zero time ends Cleaning.
-- [ ] Play-test each Cleaning reel effect, automatic completion counting once, Good on the last puzzle and Bad reducing time to zero; verify both transitions to Encounter.
-- [ ] Verify saved Game scene starting Happiness is the intended **50**; it was previously observed at 100 and may have changed since.
-- [ ] Evaluate pressure-plate trial-and-error readability and balance; sequence is hidden and wrong presses cost 1 Happiness.
+- [x] Owner intends **gameplay feature freeze tonight, Wednesday November 11**. Cut or simplify optional unfinished features instead of assuming Thursday is available for feature development.
+- [ ] Finish essential start, end and restart flow; agree whether Play Again starts immediately or returns to a start screen. The proposed UI uses simple temporary buttons/panels, then receives presentation polish.
+- [ ] Thursday November 12: art, animation, music, sound, UI and integration. Essential fixes remain in scope.
+- [ ] Friday November 13: regression, exported build and release testing. Previously noted jam deadline: Saturday November 14 at 7 AM; timezone not confirmed.
 
-CleaningPuzzle is the shared base; future puzzle types implement CompleteFromLuckyReel() and report completion. GameManager selects from its assigned list, or discovers child puzzles when the list is empty. Too few unique instances means the completion target cannot be reached before timeout. The saved scene currently lists four puzzle references; verify their wiring and placement in Unity.
+## Completed gameplay milestone
 
-Debug Gizmos: yellow wire squares indicate accepted plate presses; green wire circles indicate completed pressure-plate groups while active. Groups deactivate when Cleaning ends, so the final marker disappears at transition. Enable Gizmos in Unity.
+- [x] Opening Fortune generates puzzle/enemy counts and boss attack-frequency modifier. Cleaning selects distinct assigned instances, not types.
+- [x] Pressure-plate puzzle, shuffled talisman locations and timed shuffled lantern locations. Owner reported talisman and lantern functionality, including the later randomized lantern selection, works. Lantern difficulty was accepted as good enough.
+- [x] E is the spiritual ability: selected talismans and lanterns in Cleaning, stun/seal in combat. Talisman interaction currently takes priority when both are nearby.
+- [x] Waterfall trigger environmentally stuns regular enemies on entry; per-enemy cooldown; excludes boss. Owner reported it works.
+- [x] Encounter reel Bad speed, Neutral heal and Good Peaceful/Offensive effects. Mid-Karma Good now randomly chooses Peaceful or Offensive; owner approved the consistency change. Do not assume every boundary and edge case was tested.
+- [x] Boss reel Bad 1.5× frequency for 12 seconds, 25% shorter newly started warnings; Neutral +20 HP; Good high Karma 20 damage; Good low Karma 3-second regular stun; mid Karma randomly chooses either. Owner reported Bad and Neutral work and high-Karma damage test worked. Test low/mid and edge cases separately if not already covered.
+- [x] Boss charge and fire breath choose randomly after initial charge, maximum two of one type in succession. Owner reported it was good. Melee range was debugged via Enemy AI attack range; check actual saved values rather than changing test settings.
+- [x] Boss kill/seal resolution and player Game Over states exist in code. Owner previously reported player-death flow worked; complete boss victory paths still require explicit verification.
 
-## Encounter and Fire Dragon
+## Next: playable start, endings and restart
 
-The owner identified these as likely priorities, not an irrevocable schedule. Inspect current source, prefabs, scene wiring and physics before implementing.
+- [ ] Agree and implement minimal Play, Victory/Game Over and Play Again flow, one manageable step at a time. Placeholder buttons may be polished tomorrow.
+- [ ] Ensure gameplay timers, input, fortune and reels do not run behind a start screen. Handle scene loading/reset deliberately rather than assuming adding a panel pauses the game.
+- [ ] Show correct Victory or Game Over once; verify boss kill and seal, player death, and no unintended transition after either end state.
+- [ ] Implement and test restart: fresh HP, Happiness, Karma, fortune, puzzle/encounter selection, boss state, reel timers and temporary effects on repeated runs.
+- [ ] Decide whether Play Again immediately starts a run or returns to the menu; no decision recorded yet.
 
-### Encounter
-- [x] Activate 2–4 randomly selected enemies based on Opening Fortune using fixed positions; owner reported testing.
-- [x] Kills and seals count once and resolving all selected enemies transitions to Boss; owner reported testing.
-- [x] Bad reel: active enemies move at 1.5× speed and turn yellow for 8 seconds; repeated rolls refresh rather than stack, and expiration or disabling restores the modifier and color.
-- [x] Neutral reel: heal the player up to 20 HP, capped at maximum; flash green when health is restored.
-- [x] Good reel at Karma Debt 56–100: deal 20 damage to each active unresolved enemy.
-- [x] Good reel at Karma Debt 45–55: regularly stun all active unresolved enemies for 3 seconds; regular stun does not itself enable sealing.
-- [x] Good reel at Karma Debt 0–44: environmentally stun one random active unresolved enemy for 8 seconds, preferring one not already sealable.
-- [ ] Verify edge cases if not already covered: a Good damage roll kills the last enemy and starts Boss; a repeated Bad roll refreshes the boost and eventually restores it.
-- [ ] Add player-visible sealable-stun feedback for builds; the current green indicator is an Editor Gizmo.
+## Essential player-facing feedback and presentation
 
-### Fire Dragon
-- [x] Scene boss configured with 200 HP and activates after Encounter; owner reported testing.
-- [x] Charge with locked warning line, player hit/stun, recovery, and pillar environmental stun; owner reported testing.
-- [x] Cone fire breath with warning, single burst and recovery; alternates with charge; owner reported testing.
-- [x] Charge and breath use Karma-based damage scaling (0.5×–1.5×); implementation needs Play-mode validation.
-- [x] Opening Fortune adjusts charge and breath wait time by 1.25×/1×/0.75× frequency; warning, execution and recovery unchanged. Play-mode validation needed.
+- [ ] Show controls, phase objectives, Cleaning timer, player HP, Happiness, Karma, Opening Fortune and Lucky Reel numbers/outcomes clearly.
+- [ ] Provide a visible readable pressure-plate sequence/clue and progress. The sequence debug log is disabled; Gizmos alone are not enough in a build.
+- [ ] Add lantern lit/unlit appearance, timer/countdown and timeout/retry feedback. Current yellow lit Gizmos and Console messages are Editor-only; no continuous countdown UI.
+- [ ] Show talisman and lantern interaction cues, remaining progress and completion feedback; ensure talisman locations are reachable.
+- [ ] Provide visible regular vs environmental/sealable stun and the boss low-health seal window; green/cyan Gizmos are not build UI.
+- [ ] Apply art, animation, music, SFX and UI; confirm gameplay colliders, sorting and timing remain correct after visual replacements.
 
-### Boss Kill / Seal — next session
-- [ ] Verify death at 0 HP and Victory transition.
-- [ ] Verify low-health threshold, pillar environmental stun and E sealing; confirm saved Inspector threshold (code default 20%).
-- [ ] Decide and implement waterfall environmental stun if still desired; pillar stun currently exists.
-- [ ] Verify Karma changes for both outcomes, one-time boss resolution, and Victory.
+## Targeted tests and release
 
-### Boss Lucky Effects — next session
-- [ ] Bad: temporarily increase boss attack frequency; restore modifier and avoid indefinite stacking.
-- [ ] Neutral: heal player.
-- [ ] Good + high Karma: damage boss.
-- [ ] Good + low Karma: help weaken or stun boss while preserving sealing requirements.
-- [ ] Decide Good outcome for neutral Karma; current boss placeholder still uses the older two-way threshold.
-- [ ] Action bar/log: decide scope and timing alongside UI work.
+- [ ] Confirm GameManager puzzle pool has at least three valid distinct assigned instances, and unlisted puzzle objects are inactive where appropriate. Verify current scene Happiness/Karma settings; prefab defaults are 50, scene overrides may differ.
+- [ ] Recheck Good Cleaning auto-completion for each puzzle, final-puzzle transition, Bad time-to-zero, timeout penalties, and completion counted once. Owner reported talisman tests worked; confirm exact edge coverage if needed.
+- [ ] Confirm lantern random combinations remain reachable within the saved time limit; timeout reuses the chosen locations, and reel completion awards once.
+- [ ] Check Encounter high/low/mid Karma boundaries 44/45 and 55/56; selected fate result stays fixed even if a damage kill changes Karma. Test last-enemy reel kill, repeated speed refresh and expiration, and player healing at max health.
+- [ ] Check waterfall re-entry/cooldown and dragon exclusion; test pillar stun, low-health seal, kill, Karma changes and one Victory transition.
+- [ ] Check Boss speed boost refresh/expiry and warnings, stun/wake-on-hit, preserved pillar stun, mid-Karma lethal damage, random attack streak cap and resumed attacks after pillar stun.
+- [ ] Check attack hitboxes for duplicate damage with multiple colliders; preserve combat and input behavior while adding UI.
+- [ ] Verify regular enemy navigation and stun/resume after map changes. Navigation assets and rebakes need care; do not delete unfamiliar assets or change geometry without review.
+- [ ] Test full runs, both endings, repeat runs, all Fortune tiers, scene transitions and an exported build with no gameplay-blocking errors. Game.unity is currently the only enabled build scene; confirm the eventual menu scene/build order if one is added.
 
-## Remaining integration and validation
+## Deferred / cut-first
 
-- [ ] Add a player-facing action log / chat-style text box later to explain reel results and their effects, Karma Debt changes, and how Karma affects enemy damage and good fortune.
-- [ ] Play-test Opening Fortune boss attack pacing for all three roll tiers.
-- [ ] Verify Karma starts at 50 and kills increase it and seals decrease it in play. Boss reel effects remain unimplemented.
-- [ ] Implement and balance special combinations; triples currently log and use ordinary average tiers.
-- [ ] Define transition-state spin restrictions if a transition state is added. Owner reported GameOver/Victory spin blocking and player-death-to-GameOver worked.
-- [ ] Complete and test victory, game over, restart, temporary-effect cleanup, full loop and an exported build.
-
-### Today's additional progress
-- [x] Regular enemies use AI Navigation paths with Rigidbody2D movement; owner reported it works. Boss navigation remains unchanged.
-- [ ] Recheck enemy NavMesh paths, stun/resume and speed boost; keep 3D navigation bake geometry aligned with 2D gameplay colliders and rebake after changes.
-- [ ] Thursday: UI and art, including player-facing action feedback; confirm scope with owner.
-
-## Friday testing and edge cases — November 13, 2026
-
-Unchecked items are specific checks to confirm, not claims that previously reported tests failed. Test in Play mode with the Console open; record failures and retest fixes.
-
-### Cleaning and reel timing
-- [ ] Verify starting Happiness is 50 in the saved Game scene; verify assigned puzzle references are valid and sufficient for all 1–3 puzzle rolls.
-- [ ] Check a wrong plate costs 1 Happiness, a completed puzzle grants 10, and timeout costs 10 per unfinished puzzle, clamped to 0–100.
-- [ ] Exercise Bad, Neutral and Good Cleaning rolls; verify a Good roll on the final puzzle counts once and transitions to Encounter.
-- [ ] Verify both normal timeout and a Bad roll reducing time to zero apply the correct unfinished-puzzle penalty and transition once.
-- [ ] Verify manual cooldown, automatic interval and shared minimum spin gap; confirm spins are blocked in Game Over and Victory.
-
-### Encounter and Karma
-- [ ] Recheck 2, 3 and 4 selected enemies, fixed positions, and one-time kill/seal counting through the Boss transition.
-- [ ] Check a Good Offensive roll killing the final enemy resolves it once and starts Boss without affecting the boss.
-- [ ] Check repeated Bad rolls refresh rather than stack speed; confirm speed and color restore on expiry and when an enemy is killed or sealed while boosted.
-- [ ] Check Neutral healing near and at maximum HP, green healing flash, and red hit flash during a speed boost.
-- [ ] Check Karma boundaries 44/45 and 55/56; at starting 50, one kill leads to Offensive and one seal leads to Peaceful. Verify the selected result remains fixed for the entire roll.
-- [ ] Check Peaceful Good targets one active enemy, prefers one not already sealable, and refreshes one if all are already sealable; verify sealing and stun expiry.
-- [ ] Verify stun visuals in an exported build; Editor Gizmos alone are not player-facing. Check overlapping attack colliders do not cause unintended repeated hits.
-
-### Boss and full run (after implementation)
-- [ ] Test charge, pillar collision, environmental stun, fire breath, warnings, recovery and Opening Fortune boss-speed outcomes.
-- [ ] Test boss reel outcomes and temporary-effect cleanup; verify sealing requires the agreed health and environmental conditions.
-- [ ] Test death and seal victory paths, player Game Over, restart, repeated runs and a complete exported build. Confirm effects and state reset between runs.
-
-## Planning target
-
-Feature freeze was planned for Thursday, November 12, 2026, Friday for testing and debugging, and jam deadline Saturday, November 14, 2026 at 7 AM (timezone not specified). These are planning targets, not evidence of completion.
+Special triple combinations currently only log and use ordinary average classification. Additional puzzle systems, rooms, upgrades and other unapproved features are not required for this freeze. Do not add packages or architecture without approval.

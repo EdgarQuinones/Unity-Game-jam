@@ -1,61 +1,44 @@
-# Help Lucky Cat
+﻿# Help Lucky Cat
 
-**Help Lucky Cat** is a work-in-progress, top-down Unity 2D game created for a game jam with the theme **Lucky Number**. Explore an East Asian-inspired supernatural temple, solve a pressure-plate puzzle, face spirits, and confront a Fire Dragon—all while luck changes the challenges of the run.
+A work-in-progress top-down Unity 2D game for a Lucky Number game jam. Cleanse a supernatural temple, face spirits, and confront a Fire Dragon while fortune shapes each run.
 
-The goal is a short, replayable game in which luck matters throughout the experience, not just at the end.
+## Current status — November 11, 2026
 
-## The game loop
+The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. The owner has reported successful tests of the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. That does not mean every edge case or full run is verified.
 
-The intended MVP loop is:
+The game is **not yet release-ready**: player-facing start/restart and Victory/Game Over flow, key UI and gameplay feedback, art/audio integration, full-loop regression and an exported build remain. Gameplay features are intended to freeze tonight; tomorrow is reserved primarily for presentation and integration. See TODO.md for priorities and verification status.
 
-**Opening Fortune → Cleaning → Encounter → Fire Dragon → Victory or Game Over → Restart**
+## The loop
 
-- **Opening Fortune:** Three numbers are rolled at the start of a run. The design uses them to set the puzzle count, enemy count, and boss attack speed.
-- **Cleaning:** Complete pressure-plate sequences while managing the clock and Cat Happiness.
-- **Encounter:** Fight spirits or pursue a peaceful approach by sealing environmentally stunned enemies.
-- **Boss:** Confront the Fire Dragon. The intended design allows both victory through combat and victory through sealing.
-- **Lucky Reel:** Spin three numbers during gameplay. The planned effects depend on the current phase, Cat Happiness, and Karma Debt.
+Opening Fortune → Cleaning → Encounter → Fire Dragon → Victory or Game Over → Restart. Opening Fortune sets the number of puzzles and enemies and the boss attack frequency. Cleaning features pressure-plate sequences, cleansing randomly placed talismans and a timed lantern challenge. Fight regular spirits or seal them after an environmental stun; the waterfall can provide that stun. The dragon can be killed or sealed after a pillar stun at sufficiently low health.
 
-## Current status
-
-This is an **in-development game jam project**, not a finished release. Opening Fortune controls Cleaning puzzle count, Encounter enemy count and dragon attack pacing. Cleaning and Encounter reel effects are implemented; the owner reported testing the core effects and regular-enemy NavMesh movement.
-
-The dragon alternates a telegraphed charge and cone fire breath; a pillar collision environmentally stuns it. Charge and breath use Karma-scaled damage, and Opening Fortune changes the wait between attacks. Boss reel effects, complete victory/game-over/restart presentation, special combinations and full integration testing remain in progress. See TODO.md for verified versus untested behavior.
-
-See [GAME_DESIGN.md](GAME_DESIGN.md) for the intended mechanics and [TODO.md](TODO.md) for the development checklist; status details in those documents may need updating as work progresses.
+The Lucky Reel uses Happiness-weighted 1–9 rolls, and Bad, Neutral and Good effects depend on the current phase. Good combat effects use Karma Debt: low favors peaceful effects, high favors offensive effects, and mid Karma randomly chooses between them. See GAME_DESIGN.md for details.
 
 ## Controls
 
 | Input | Action |
 | --- | --- |
-| WASD or arrow keys | Move |
-| Left mouse button | Melee attack |
-| E | Stun, or seal an eligible enemy |
-| Q | Spin the Lucky Reel |
-
-The reel uses a 12-second manual cooldown and a minimum five-second gap between spins; automatic timing is Inspector-configurable. Sealing requires an environmental stun; the dragon additionally has an Inspector-configurable health threshold.
+| WASD / arrows | Move |
+| Left mouse | Melee attack |
+| E | Spiritual ability: cleanse talismans or light lanterns in Cleaning; stun or seal in combat |
+| Q | Spin Lucky Reel, subject to cooldown |
 
 ## Open the project
 
-1. Install **Unity 6000.3.9f1** with Unity Hub.
-2. Clone or download this repository and add its root folder to Unity Hub.
-3. Open the project and allow Unity to import the assets and resolve its packages.
-4. Open `Assets/_Project/Scenes/Game.unity` and press **Play**.
+1. Open the repository in Unity Hub with **Unity 6000.3.9f1**.
+2. Allow packages and assets to import, then open `Assets/_Project/Scenes/Game.unity` and enter Play mode.
+3. The Game scene is currently the only scene enabled in Build Settings. An exported build and release flow have not yet been verified.
 
-The project uses Unity's Input System, Cinemachine, AI Navigation, and the Universal Render Pipeline. Regular enemies use NavMesh paths with Rigidbody2D movement. Navigation uses separate 3D bake geometry aligned with 2D gameplay colliders; rebake after changing the layout. Package versions are listed in `Packages/manifest.json`. The Game scene is configured in the build settings; an exported build has not been verified here.
+The project uses Unity Input System, Cinemachine, AI Navigation, and URP. Regular enemies use NavMesh-assisted Rigidbody2D movement. Preserve navigation bake data and verify paths after environmental changes; rebake deliberately when required.
 
-## Project structure
+## Files
 
-```text
-Assets/
-├── _Project/
-│   ├── Art/       Artwork and UI assets
-│   ├── Prefabs/   Player, enemy, boss, and environment prefabs
-│   ├── Scenes/    Game and UI scenes
-│   └── Scripts/   Gameplay C# scripts
-└── InputSystem_Actions.inputactions
-Packages/          Unity package manifest and lock file
-ProjectSettings/   Unity project configuration
-```
+- `GAME_DESIGN.md` — mechanics, reel outcomes and scope.
+- `TODO.md` — next steps, tested versus unverified behavior and release checklist.
+- `Assets/_Project/Scripts/` — gameplay C#.
+- `Assets/_Project/Scenes/` — Game and UI scenes.
+- `Assets/_Project/Prefabs/` and `Assets/_Project/Art/` — reusable assets and art.
+- `Assets/InputSystem_Actions.inputactions` — input actions.
+- `Packages/manifest.json` and `ProjectSettings/` — dependencies and configuration.
 
-The game uses existing Unity components and scripts for movement, combat, health, puzzles, fortune, and phase progression. For the current technical overview, see [.clinerules/project.md](.clinerules/project.md).
+Inspect scene and prefab Inspector values before relying on script defaults. Editor Gizmos and Console logs are not player-facing build UI.
