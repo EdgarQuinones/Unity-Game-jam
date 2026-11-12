@@ -373,8 +373,8 @@ public class GameManager : MonoBehaviour
 
         currentPhase = GamePhase.Boss;
 
-        Debug.Log("Encounter Complete!");
-        Debug.Log("Boss Phase Started!");
+        //Debug.Log("Encounter Complete!");
+        //Debug.Log("Boss Phase Started!");
 
         if (boss != null)
             boss.gameObject.SetActive(true);
@@ -386,11 +386,11 @@ public class GameManager : MonoBehaviour
             return;
 
         timeRemaining = Mathf.Max(0f, timeRemaining + seconds);
-        Debug.Log($"Cleaning time adjusted by {seconds:+0.##;-0.##;0} seconds; remaining: {timeRemaining:F1} seconds.");
+        //Debug.Log($"Cleaning time adjusted by {seconds:+0.##;-0.##;0} seconds; remaining: {timeRemaining:F1} seconds.");
 
         if (timeRemaining <= 0f)
         {
-            Debug.Log("Cleaning time ran out due to a Lucky Reel outcome.");
+            //Debug.Log("Cleaning time ran out due to a Lucky Reel outcome.");
             EndCleaningPhase();
         }
     }
