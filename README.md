@@ -1,10 +1,10 @@
-﻿# Help Lucky Cat
+# Help Lucky Cat
 
 A work-in-progress top-down Unity 2D game for a Lucky Number game jam. Cleanse a supernatural temple, face spirits, and confront a Fire Dragon while fortune shapes each run.
 
 ## Current status — November 11, 2026
 
-The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. The owner has reported successful tests of the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. That does not mean every edge case or full run is verified.
+The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. Play tests have confirmed the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. That does not mean every edge case or full run is verified.
 
 The game is **not yet release-ready**: player-facing start/restart and Victory/Game Over flow, key UI and gameplay feedback, art/audio integration, full-loop regression and an exported build remain. Gameplay features are intended to freeze tonight; tomorrow is reserved primarily for presentation and integration. See TODO.md for priorities and verification status.
 

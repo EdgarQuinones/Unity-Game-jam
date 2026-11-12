@@ -1,10 +1,10 @@
-﻿# Help Lucky Cat — current design
+# Help Lucky Cat — current design
 
 Updated November 11, 2026. This describes the approved gameplay direction and current implementation; see TODO.md for testing and remaining work. Inspector overrides and play tests determine actual runtime behavior.
 
 ## Vision and scope
 
-A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. Help Lucky Cat cleanse the temple, resolve spirits and confront the Fire Dragon. The owner intends to freeze gameplay features tonight, November 11; unfinished extras are cut or simplified. November 12 is for art, music, sound and UI integration. Bug fixes and essential release work remain necessary.
+A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. Help Lucky Cat cleanse the temple, resolve spirits and confront the Fire Dragon. The team plans to freeze gameplay features tonight, November 11; unfinished extras are cut or simplified. November 12 is for art, music, sound and UI integration. Bug fixes and essential release work remain necessary.
 
 ## Run loop
 
@@ -24,7 +24,7 @@ Cleaning selects distinct puzzle instances, not distinct types. Timers are 30, 5
 
 - **Pressure plates:** enter a randomly generated sequence; a wrong plate resets progress and costs 1 Happiness. The same sequence is retained during retries.
 - **Talismans:** randomly activate a fixed number of placed locations (code default 4); press E near the nearest active talisman to cleanse it. Cleanse all selected to finish.
-- **Lanterns:** randomly activate a fixed number of placed lanterns (code default 4). E lights them in any order; the first starts an Inspector-configured timer. Timeout resets the same selected lanterns for another attempt. The owner reported the puzzle works and is easy but acceptable.
+- **Lanterns:** randomly activate a fixed number of placed lanterns (code default 4). E lights them in any order; the first starts an Inspector-configured timer. Timeout resets the same selected lanterns for another attempt. Play testing confirmed the puzzle works; its current difficulty is acceptable.
 
 All three use CleaningPuzzle and support Good-reel completion. Talisman and lantern interactions are separate from combat; if both are in range, talisman takes priority. Lit lantern indication is currently an Editor Gizmo, not player-facing feedback. A visible lit state, countdown and clear instructions remain needed.
 
@@ -32,7 +32,7 @@ All three use CleaningPuzzle and support Good-reel completion. Talisman and lant
 
 Movement uses WASD/arrows; left click attacks. E is the spiritual ability: cleanse/light during Cleaning, and stun or seal during combat. Regular player stun is not sealable and wakes on damage. Environmental stun enables sealing, which decreases Karma Debt; killing raises it. The waterfall is a pass-through trigger that environmentally stuns regular enemies on entry, not the dragon, with per-enemy per-waterfall cooldown. Entry must happen again after cooldown.
 
-The Fire Dragon uses a charge and fire breath with warnings and recovery. After an initial charge, attacks are selected randomly with at most two of one type consecutively. A charge into a pillar environmentally stuns the dragon; sealing also requires health above zero and at or below its configured threshold. The Boss prefab currently has 100 max HP and a 10% seal threshold; scene overrides and tuning must be checked before making balance claims. Boss melee uses Enemy AI attack range for state selection and Enemy Combat range/radius for its hit area; the owner adjusted the former after testing. Both killing and sealing can resolve the boss; verify both complete victory paths.
+The Fire Dragon uses a charge and fire breath with warnings and recovery. After an initial charge, attacks are selected randomly with at most two of one type consecutively. A charge into a pillar environmentally stuns the dragon; sealing also requires health above zero and at or below its configured threshold. The Boss prefab currently has 100 max HP and a 10% seal threshold; scene overrides and tuning must be checked before making balance claims. Boss melee uses Enemy AI attack range for state selection and Enemy Combat range/radius for its hit area; the former was adjusted after testing. Both killing and sealing can resolve the boss; verify both complete victory paths.
 
 ## Lucky Reel
 

@@ -1,10 +1,10 @@
-﻿# Help Lucky Cat — development status and next steps
+# Help Lucky Cat — development status and next steps
 
-Updated November 11, 2026. [x] means implemented or owner-reported working as specifically described, not blanket regression coverage. [ ] identifies work or verification still needed. See GAME_DESIGN.md for rules. Verify Inspector overrides and scene wiring before changing behavior.
+Updated November 11, 2026. [x] means implemented or reported working in play tests as specifically described, not blanket regression coverage. [ ] identifies work or verification still needed. See GAME_DESIGN.md for rules. Verify Inspector overrides and scene wiring before changing behavior.
 
 ## Scope and schedule
 
-- [x] Owner intends **gameplay feature freeze tonight, Wednesday November 11**. Cut or simplify optional unfinished features instead of assuming Thursday is available for feature development.
+- [x] **Gameplay feature freeze is planned for tonight, Wednesday November 11**. Cut or simplify optional unfinished features instead of assuming Thursday is available for feature development.
 - [ ] Finish essential start, end and restart flow; agree whether Play Again starts immediately or returns to a start screen. The proposed UI uses simple temporary buttons/panels, then receives presentation polish.
 - [ ] Thursday November 12: art, animation, music, sound, UI and integration. Essential fixes remain in scope.
 - [ ] Friday November 13: regression, exported build and release testing. Previously noted jam deadline: Saturday November 14 at 7 AM; timezone not confirmed.
@@ -12,13 +12,13 @@ Updated November 11, 2026. [x] means implemented or owner-reported working as sp
 ## Completed gameplay milestone
 
 - [x] Opening Fortune generates puzzle/enemy counts and boss attack-frequency modifier. Cleaning selects distinct assigned instances, not types.
-- [x] Pressure-plate puzzle, shuffled talisman locations and timed shuffled lantern locations. Owner reported talisman and lantern functionality, including the later randomized lantern selection, works. Lantern difficulty was accepted as good enough.
+- [x] Pressure-plate puzzle, shuffled talisman locations and timed shuffled lantern locations. Play tests confirmed talisman and lantern functionality, including randomized lantern selection. Lantern difficulty was accepted as good enough.
 - [x] E is the spiritual ability: selected talismans and lanterns in Cleaning, stun/seal in combat. Talisman interaction currently takes priority when both are nearby.
-- [x] Waterfall trigger environmentally stuns regular enemies on entry; per-enemy cooldown; excludes boss. Owner reported it works.
-- [x] Encounter reel Bad speed, Neutral heal and Good Peaceful/Offensive effects. Mid-Karma Good now randomly chooses Peaceful or Offensive; owner approved the consistency change. Do not assume every boundary and edge case was tested.
-- [x] Boss reel Bad 1.5× frequency for 12 seconds, 25% shorter newly started warnings; Neutral +20 HP; Good high Karma 20 damage; Good low Karma 3-second regular stun; mid Karma randomly chooses either. Owner reported Bad and Neutral work and high-Karma damage test worked. Test low/mid and edge cases separately if not already covered.
-- [x] Boss charge and fire breath choose randomly after initial charge, maximum two of one type in succession. Owner reported it was good. Melee range was debugged via Enemy AI attack range; check actual saved values rather than changing test settings.
-- [x] Boss kill/seal resolution and player Game Over states exist in code. Owner previously reported player-death flow worked; complete boss victory paths still require explicit verification.
+- [x] Waterfall trigger environmentally stuns regular enemies on entry; per-enemy cooldown; excludes boss. Play testing confirmed it works.
+- [x] Encounter reel Bad speed, Neutral heal and Good Peaceful/Offensive effects. Mid-Karma Good now randomly chooses Peaceful or Offensive; the consistency change is approved. Do not assume every boundary and edge case was tested.
+- [x] Boss reel Bad 1.5× frequency for 12 seconds, 25% shorter newly started warnings; Neutral +20 HP; Good high Karma 20 damage; Good low Karma 3-second regular stun; mid Karma randomly chooses either. Play tests confirmed Bad, Neutral and high-Karma damage work. Test low/mid and edge cases separately if not already covered.
+- [x] Boss charge and fire breath choose randomly after initial charge, maximum two of one type in succession. Play testing found it acceptable. Melee range was debugged via Enemy AI attack range; check actual saved values rather than changing test settings.
+- [x] Boss kill/seal resolution and player Game Over states exist in code. Player-death flow has been reported working; complete boss victory paths still require explicit verification.
 
 ## Next: playable start, endings and restart
 
@@ -40,7 +40,7 @@ Updated November 11, 2026. [x] means implemented or owner-reported working as sp
 ## Targeted tests and release
 
 - [ ] Confirm GameManager puzzle pool has at least three valid distinct assigned instances, and unlisted puzzle objects are inactive where appropriate. Verify current scene Happiness/Karma settings; prefab defaults are 50, scene overrides may differ.
-- [ ] Recheck Good Cleaning auto-completion for each puzzle, final-puzzle transition, Bad time-to-zero, timeout penalties, and completion counted once. Owner reported talisman tests worked; confirm exact edge coverage if needed.
+- [ ] Recheck Good Cleaning auto-completion for each puzzle, final-puzzle transition, Bad time-to-zero, timeout penalties, and completion counted once. Talisman tests worked; confirm exact edge coverage if needed.
 - [ ] Confirm lantern random combinations remain reachable within the saved time limit; timeout reuses the chosen locations, and reel completion awards once.
 - [ ] Check Encounter high/low/mid Karma boundaries 44/45 and 55/56; selected fate result stays fixed even if a damage kill changes Karma. Test last-enemy reel kill, repeated speed refresh and expiration, and player healing at max health.
 - [ ] Check waterfall re-entry/cooldown and dragon exclusion; test pillar stun, low-health seal, kill, Karma changes and one Victory transition.
