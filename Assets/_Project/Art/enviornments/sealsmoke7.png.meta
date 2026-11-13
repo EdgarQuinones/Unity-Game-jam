@@ -1,0 +1,1768 @@
+fileFormatVersion: 2
+guid: f338e01cfe169e5419c3a2ae0bd30f87
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1621569187269524470
+    second: sealsmoke7_0
+  - first:
+      213: 1506320721155378564
+    second: sealsmoke7_1
+  - first:
+      213: -8366586567219603881
+    second: sealsmoke7_2
+  - first:
+      213: -4882859729145979818
+    second: sealsmoke7_3
+  - first:
+      213: 8952990435531995793
+    second: sealsmoke7_4
+  - first:
+      213: 8900386269233455147
+    second: sealsmoke7_5
+  - first:
+      213: -196839815435590096
+    second: sealsmoke7_6
+  - first:
+      213: -2554587361383707161
+    second: sealsmoke7_7
+  - first:
+      213: 5031679391173368983
+    second: sealsmoke7_8
+  - first:
+      213: -8795210405116253987
+    second: sealsmoke7_9
+  - first:
+      213: 3953229735881800774
+    second: sealsmoke7_10
+  - first:
+      213: 3232966309346762715
+    second: sealsmoke7_11
+  - first:
+      213: 3561205970749012392
+    second: sealsmoke7_12
+  - first:
+      213: 6422020715480623142
+    second: sealsmoke7_13
+  - first:
+      213: 8107146529490555662
+    second: sealsmoke7_14
+  - first:
+      213: 8409406460885740515
+    second: sealsmoke7_15
+  - first:
+      213: -7680810963952924705
+    second: sealsmoke7_16
+  - first:
+      213: -7888195850790584347
+    second: sealsmoke7_17
+  - first:
+      213: 2641214622152877025
+    second: sealsmoke7_18
+  - first:
+      213: -4507618633372925422
+    second: sealsmoke7_19
+  - first:
+      213: 3831579257424158820
+    second: sealsmoke7_20
+  - first:
+      213: 8587686916138489376
+    second: sealsmoke7_21
+  - first:
+      213: -3008066428187535397
+    second: sealsmoke7_22
+  - first:
+      213: -3323869811178234313
+    second: sealsmoke7_23
+  - first:
+      213: 6457994600450125202
+    second: sealsmoke7_24
+  - first:
+      213: -4104445420236739905
+    second: sealsmoke7_25
+  - first:
+      213: 5186401913615194442
+    second: sealsmoke7_26
+  - first:
+      213: -8695356402016165159
+    second: sealsmoke7_27
+  - first:
+      213: -7331952190096886848
+    second: sealsmoke7_28
+  - first:
+      213: -6758544703492667190
+    second: sealsmoke7_29
+  - first:
+      213: 5461553353515316649
+    second: sealsmoke7_30
+  - first:
+      213: 7549032406682812429
+    second: sealsmoke7_31
+  - first:
+      213: 3683496808976282199
+    second: sealsmoke7_32
+  - first:
+      213: -8573621421366619006
+    second: sealsmoke7_33
+  - first:
+      213: -2011502453734564245
+    second: sealsmoke7_34
+  - first:
+      213: 2401956177511813296
+    second: sealsmoke7_35
+  - first:
+      213: 6385313815247725924
+    second: sealsmoke7_36
+  - first:
+      213: 1663930724430260378
+    second: sealsmoke7_37
+  - first:
+      213: 7340075613931646042
+    second: sealsmoke7_38
+  - first:
+      213: -3854924077689037894
+    second: sealsmoke7_39
+  - first:
+      213: 6213509312253275778
+    second: sealsmoke7_40
+  - first:
+      213: -4457897355365248561
+    second: sealsmoke7_41
+  - first:
+      213: -8737198306755679345
+    second: sealsmoke7_42
+  - first:
+      213: -5400834835897255121
+    second: sealsmoke7_43
+  - first:
+      213: 5510837497271017539
+    second: sealsmoke7_44
+  - first:
+      213: 6256373103030418153
+    second: sealsmoke7_45
+  - first:
+      213: 8369621181823992147
+    second: sealsmoke7_46
+  - first:
+      213: -8322424640686340931
+    second: sealsmoke7_47
+  - first:
+      213: -1796787591674427218
+    second: sealsmoke7_48
+  - first:
+      213: -5482533387931981332
+    second: sealsmoke7_49
+  - first:
+      213: -3918789413984450374
+    second: sealsmoke7_50
+  - first:
+      213: -84509599370486519
+    second: sealsmoke7_51
+  - first:
+      213: -8689038619309316786
+    second: sealsmoke7_52
+  - first:
+      213: 5064654006510092305
+    second: sealsmoke7_53
+  - first:
+      213: 8739725624355804851
+    second: sealsmoke7_54
+  - first:
+      213: -4223982757309605729
+    second: sealsmoke7_55
+  - first:
+      213: -4280423986074584564
+    second: sealsmoke7_56
+  - first:
+      213: -616263594334771200
+    second: sealsmoke7_57
+  - first:
+      213: 2875610442232489823
+    second: sealsmoke7_58
+  - first:
+      213: -4711095949453197766
+    second: sealsmoke7_59
+  - first:
+      213: 5707592872837674454
+    second: sealsmoke7_60
+  - first:
+      213: -1296988028471126355
+    second: sealsmoke7_61
+  - first:
+      213: 1359455506542965549
+    second: sealsmoke7_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sealsmoke7_0
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 111
+        width: 45
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb3be99598f08610800000000000000
+      internalID: 1621569187269524470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 106
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48dc64e07b687e410800000000000000
+      internalID: 1506320721155378564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_2
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 151
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 756125e58d9e3eb80800000000000000
+      internalID: -8366586567219603881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_3
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 139
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c913462f89c3cb0800000000000000
+      internalID: -4882859729145979818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 152
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19aba5bbd596f3c70800000000000000
+      internalID: 8952990435531995793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_5
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 128
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20ac65d726848b70800000000000000
+      internalID: 8900386269233455147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 152
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 036ee431b3fa44df0800000000000000
+      internalID: -196839815435590096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_7
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 145
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ed850164584c8cd0800000000000000
+      internalID: -2554587361383707161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_8
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 140
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79cda8e4fbd14d540800000000000000
+      internalID: 5031679391173368983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 154
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd8e93e4cb221f580800000000000000
+      internalID: -8795210405116253987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_10
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 148
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64cfebaef71bcd630800000000000000
+      internalID: 3953229735881800774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_11
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 145
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdf5b67babdcddc20800000000000000
+      internalID: 3232966309346762715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_12
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 114
+        width: 37
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a9be7a56f1fb6130800000000000000
+      internalID: 3561205970749012392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_13
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 154
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6282c6eb0d99f1950800000000000000
+      internalID: 6422020715480623142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_14
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 151
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e035358a0de528070800000000000000
+      internalID: 8107146529490555662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_15
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 139
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eb28f80f9634b470800000000000000
+      internalID: 8409406460885740515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_16
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 153
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd709aa7f17486590800000000000000
+      internalID: -7680810963952924705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_17
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 145
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5efbaeacaaf778290800000000000000
+      internalID: -7888195850790584347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 147
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e36df084ba77a420800000000000000
+      internalID: 2641214622152877025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_19
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 143
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21200ee3cb8b171c0800000000000000
+      internalID: -4507618633372925422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_20
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 129
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460a587b8018c2530800000000000000
+      internalID: 3831579257424158820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_21
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 144
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02654be20c79d2770800000000000000
+      internalID: 8587686916138489376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_22
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 135
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd79a1f55833146d0800000000000000
+      internalID: -3008066428187535397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_23
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 122
+        width: 21
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e9311740e3fd1d0800000000000000
+      internalID: -3323869811178234313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 122
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29d68398fd76f9950800000000000000
+      internalID: 6457994600450125202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_25
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 131
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba6fc6f2a41a07c0800000000000000
+      internalID: -4104445420236739905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_26
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 110
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a49907bcf0dc9f740800000000000000
+      internalID: 5186401913615194442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_27
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 139
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d2686e1c63e35780800000000000000
+      internalID: -8695356402016165159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_28
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 133
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3b027545caf3a90800000000000000
+      internalID: -7331952190096886848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_29
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 128
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8c8b58663d432a0800000000000000
+      internalID: -6758544703492667190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_30
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 120
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a5bf16a6d55bcb40800000000000000
+      internalID: 5461553353515316649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_31
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 132
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d00cd363afc83c860800000000000000
+      internalID: 7549032406682812429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_32
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 140
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 752f05ee4d86e1330800000000000000
+      internalID: 3683496808976282199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_33
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 130
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28453c40eb0640980800000000000000
+      internalID: -8573621421366619006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_34
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 126
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6e135cfc25b514e0800000000000000
+      internalID: -2011502453734564245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_35
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 131
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b095a6da66755120800000000000000
+      internalID: 2401956177511813296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_36
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 110
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4652c3985113d9850800000000000000
+      internalID: 6385313815247725924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_37
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 109
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9826809d28771710800000000000000
+      internalID: 1663930724430260378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_38
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 113
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5c27e8a1ef2dd560800000000000000
+      internalID: 7340075613931646042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_39
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 112
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abb9e31c9fe808ac0800000000000000
+      internalID: -3854924077689037894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_40
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 102
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28e20758cc1da3650800000000000000
+      internalID: 6213509312253275778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_41
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 109
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc11d4869fd5222c0800000000000000
+      internalID: -4457897355365248561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_42
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 108
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8beea18e6c3fb680800000000000000
+      internalID: -8737198306755679345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_43
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 113
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2bf9c3e4516c05b0800000000000000
+      internalID: -5400834835897255121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_44
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 122
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340edbf818d6a7c40800000000000000
+      internalID: 5510837497271017539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_45
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 118
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eabf64803a13d650800000000000000
+      internalID: 6256373103030418153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_46
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 113
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3514437ee1ed62470800000000000000
+      internalID: 8369621181823992147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_47
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 118
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db4cee522eec08c80800000000000000
+      internalID: -8322424640686340931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_48
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 116
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea88a6584378017e0800000000000000
+      internalID: -1796787591674427218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_49
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 111
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce9681f6ee02ae3b0800000000000000
+      internalID: -5482533387931981332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_50
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 109
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab845e56ac9ad99c0800000000000000
+      internalID: -3918789413984450374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_51
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 106
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d596597f2c3def0800000000000000
+      internalID: -84509599370486519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_52
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 104
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e45ea6889655a6780800000000000000
+      internalID: -8689038619309316786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_53
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 107
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1100b483cf3494640800000000000000
+      internalID: 5064654006510092305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_54
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 47
+        width: 34
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b65b1a762eb94970800000000000000
+      internalID: 8739725624355804851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_55
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 87
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f989f25df066165c0800000000000000
+      internalID: -4223982757309605729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_56
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 84
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a76f53011e894c0800000000000000
+      internalID: -4280423986074584564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_57
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 72
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 008ababa6879277f0800000000000000
+      internalID: -616263594334771200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_58
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 53
+        width: 11
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57eba9267838e720800000000000000
+      internalID: 2875610442232489823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_59
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 65
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3e7f06c133de9eb0800000000000000
+      internalID: -4711095949453197766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_60
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 39
+        width: 22
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d57a0c4a71753f40800000000000000
+      internalID: 5707592872837674454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_61
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 51
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da65b05824c200ee0800000000000000
+      internalID: -1296988028471126355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sealsmoke7_62
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 46
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23317b9491cdd210800000000000000
+      internalID: 1359455506542965549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sealsmoke7_0: 1621569187269524470
+      sealsmoke7_1: 1506320721155378564
+      sealsmoke7_10: 3953229735881800774
+      sealsmoke7_11: 3232966309346762715
+      sealsmoke7_12: 3561205970749012392
+      sealsmoke7_13: 6422020715480623142
+      sealsmoke7_14: 8107146529490555662
+      sealsmoke7_15: 8409406460885740515
+      sealsmoke7_16: -7680810963952924705
+      sealsmoke7_17: -7888195850790584347
+      sealsmoke7_18: 2641214622152877025
+      sealsmoke7_19: -4507618633372925422
+      sealsmoke7_2: -8366586567219603881
+      sealsmoke7_20: 3831579257424158820
+      sealsmoke7_21: 8587686916138489376
+      sealsmoke7_22: -3008066428187535397
+      sealsmoke7_23: -3323869811178234313
+      sealsmoke7_24: 6457994600450125202
+      sealsmoke7_25: -4104445420236739905
+      sealsmoke7_26: 5186401913615194442
+      sealsmoke7_27: -8695356402016165159
+      sealsmoke7_28: -7331952190096886848
+      sealsmoke7_29: -6758544703492667190
+      sealsmoke7_3: -4882859729145979818
+      sealsmoke7_30: 5461553353515316649
+      sealsmoke7_31: 7549032406682812429
+      sealsmoke7_32: 3683496808976282199
+      sealsmoke7_33: -8573621421366619006
+      sealsmoke7_34: -2011502453734564245
+      sealsmoke7_35: 2401956177511813296
+      sealsmoke7_36: 6385313815247725924
+      sealsmoke7_37: 1663930724430260378
+      sealsmoke7_38: 7340075613931646042
+      sealsmoke7_39: -3854924077689037894
+      sealsmoke7_4: 8952990435531995793
+      sealsmoke7_40: 6213509312253275778
+      sealsmoke7_41: -4457897355365248561
+      sealsmoke7_42: -8737198306755679345
+      sealsmoke7_43: -5400834835897255121
+      sealsmoke7_44: 5510837497271017539
+      sealsmoke7_45: 6256373103030418153
+      sealsmoke7_46: 8369621181823992147
+      sealsmoke7_47: -8322424640686340931
+      sealsmoke7_48: -1796787591674427218
+      sealsmoke7_49: -5482533387931981332
+      sealsmoke7_5: 8900386269233455147
+      sealsmoke7_50: -3918789413984450374
+      sealsmoke7_51: -84509599370486519
+      sealsmoke7_52: -8689038619309316786
+      sealsmoke7_53: 5064654006510092305
+      sealsmoke7_54: 8739725624355804851
+      sealsmoke7_55: -4223982757309605729
+      sealsmoke7_56: -4280423986074584564
+      sealsmoke7_57: -616263594334771200
+      sealsmoke7_58: 2875610442232489823
+      sealsmoke7_59: -4711095949453197766
+      sealsmoke7_6: -196839815435590096
+      sealsmoke7_60: 5707592872837674454
+      sealsmoke7_61: -1296988028471126355
+      sealsmoke7_62: 1359455506542965549
+      sealsmoke7_7: -2554587361383707161
+      sealsmoke7_8: 5031679391173368983
+      sealsmoke7_9: -8795210405116253987
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
