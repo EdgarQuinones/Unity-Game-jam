@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: bac7404e356016e498120fc1b9aef6fe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4624432552563290133
+    second: slotsmachine2_0
+  - first:
+      213: -7393044859507977629
+    second: slotsmachine2_1
+  - first:
+      213: 8793609258739782056
+    second: slotsmachine2_2
+  - first:
+      213: -7121661197166640679
+    second: slotsmachine2_3
+  - first:
+      213: 3724649427501458052
+    second: slotsmachine2_4
+  - first:
+      213: -8078115979112338141
+    second: slotsmachine2_5
+  - first:
+      213: 3163911622715018096
+    second: slotsmachine2_6
+  - first:
+      213: -2275799741816687028
+    second: slotsmachine2_7
+  - first:
+      213: 2447971429716957384
+    second: slotsmachine2_8
+  - first:
+      213: 5081009058893997649
+    second: slotsmachine2_9
+  - first:
+      213: 3103876762467342871
+    second: slotsmachine2_10
+  - first:
+      213: -3468955728995845776
+    second: slotsmachine2_11
+  - first:
+      213: 7529842522197261346
+    second: slotsmachine2_12
+  - first:
+      213: 7004313572397927495
+    second: slotsmachine2_13
+  - first:
+      213: 5287773943862523761
+    second: slotsmachine2_14
+  - first:
+      213: -590754788007410843
+    second: slotsmachine2_15
+  - first:
+      213: -2265244904668405967
+    second: slotsmachine2_16
+  - first:
+      213: -832234577678202920
+    second: slotsmachine2_17
+  - first:
+      213: -1991752183386378498
+    second: slotsmachine2_18
+  - first:
+      213: -7017928713401008349
+    second: slotsmachine2_19
+  - first:
+      213: 3977540320229561328
+    second: slotsmachine2_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: slotsmachine2_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 474
+        width: 83
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510b94fb7e84d2040800000000000000
+      internalID: 4624432552563290133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 479
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362df7cced0a66990800000000000000
+      internalID: -7393044859507977629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 481
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a155c0c70d290a70800000000000000
+      internalID: 8793609258739782056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 483
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d103349fd6ca2d90800000000000000
+      internalID: -7121661197166640679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 485
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48226179bec90b330800000000000000
+      internalID: 3724649427501458052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_5
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 484
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32d2a921154c4ef80800000000000000
+      internalID: -8078115979112338141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_6
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 485
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b88a49bd878eb20800000000000000
+      internalID: 3163911622715018096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_7
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 483
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c463719413cba60e0800000000000000
+      internalID: -2275799741816687028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_8
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 478
+        width: 81
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c89590ab01f8f120800000000000000
+      internalID: 2447971429716957384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_9
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 475
+        width: 79
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1562be791de538640800000000000000
+      internalID: 5081009058893997649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 419
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71a947d687f231b20800000000000000
+      internalID: 3103876762467342871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_11
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 419
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07975afc42bcbdfc0800000000000000
+      internalID: -3468955728995845776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_12
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 419
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22cf23e01ef5f7860800000000000000
+      internalID: 7529842522197261346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_13
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 419
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74cc93a6512543160800000000000000
+      internalID: 7004313572397927495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 419
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177fd78d262f16940800000000000000
+      internalID: 5287773943862523761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_15
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 419
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563057776a73dc7f0800000000000000
+      internalID: -590754788007410843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_16
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 419
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13fd9ffc2cb3090e0800000000000000
+      internalID: -2265244904668405967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_17
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 419
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d781bb9f0f4374f0800000000000000
+      internalID: -832234577678202920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_18
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 419
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efe65a421ffdb54e0800000000000000
+      internalID: -1991752183386378498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_19
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 419
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ff7ba840f4b9e90800000000000000
+      internalID: -7017928713401008349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slotsmachine2_20
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 355
+        width: 44
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3931be8df033730800000000000000
+      internalID: 3977540320229561328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      slotsmachine2_0: 4624432552563290133
+      slotsmachine2_1: -7393044859507977629
+      slotsmachine2_10: 3103876762467342871
+      slotsmachine2_11: -3468955728995845776
+      slotsmachine2_12: 7529842522197261346
+      slotsmachine2_13: 7004313572397927495
+      slotsmachine2_14: 5287773943862523761
+      slotsmachine2_15: -590754788007410843
+      slotsmachine2_16: -2265244904668405967
+      slotsmachine2_17: -832234577678202920
+      slotsmachine2_18: -1991752183386378498
+      slotsmachine2_19: -7017928713401008349
+      slotsmachine2_2: 8793609258739782056
+      slotsmachine2_20: 3977540320229561328
+      slotsmachine2_3: -7121661197166640679
+      slotsmachine2_4: 3724649427501458052
+      slotsmachine2_5: -8078115979112338141
+      slotsmachine2_6: 3163911622715018096
+      slotsmachine2_7: -2275799741816687028
+      slotsmachine2_8: 2447971429716957384
+      slotsmachine2_9: 5081009058893997649
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

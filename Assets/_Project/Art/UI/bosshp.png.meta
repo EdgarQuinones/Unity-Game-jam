@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: ab90e69e39cba9f44b473c42ba9cb9ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7920038301615152136
+    second: bosshp_0
+  - first:
+      213: 389423786069113431
+    second: bosshp_1
+  - first:
+      213: -2954266445656959134
+    second: bosshp_2
+  - first:
+      213: -905039974309277329
+    second: bosshp_3
+  - first:
+      213: 4356259229856152802
+    second: bosshp_4
+  - first:
+      213: 5247063370958563594
+    second: bosshp_5
+  - first:
+      213: -2840011971561546923
+    second: bosshp_6
+  - first:
+      213: -6265579133036565212
+    second: bosshp_7
+  - first:
+      213: 5320507502734636535
+    second: bosshp_8
+  - first:
+      213: -4045732836101731832
+    second: bosshp_9
+  - first:
+      213: 7548293568207601116
+    second: bosshp_10
+  - first:
+      213: 1966188473969545461
+    second: bosshp_11
+  - first:
+      213: -7140468358722050538
+    second: bosshp_12
+  - first:
+      213: 380152102263884909
+    second: bosshp_13
+  - first:
+      213: 117282998470336271
+    second: bosshp_14
+  - first:
+      213: -2191249147304391758
+    second: bosshp_15
+  - first:
+      213: -387793298821739024
+    second: bosshp_16
+  - first:
+      213: 4488486515185782205
+    second: bosshp_17
+  - first:
+      213: 2233302588696613457
+    second: bosshp_18
+  - first:
+      213: 9021386122786174837
+    second: bosshp_19
+  - first:
+      213: -3597591935109599185
+    second: bosshp_20
+  - first:
+      213: -4394360112411287538
+    second: bosshp_21
+  - first:
+      213: -422862593268504780
+    second: bosshp_22
+  - first:
+      213: 402808775047515515
+    second: bosshp_23
+  - first:
+      213: 3416502675639664975
+    second: bosshp_24
+  - first:
+      213: -4183500422890302710
+    second: bosshp_25
+  - first:
+      213: -376995159744108666
+    second: bosshp_26
+  - first:
+      213: -2801293884676863709
+    second: bosshp_27
+  - first:
+      213: 5096776625673683715
+    second: bosshp_28
+  - first:
+      213: 4553040276438591083
+    second: bosshp_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bosshp_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 489
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3adb8702f561290800000000000000
+      internalID: -7920038301615152136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_1
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 479
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75abcb3ced2876500800000000000000
+      internalID: 389423786069113431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_2
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 469
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267d2cee1565007d0800000000000000
+      internalID: -2954266445656959134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 458
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6154cf30f6a073f0800000000000000
+      internalID: -905039974309277329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 448
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecb71960ba847c30800000000000000
+      internalID: 4356259229856152802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 438
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a09e2f3f55051d840800000000000000
+      internalID: 5247063370958563594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_6
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 426
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55b973da8204698d0800000000000000
+      internalID: -2840011971561546923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_7
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 416
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d614799f03c09a0800000000000000
+      internalID: -6265579133036565212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 406
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f57c4d626d36d940800000000000000
+      internalID: 5320507502734636535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_9
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 395
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80ac508bb6baad7c0800000000000000
+      internalID: -4045732836101731832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_10
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 385
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd3169f10de0c860800000000000000
+      internalID: 7548293568207601116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_11
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 375
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f01c60fffd494b10800000000000000
+      internalID: 1966188473969545461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 365
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616a47c0cd5f7ec90800000000000000
+      internalID: -7140468358722050538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_13
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 355
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c8e08a252964500800000000000000
+      internalID: 380152102263884909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_14
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 345
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0f5406044ca0a100800000000000000
+      internalID: 117282998470336271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_15
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 335
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bb4b80a28e1791e0800000000000000
+      internalID: -2191249147304391758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_16
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 325
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fd0471ac084e9af0800000000000000
+      internalID: -387793298821739024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_17
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 315
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd87cc54be4a4e30800000000000000
+      internalID: 4488486515185782205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_18
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 305
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 152d8333fd84efe10800000000000000
+      internalID: 2233302588696613457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_19
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 295
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577fe4e91e6623d70800000000000000
+      internalID: 9021386122786174837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_20
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 285
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f207bf42239c21ec0800000000000000
+      internalID: -3597591935109599185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_21
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 275
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00649492c81403c0800000000000000
+      internalID: -4394360112411287538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_22
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 265
+        width: 179
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4372e6b36b0b12af0800000000000000
+      internalID: -422862593268504780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_23
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 213
+        width: 183
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7d0e1d5270179500800000000000000
+      internalID: 402808775047515515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_24
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 196
+        width: 49
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f418ca3051bd96f20800000000000000
+      internalID: 3416502675639664975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_25
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 179
+        width: 48
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a035defc78831f5c0800000000000000
+      internalID: -4183500422890302710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_26
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 142
+        width: 183
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687296d46e4a4caf0800000000000000
+      internalID: -376995159744108666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_27
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 117
+        width: 179
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3298c54cd0ecf19d0800000000000000
+      internalID: -2801293884676863709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_28
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 102
+        width: 179
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3034bc056536bb640800000000000000
+      internalID: 5096776625673683715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bosshp_29
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 51
+        width: 165
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b662b252206af2f30800000000000000
+      internalID: 4553040276438591083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      bosshp_0: -7920038301615152136
+      bosshp_1: 389423786069113431
+      bosshp_10: 7548293568207601116
+      bosshp_11: 1966188473969545461
+      bosshp_12: -7140468358722050538
+      bosshp_13: 380152102263884909
+      bosshp_14: 117282998470336271
+      bosshp_15: -2191249147304391758
+      bosshp_16: -387793298821739024
+      bosshp_17: 4488486515185782205
+      bosshp_18: 2233302588696613457
+      bosshp_19: 9021386122786174837
+      bosshp_2: -2954266445656959134
+      bosshp_20: -3597591935109599185
+      bosshp_21: -4394360112411287538
+      bosshp_22: -422862593268504780
+      bosshp_23: 402808775047515515
+      bosshp_24: 3416502675639664975
+      bosshp_25: -4183500422890302710
+      bosshp_26: -376995159744108666
+      bosshp_27: -2801293884676863709
+      bosshp_28: 5096776625673683715
+      bosshp_29: 4553040276438591083
+      bosshp_3: -905039974309277329
+      bosshp_4: 4356259229856152802
+      bosshp_5: 5247063370958563594
+      bosshp_6: -2840011971561546923
+      bosshp_7: -6265579133036565212
+      bosshp_8: 5320507502734636535
+      bosshp_9: -4045732836101731832
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
