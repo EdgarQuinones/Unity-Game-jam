@@ -6,6 +6,8 @@ public class LanternPuzzle : CleaningPuzzle
     [SerializeField] private float timeLimit = 10f;
     [SerializeField] private float interactionRadius = 1.5f;
     [SerializeField] private int lanternsToSelect = 4;
+    [SerializeField] private Sprite unlitSprite;
+    [SerializeField] private Sprite litSprite;
 
     private readonly List<Collider2D> lanterns = new List<Collider2D>();
     private readonly List<Collider2D> selectedLanterns = new List<Collider2D>();
@@ -64,6 +66,7 @@ public class LanternPuzzle : CleaningPuzzle
         for (int i = 0; i < count; i++)
         {
             selectedLanterns.Add(available[i]);
+            SetLanternSprite(available[i], unlitSprite);
             available[i].gameObject.SetActive(true);
         }
 
@@ -116,6 +119,7 @@ public class LanternPuzzle : CleaningPuzzle
         }
 
         litLanterns.Add(nearest);
+        SetLanternSprite(nearest, litSprite);
         Debug.Log($"{name}: lit {nearest.name}; {litLanterns.Count}/{selectedLanterns.Count}; {Mathf.Max(0f, deadline - Time.time):F1} seconds remaining.", this);
         if (litLanterns.Count == selectedLanterns.Count)
             CompletePuzzle();
@@ -126,6 +130,8 @@ public class LanternPuzzle : CleaningPuzzle
     {
         timerRunning = false;
         litLanterns.Clear();
+        foreach (Collider2D lantern in selectedLanterns)
+            SetLanternSprite(lantern, unlitSprite);
         Debug.Log($"{name}: time expired; lanterns reset. Try again.", this);
     }
 
@@ -136,9 +142,22 @@ public class LanternPuzzle : CleaningPuzzle
 
         foreach (Collider2D lantern in selectedLanterns)
             if (lantern != null)
+            {
                 litLanterns.Add(lantern);
+                SetLanternSprite(lantern, litSprite);
+            }
         Debug.Log($"{name}: completed by Lucky Reel.", this);
         CompletePuzzle();
+    }
+
+    private void SetLanternSprite(Collider2D lantern, Sprite sprite)
+    {
+        if (lantern == null || sprite == null)
+            return;
+
+        SpriteRenderer spriteRenderer = lantern.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            spriteRenderer.sprite = sprite;
     }
 
     private void CompletePuzzle()

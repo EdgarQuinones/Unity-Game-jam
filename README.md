@@ -2,11 +2,13 @@
 
 A work-in-progress top-down Unity 2D game for a Lucky Number game jam. Cleanse a supernatural temple, face spirits, and confront a Fire Dragon while fortune shapes each run.
 
-## Current status — November 11, 2026
+## Current status — November 13, 2026
 
 The core gameplay is substantially implemented: three Cleaning puzzle types, Encounter and Boss combat, killing and sealing, and phase-specific Lucky Reel effects. Play tests have confirmed the talisman and lantern puzzles, waterfall stun, and several Boss reel effects. The complete release loop is reported tested; individual edge cases may still need attention.
 
-The game is **not yet release-ready**: player-facing gameplay feedback, art/audio integration and an exported-build test remain; menu, pause, ending and replay flows are implemented and the full release loop is reported tested. Gameplay features are intended to freeze tonight; tomorrow is reserved primarily for presentation and integration. See TODO.md for priorities and verification status.
+The game is **not yet release-ready**: art/audio integration, remaining player-facing feedback and an exported-build test remain. An ability bar with attack, stun and reel cooldown fills plus Health and Karma bars has been added and reported working. Lantern lit/unlit sprites have also been added and reported working. Pressure plates have sprite feedback; check unique plate IDs and retest the full sequence/reset. Menu, pause, ending and replay flows are implemented and the full release loop is reported tested. See TODO.md for priorities and verification status.
+
+Lucky Cat is the spirit represented by a separate Happiness UI, not the player character. A hovering/shoulder companion is optional polish, not a priority.
 
 ## The loop
 

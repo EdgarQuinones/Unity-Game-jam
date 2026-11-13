@@ -53,15 +53,27 @@ public class AudioSettings : MonoBehaviour
 
     private void ApplyVolume(string key, float value)
     {
-        if (audioMixer == null)
+        ApplyMixerVolume(audioMixer, key, value);
+    }
+
+    public static void ApplySavedVolumes(AudioMixer mixer)
+    {
+        ApplyMixerVolume(mixer, MasterKey, Mathf.Clamp01(PlayerPrefs.GetFloat(MasterKey, 1f)));
+        ApplyMixerVolume(mixer, MusicKey, Mathf.Clamp01(PlayerPrefs.GetFloat(MusicKey, 1f)));
+        ApplyMixerVolume(mixer, SfxKey, Mathf.Clamp01(PlayerPrefs.GetFloat(SfxKey, 1f)));
+    }
+
+    private static void ApplyMixerVolume(AudioMixer mixer, string key, float value)
+    {
+        if (mixer == null)
         {
-            Debug.LogWarning("Assign GameAudioMixer to AudioSettings.", this);
+            Debug.LogWarning("Assign GameAudioMixer to the audio settings or menu music component.");
             return;
         }
 
         float decibels = value <= 0f ? -80f : Mathf.Log10(value) * 20f;
-        if (!audioMixer.SetFloat(key, decibels))
-            Debug.LogWarning($"Audio Mixer parameter '{key}' was not found.", this);
+        if (!mixer.SetFloat(key, decibels))
+            Debug.LogWarning($"Audio Mixer parameter '{key}' was not found.");
     }
 
     private void OnApplicationPause(bool paused)
