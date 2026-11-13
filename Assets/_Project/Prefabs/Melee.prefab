@@ -17,13 +17,14 @@ GameObject:
   - component: {fileID: 9027678733438518589}
   - component: {fileID: 2375523176590792919}
   - component: {fileID: 1941253723826774161}
+  - component: {fileID: 8700430563353678661}
   m_Layer: 7
   m_Name: Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8577543018547085154
 Transform:
   m_ObjectHideFlags: 0
@@ -161,7 +162,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -190,6 +191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackRange: 1.5
   player: {fileID: 0}
+  isBoss: 0
+  bossSealHealthThreshold: 0.1
 --- !u!114 &9027678733438518589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd938b120fd6db429b0c0887c6566e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  attackDamage: 1
+  attackDamage: 5
   attackRange: 1.5
   attackRadius: 0.5
   attackCooldown: 1.5
@@ -237,3 +240,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   karmaOnKill: 10
+--- !u!195 &8700430563353678661
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534729498152465297}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

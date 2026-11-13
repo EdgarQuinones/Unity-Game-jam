@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float flashDuration = 0.15f;
 
     private Color originalColor;
+    private Color baseColor;
     private Coroutine flashCoroutine;
 
     public event Action OnDeath;
@@ -27,7 +28,30 @@ public class Health : MonoBehaviour
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         if (spriteRenderer != null)
+        {
             originalColor = spriteRenderer.color;
+            baseColor = originalColor;
+        }
+    }
+
+    public void SetSpeedBoostVisual(bool boosted)
+    {
+        baseColor = boosted ? Color.yellow : originalColor;
+        if (spriteRenderer != null && flashCoroutine == null)
+            spriteRenderer.color = baseColor;
+    }
+
+    private void OnDisable()
+    {
+        if (flashCoroutine != null)
+        {
+            StopCoroutine(flashCoroutine);
+            flashCoroutine = null;
+        }
+
+        baseColor = originalColor;
+        if (spriteRenderer != null)
+            spriteRenderer.color = originalColor;
     }
 
     public void TakeDamage(float damage)
@@ -37,7 +61,7 @@ public class Health : MonoBehaviour
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - damage);
 
-        //Debug.Log($"{gameObject.name} took {damage} damage! Health: {CurrentHealth}/{MaxHealth}");
+        Debug.Log($"{gameObject.name} took {damage} damage! Health: {CurrentHealth}/{MaxHealth}");
 
         // Wake up stunned enemies when damaged
         EnemyAI enemyAI = GetComponent<EnemyAI>();
@@ -53,8 +77,8 @@ public class Health : MonoBehaviour
             if (flashCoroutine != null)
                 StopCoroutine(flashCoroutine);
 
-            spriteRenderer.color = originalColor;
-            flashCoroutine = StartCoroutine(FlashRed());
+            spriteRenderer.color = baseColor;
+            flashCoroutine = StartCoroutine(FlashColor(Color.red));
         }
 
         if (CurrentHealth <= 0)
@@ -68,16 +92,25 @@ public class Health : MonoBehaviour
         if (amount <= 0 || CurrentHealth <= 0)
             return;
 
+        float previousHealth = CurrentHealth;
         CurrentHealth = Mathf.Min(maxHealth, CurrentHealth + amount);
+
+        if (CurrentHealth > previousHealth && spriteRenderer != null)
+        {
+            if (flashCoroutine != null)
+                StopCoroutine(flashCoroutine);
+
+            flashCoroutine = StartCoroutine(FlashColor(Color.green));
+        }
     }
 
-    private IEnumerator FlashRed()
+    private IEnumerator FlashColor(Color color)
     {
-        spriteRenderer.color = Color.red;
+        spriteRenderer.color = color;
 
         yield return new WaitForSeconds(flashDuration);
 
-        spriteRenderer.color = originalColor;
+        spriteRenderer.color = baseColor;
         flashCoroutine = null;
     }
 

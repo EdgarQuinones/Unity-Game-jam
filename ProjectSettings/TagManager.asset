@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Pillar
   layers:
   - Default
   - TransparentFX
@@ -15,9 +16,9 @@ TagManager:
   - Player
   - Enemy
   - Walls
-  - 
-  - 
-  - 
+  - Boss
+  - Pillar
+  - Talisman
   - 
   - 
   - 

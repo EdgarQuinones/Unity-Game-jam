@@ -23,7 +23,7 @@ public class PlayerCombat : MonoBehaviour
 
     // Components
     private PlayerMovement movement;
-    private CatHappiness catHappiness;
+    private GameManager gameManager;
 
     // Cooldowns
     private float nextAttackTime = 0f;
@@ -32,44 +32,18 @@ public class PlayerCombat : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
-        catHappiness = FindFirstObjectByType<CatHappiness>();
+        gameManager = FindFirstObjectByType<GameManager>();
     }
 
-    // CAT HAPPINESS HIT CHANCE
-    private bool ShouldAttackHit()
-    {
-        float happiness = catHappiness != null
-            ? catHappiness.CurrentHappiness
-            : 50f;
-
-        float hitChance = happiness switch
-        {
-            >= 90f => 1.00f,
-            >= 75f => 0.95f,
-            >= 50f => 0.80f,
-            >= 25f => 0.70f,
-            _ => 0.60f
-        };
-
-        return Random.value < hitChance;
-    }
-
-    // NORMAL ATTACK
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || movement.IsStunned || PauseManager.IsPaused)
             return;
 
         if (Time.time < nextAttackTime)
             return;
 
         nextAttackTime = Time.time + lightCD;
-
-        if (!ShouldAttackHit())
-        {
-            Debug.Log("Cat Happiness: Attack misfired!");
-            return;
-        }
 
         Attack();
     }
@@ -102,10 +76,22 @@ public class PlayerCombat : MonoBehaviour
     // E BUTTON - SEAL OR STUN
     public void OnStun(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || movement.IsStunned || PauseManager.IsPaused)
             return;
 
-        // Sealing takes priority and never misfires
+        if (gameManager != null && gameManager.CurrentPhase == GameManager.GamePhase.Cleaning)
+        {
+            TalismanPuzzle puzzle = FindFirstObjectByType<TalismanPuzzle>();
+            if (puzzle != null && puzzle.TryCleanseNearest(transform.position))
+                return;
+
+            LanternPuzzle lanternPuzzle = FindFirstObjectByType<LanternPuzzle>();
+            if (lanternPuzzle != null)
+                lanternPuzzle.TryLightNearest(transform.position);
+            return;
+        }
+
+        // Sealing takes priority over stunning
         if (TrySealEnemy())
             return;
 
@@ -114,13 +100,6 @@ public class PlayerCombat : MonoBehaviour
             return;
 
         nextStunTime = Time.time + stunCooldown;
-
-        // Player stun can misfire based on happiness
-        if (!ShouldAttackHit())
-        {
-            Debug.Log("Cat Happiness: Stun misfired!");
-            return;
-        }
 
         StunNearbyEnemies();
     }
@@ -187,7 +166,7 @@ public class PlayerCombat : MonoBehaviour
         {
             EnemyAI enemy = hit.GetComponentInParent<EnemyAI>();
 
-            if (enemy != null)
+            if (enemy != null && !enemy.IsBoss)
             {
                 enemy.Stun(
                     stunDuration,

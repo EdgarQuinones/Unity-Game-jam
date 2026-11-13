@@ -3,6 +3,7 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     [SerializeField] private int plateID;
+    public int PlateID => plateID;
 
     private PressurePlatePuzzle puzzle;
     private bool isPressed = false;
@@ -26,5 +27,14 @@ public class PressurePlate : MonoBehaviour
     public void ResetPlate()
     {
         isPressed = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!Application.isPlaying || !isPressed)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector3(0.8f, 0.8f, 0.1f));
     }
 }

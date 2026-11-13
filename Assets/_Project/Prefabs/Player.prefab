@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8115891102443565586}
   - component: {fileID: 4736825376495471446}
   - component: {fileID: 3581616840509590024}
+  - component: {fileID: 891247310563274901}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -202,7 +203,19 @@ MonoBehaviour:
     m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
     m_ActionName: 'Player/Interact[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LuckyReel, Assembly-CSharp
+        m_MethodName: OnLuckySpin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 27c5f898-bc57-4ee1-8800-db469aca5fe3
     m_ActionName: 'Player/Crouch[/Keyboard/c]'
   - m_PersistentCalls:
@@ -345,13 +358,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackRange: 1
   attackRadius: 0.5
-  attackDamage: 10
+  attackDamage: 1000
   lightCD: 1.5
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   stunDuration: 3
   stunCooldown: 5
   stunRadius: 1.5
   sealRange: 1
   sealRadius: 0.5
+--- !u!114 &891247310563274901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454540713182136237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e014c9010ed5d4d9872982dc469578, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
