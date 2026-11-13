@@ -170,12 +170,12 @@ TextureImporter:
       name: Sprite-0021_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 351
-        width: 163
-        height: 34
+        x: 16
+        y: 352
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -192,12 +192,12 @@ TextureImporter:
       name: Sprite-0021_1
       rect:
         serializedVersion: 2
-        x: 271
-        y: 346
-        width: 57
-        height: 47
+        x: 272
+        y: 347
+        width: 55
+        height: 45
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -214,10 +214,10 @@ TextureImporter:
       name: Sprite-0021_2
       rect:
         serializedVersion: 2
-        x: 15
-        y: 303
-        width: 163
-        height: 34
+        x: 23
+        y: 311
+        width: 21
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,12 +236,12 @@ TextureImporter:
       name: Sprite-0021_3
       rect:
         serializedVersion: 2
-        x: 276
-        y: 320
-        width: 10
-        height: 16
+        x: 277
+        y: 321
+        width: 8
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -258,12 +258,12 @@ TextureImporter:
       name: Sprite-0021_4
       rect:
         serializedVersion: 2
-        x: 287
-        y: 320
-        width: 10
-        height: 16
+        x: 288
+        y: 321
+        width: 8
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -280,12 +280,12 @@ TextureImporter:
       name: Sprite-0021_5
       rect:
         serializedVersion: 2
-        x: 299
-        y: 320
-        width: 10
-        height: 16
+        x: 300
+        y: 321
+        width: 8
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,12 +302,12 @@ TextureImporter:
       name: Sprite-0021_6
       rect:
         serializedVersion: 2
-        x: 312
-        y: 320
-        width: 10
-        height: 16
+        x: 313
+        y: 321
+        width: 8
+        height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -324,12 +324,12 @@ TextureImporter:
       name: Sprite-0021_7
       rect:
         serializedVersion: 2
-        x: 276
-        y: 304
-        width: 10
-        height: 15
+        x: 277
+        y: 305
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,12 +346,12 @@ TextureImporter:
       name: Sprite-0021_8
       rect:
         serializedVersion: 2
-        x: 287
-        y: 304
-        width: 10
-        height: 15
+        x: 288
+        y: 305
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: Sprite-0021_9
       rect:
         serializedVersion: 2
-        x: 299
-        y: 304
-        width: 10
-        height: 15
+        x: 300
+        y: 305
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -390,12 +390,12 @@ TextureImporter:
       name: Sprite-0021_10
       rect:
         serializedVersion: 2
-        x: 312
-        y: 304
-        width: 10
-        height: 15
+        x: 313
+        y: 305
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: Sprite-0021_11
       rect:
         serializedVersion: 2
-        x: 15
-        y: 256
-        width: 163
-        height: 34
+        x: 16
+        y: 257
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -434,12 +434,12 @@ TextureImporter:
       name: Sprite-0021_12
       rect:
         serializedVersion: 2
-        x: 276
-        y: 288
-        width: 10
-        height: 15
+        x: 277
+        y: 289
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: Sprite-0021_13
       rect:
         serializedVersion: 2
-        x: 288
-        y: 288
-        width: 9
-        height: 15
+        x: 289
+        y: 289
+        width: 7
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: Sprite-0021_14
       rect:
         serializedVersion: 2
-        x: 15
-        y: 207
-        width: 163
-        height: 34
+        x: 16
+        y: 208
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -500,12 +500,12 @@ TextureImporter:
       name: Sprite-0021_15
       rect:
         serializedVersion: 2
-        x: 15
-        y: 159
-        width: 163
-        height: 34
+        x: 16
+        y: 160
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -522,12 +522,12 @@ TextureImporter:
       name: Sprite-0021_16
       rect:
         serializedVersion: 2
-        x: 15
-        y: 111
-        width: 163
-        height: 34
+        x: 16
+        y: 112
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -544,12 +544,12 @@ TextureImporter:
       name: Sprite-0021_17
       rect:
         serializedVersion: 2
-        x: 15
-        y: 63
-        width: 163
-        height: 34
+        x: 16
+        y: 64
+        width: 161
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -566,12 +566,12 @@ TextureImporter:
       name: Sprite-0021_18
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 163
-        height: 34
+        x: 21
+        y: 20
+        width: 22
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -584,11 +584,99 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Sprite-0021_19
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 310
+        width: 19
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6593fad7fc998fd4189f5c3a971ee233
+      internalID: 1170073045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0021_20
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 311
+        width: 21
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1adb8dc6272bc4ebce922e41759dac
+      internalID: -232006382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0021_21
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 322
+        width: 24
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d024e7acf3d0e0468c3a91e95db25b5
+      internalID: -1134184010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite-0021_22
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 309
+        width: 39
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a860ab3393e671240ac21a775b77ec27
+      internalID: 2088378726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 939848a05e32c644c824164f9c70ff25
     internalID: 0
     vertices: []
     indices: 
@@ -596,7 +684,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Sprite-0021_0: -6054143395419728075
       Sprite-0021_1: -9086844037300467683
@@ -609,7 +699,11 @@ TextureImporter:
       Sprite-0021_16: -6989743151188689297
       Sprite-0021_17: 5604765113015090146
       Sprite-0021_18: 156303042839751798
+      Sprite-0021_19: 1170073045
       Sprite-0021_2: 8994464201122712919
+      Sprite-0021_20: -232006382
+      Sprite-0021_21: -1134184010
+      Sprite-0021_22: 2088378726
       Sprite-0021_3: -1393709415975833360
       Sprite-0021_4: 4578376826520912135
       Sprite-0021_5: -1848277015850410578

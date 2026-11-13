@@ -33,6 +33,21 @@ public class LuckyReel : MonoBehaviour
     private CatHappiness catHappiness;
     private Karma karma;
 
+    // A manual spin must satisfy both its own cooldown and the gap after any spin.
+    public float ManualSpinCooldownProgress
+    {
+        get
+        {
+            float manualProgress = manualCooldown > 0f
+                ? 1f - Mathf.Clamp01((nextManualSpinTime - Time.time) / manualCooldown)
+                : 1f;
+            float gapProgress = minimumSpinGap > 0f
+                ? 1f - Mathf.Clamp01((lastSpinTime + minimumSpinGap - Time.time) / minimumSpinGap)
+                : 1f;
+            return Mathf.Min(manualProgress, gapProgress);
+        }
+    }
+
     private void Awake()
     {
         gameManager = GetComponent<GameManager>();

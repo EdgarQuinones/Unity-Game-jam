@@ -29,6 +29,17 @@ public class PlayerCombat : MonoBehaviour
     private float nextAttackTime = 0f;
     private float nextStunTime = 0f;
 
+    public float AttackCooldownProgress => CooldownProgress(nextAttackTime, lightCD);
+    public float StunCooldownProgress => CooldownProgress(nextStunTime, stunCooldown);
+
+    private static float CooldownProgress(float readyTime, float duration)
+    {
+        if (duration <= 0f)
+            return 1f;
+
+        return 1f - Mathf.Clamp01((readyTime - Time.time) / duration);
+    }
+
     private void Awake()
     {
         movement = GetComponent<PlayerMovement>();
@@ -93,6 +104,10 @@ public class PlayerCombat : MonoBehaviour
 
         // Sealing takes priority over stunning
         if (TrySealEnemy())
+            return;
+
+        // The player stun cannot affect the boss; keep it available during this phase.
+        if (gameManager != null && gameManager.CurrentPhase == GameManager.GamePhase.Boss)
             return;
 
         // Check stun cooldown
