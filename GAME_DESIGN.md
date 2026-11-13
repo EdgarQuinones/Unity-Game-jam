@@ -1,10 +1,10 @@
 # Help Lucky Cat — current design
 
-Updated November 11, 2026. This describes the approved gameplay direction and current implementation; see TODO.md for testing and remaining work. Inspector overrides and play tests determine actual runtime behavior.
+Updated November 13, 2026. This describes the approved gameplay direction and current implementation; see TODO.md for testing and remaining work. Inspector overrides and play tests determine actual runtime behavior.
 
 ## Vision and scope
 
-A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. Help Lucky Cat cleanse the temple, resolve spirits and confront the Fire Dragon. The team plans to freeze gameplay features tonight, November 11; unfinished extras are cut or simplified. November 12 is for art, music, sound and UI integration. Bug fixes and essential release work remain necessary.
+A short, replayable top-down 2D Lucky Number jam game in a supernatural temple. The player cleanses the temple, faces umbrella spirits and confronts the Fire Dragon. Lucky Cat is a separate spirit represented by the Happiness UI; a hovering or shoulder companion is optional polish. Focus is art, UI integration and essential fixes rather than new gameplay features.
 
 ## Run loop
 
@@ -22,15 +22,15 @@ Cleaning selects distinct puzzle instances, not distinct types. Timers are 30, 5
 
 ### Cleaning puzzles
 
-- **Pressure plates:** enter a randomly generated sequence; a wrong plate resets progress and costs 1 Happiness. The same sequence is retained during retries.
+- **Pressure plates:** enter a randomly generated sequence; a wrong plate resets progress and costs 1 Happiness. The same sequence is retained during retries. Correct plates use the assigned pressed sprite; reset restores the unpressed sprite. Each assigned plate needs a unique ID.
 - **Talismans:** randomly activate a fixed number of placed locations (code default 4); press E near the nearest active talisman to cleanse it. Cleanse all selected to finish.
 - **Lanterns:** randomly activate a fixed number of placed lanterns (code default 4). E lights them in any order; the first starts an Inspector-configured timer. Timeout resets the same selected lanterns for another attempt. Play testing confirmed the puzzle works; its current difficulty is acceptable.
 
-All three use CleaningPuzzle and support Good-reel completion. Talisman and lantern interactions are separate from combat; if both are in range, talisman takes priority. Lit lantern indication is currently an Editor Gizmo, not player-facing feedback. A visible lit state, countdown and clear instructions remain needed.
+All three use CleaningPuzzle and support Good-reel completion. Talisman and lantern interactions are separate from combat; if both are in range, talisman takes priority. Lanterns use assigned lit/unlit sprites, including on timeout and reel completion; the user reported the visual change working. A visible countdown and clear instructions remain needed.
 
 ## Combat and dragon
 
-Movement uses WASD/arrows; left click attacks. E is the spiritual ability: cleanse/light during Cleaning, and stun or seal during combat. Regular player stun is not sealable and wakes on damage. Environmental stun enables sealing, which decreases Karma Debt; killing raises it. The waterfall is a pass-through trigger that environmentally stuns regular enemies on entry, not the dragon, with per-enemy per-waterfall cooldown. Entry must happen again after cooldown.
+Movement uses WASD/arrows; left click attacks. E is the spiritual ability: cleanse/light during Cleaning, and stun or seal during combat. Seal takes priority; in the Boss phase E does not trigger player stun or start its cooldown, but can still seal an eligible boss. Regular player stun is not sealable and wakes on damage. Environmental stun enables sealing, which decreases Karma Debt; killing raises it. The waterfall is a pass-through trigger that environmentally stuns regular enemies on entry, not the dragon, with per-enemy per-waterfall cooldown. Entry must happen again after cooldown.
 
 The Fire Dragon uses a charge and fire breath with warnings and recovery. After an initial charge, attacks are selected randomly with at most two of one type consecutively. A charge into a pillar environmentally stuns the dragon; sealing also requires health above zero and at or below its configured threshold. The Boss prefab currently has 100 max HP and a 10% seal threshold; scene overrides and tuning must be checked before making balance claims. Boss melee uses Enemy AI attack range for state selection and Enemy Combat range/radius for its hit area; the former was adjusted after testing. Both killing and sealing can resolve the boss; verify both complete victory paths.
 
@@ -50,4 +50,4 @@ Happiness and Karma Debt are clamped to 0–100; prefab defaults are 50 each. Ha
 
 ## Presentation and finish
 
-Polish and verify the existing start, Victory, Game Over and replay flow; explain controls, Opening Fortune, reel outcomes, phase goals and Karma/Happiness. Provide readable pressure-plate clues, lantern state/countdown and environmental-stun/seal eligibility indicators in builds; Gizmos and Console logs are Editor-only. Art, animations, music, sound, and polished UI follow. Confirm full-run behavior and an exported build before release.
+The ability bar displays attack, stun and manual reel cooldown progress, plus Health and Karma fills; the user reported it working. Reel progress includes the shared post-spin gap. Stun fill represents combat stun, not all E interactions. Polish and verify the existing start, Victory, Game Over and replay flow; explain controls, Opening Fortune, reel outcomes, phase goals and Karma/Happiness. Provide readable pressure-plate clues, a lantern countdown and environmental-stun/seal eligibility indicators in builds; Gizmos and Console logs are Editor-only. Continue art, animations, music, sound and UI integration; confirm full-run behavior and an exported build before release.
