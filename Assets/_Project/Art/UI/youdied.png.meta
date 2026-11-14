@@ -1,0 +1,394 @@
+fileFormatVersion: 2
+guid: ebb53b83be7728d428a95deb7d1fb17c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2441198726268815977
+    second: youdied_0
+  - first:
+      213: 6562300023919646584
+    second: youdied_1
+  - first:
+      213: -458455911868889866
+    second: youdied_2
+  - first:
+      213: 9112716796988877210
+    second: youdied_3
+  - first:
+      213: 3266133914457753861
+    second: youdied_4
+  - first:
+      213: 6647278012697562838
+    second: youdied_5
+  - first:
+      213: -4274491467728467757
+    second: youdied_6
+  - first:
+      213: 2597360588477114140
+    second: youdied_7
+  - first:
+      213: -6877449977697079720
+    second: youdied_8
+  - first:
+      213: -6954535616466364785
+    second: youdied_9
+  - first:
+      213: -6849858051122200151
+    second: youdied_10
+  - first:
+      213: -6044253491125171372
+    second: youdied_11
+  - first:
+      213: 7787730797998816776
+    second: youdied_12
+  - first:
+      213: 3445221558987660711
+    second: youdied_13
+  - first:
+      213: -7064627219324516008
+    second: youdied_14
+  - first:
+      213: 7215634532015275629
+    second: youdied_15
+  - first:
+      213: -5762552662064580789
+    second: youdied_16
+  - first:
+      213: -4101749591339478662
+    second: youdied_17
+  - first:
+      213: 6423633817045212909
+    second: youdied_18
+  - first:
+      213: 1548503976638629718
+    second: youdied_19
+  - first:
+      213: 7309794412012572551
+    second: youdied_20
+  - first:
+      213: 4656826256532661619
+    second: youdied_21
+  - first:
+      213: 7067843676418552706
+    second: youdied_22
+  - first:
+      213: -8116501268147242410
+    second: youdied_23
+  - first:
+      213: 507832551432576824
+    second: youdied_24
+  - first:
+      213: -5282666270431826258
+    second: youdied_25
+  - first:
+      213: 1208532584012589541
+    second: youdied_26
+  - first:
+      213: 845236059378041928
+    second: youdied_27
+  - first:
+      213: 1390489099854078557
+    second: youdied_28
+  - first:
+      213: 2807904609049392739
+    second: youdied_29
+  - first:
+      213: 1974095895079306650
+    second: youdied_30
+  - first:
+      213: -4259422899154944269
+    second: youdied_31
+  - first:
+      213: 1714552591988112861
+    second: youdied_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: youdied_0
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 315
+        width: 371
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7957c9641be1f1ed0800000000000000
+      internalID: -2441198726268815977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: youdied_7
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 224
+        width: 398
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1727cd91bdab0420800000000000000
+      internalID: 2597360588477114140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: youdied_29
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 122
+        width: 146
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36632917d5ea7f620800000000000000
+      internalID: 2807904609049392739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: youdied_30
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 122
+        width: 146
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9542c2e1c5656b10800000000000000
+      internalID: 1974095895079306650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: youdied_31
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 47
+        width: 146
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe74bbc07d73e4c0800000000000000
+      internalID: -4259422899154944269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: youdied_32
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 47
+        width: 146
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddd3d229f705bc710800000000000000
+      internalID: 1714552591988112861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 320dd3996f18cab499c485815aa638d4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      youdied_0: -2441198726268815977
+      youdied_1: 6562300023919646584
+      youdied_10: -6849858051122200151
+      youdied_11: -6044253491125171372
+      youdied_12: 7787730797998816776
+      youdied_13: 3445221558987660711
+      youdied_14: -7064627219324516008
+      youdied_15: 7215634532015275629
+      youdied_16: -5762552662064580789
+      youdied_17: -4101749591339478662
+      youdied_18: 6423633817045212909
+      youdied_19: 1548503976638629718
+      youdied_2: -458455911868889866
+      youdied_20: 7309794412012572551
+      youdied_21: 4656826256532661619
+      youdied_22: 7067843676418552706
+      youdied_23: -8116501268147242410
+      youdied_24: 507832551432576824
+      youdied_25: -5282666270431826258
+      youdied_26: 1208532584012589541
+      youdied_27: 845236059378041928
+      youdied_28: 1390489099854078557
+      youdied_29: 2807904609049392739
+      youdied_3: 9112716796988877210
+      youdied_30: 1974095895079306650
+      youdied_31: -4259422899154944269
+      youdied_32: 1714552591988112861
+      youdied_4: 3266133914457753861
+      youdied_5: 6647278012697562838
+      youdied_6: -4274491467728467757
+      youdied_7: 2597360588477114140
+      youdied_8: -6877449977697079720
+      youdied_9: -6954535616466364785
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

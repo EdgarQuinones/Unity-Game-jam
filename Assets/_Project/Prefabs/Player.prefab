@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4736825376495471446}
   - component: {fileID: 3581616840509590024}
   - component: {fileID: 891247310563274901}
+  - component: {fileID: 6244913381054301201}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -88,7 +89,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: -7616644084646144780, guid: 7179ffc8a12de044b9e9b995e03476ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -362,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   attackRange: 1
   attackRadius: 0.5
-  attackDamage: 1000
+  attackDamage: 10
   lightCD: 1.5
   enemyLayer:
     serializedVersion: 2
@@ -384,3 +385,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e014c9010ed5d4d9872982dc469578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6244913381054301201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454540713182136237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624b4b3f81e04c21a6196a63b685e10d, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisuals
+  playerRenderer: {fileID: 6159870270385993138}
+  artworkFacesRight: 1
+  idleSprite: {fileID: -7616644084646144780, guid: 7179ffc8a12de044b9e9b995e03476ac, type: 3}
+  attackFrames:
+  - {fileID: -7616644084646144780, guid: 7179ffc8a12de044b9e9b995e03476ac, type: 3}
+  - {fileID: 8867857140148391091, guid: 7179ffc8a12de044b9e9b995e03476ac, type: 3}
+  hurtFrames:
+  - {fileID: 1391808720913668677, guid: a64bca9ae7becb148942367153f45ab0, type: 3}
+  - {fileID: 7772970929070703474, guid: a64bca9ae7becb148942367153f45ab0, type: 3}
+  stunFrames:
+  - {fileID: -2882484658260449194, guid: 17c5db4ea28b6a148ad2682995590af0, type: 3}
+  - {fileID: -8209143235227426759, guid: 17c5db4ea28b6a148ad2682995590af0, type: 3}
+  attackFramesPerSecond: 8
+  hurtFramesPerSecond: 10
+  stunFramesPerSecond: 6

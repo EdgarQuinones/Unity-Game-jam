@@ -26,6 +26,11 @@ public class LuckyReel : MonoBehaviour
 
     public int Total => Reel1 + Reel2 + Reel3;
 
+    public float ManualSpinSecondsRemaining => Mathf.Max(0f,
+        Mathf.Max(nextManualSpinTime, lastSpinTime + minimumSpinGap) - Time.time);
+    public float AutomaticSpinSecondsRemaining => Mathf.Max(0f,
+        Mathf.Max(nextAutoSpinTime, lastSpinTime + minimumSpinGap) - Time.time);
+
     private float nextManualSpinTime;
     private float nextAutoSpinTime;
     private float lastSpinTime = float.NegativeInfinity;
@@ -140,7 +145,10 @@ public class LuckyReel : MonoBehaviour
         }
 
         LuckOutcome outcome = GetOutcome();
+        GameManager.GamePhase spinPhase = gameManager.CurrentPhase;
+        gameManager.BeginReelReport();
         RouteOutcome(outcome);
+        gameManager.LogAction($"REEL {Reel1} · {Reel2} · {Reel3} — {outcome} ({spinPhase})\n{gameManager.ReelEffect}");
     }
 
     private int RollNumber(float bias)

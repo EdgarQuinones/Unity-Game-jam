@@ -32,6 +32,10 @@ public class PlayerCombat : MonoBehaviour
     public float AttackCooldownProgress => CooldownProgress(nextAttackTime, lightCD);
     public float StunCooldownProgress => CooldownProgress(nextStunTime, stunCooldown);
 
+    // Presentation hooks fire only after an action passes its existing gameplay checks.
+    public event System.Action AttackPerformed;
+    public event System.Action StunPerformed;
+
     private static float CooldownProgress(float readyTime, float duration)
     {
         if (duration <= 0f)
@@ -57,6 +61,7 @@ public class PlayerCombat : MonoBehaviour
         nextAttackTime = Time.time + lightCD;
 
         Attack();
+        AttackPerformed?.Invoke();
     }
 
     private void Attack()
@@ -117,6 +122,7 @@ public class PlayerCombat : MonoBehaviour
         nextStunTime = Time.time + stunCooldown;
 
         StunNearbyEnemies();
+        StunPerformed?.Invoke();
     }
 
     // SEALING

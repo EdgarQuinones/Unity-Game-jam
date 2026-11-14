@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,6 +26,10 @@ public class GameManager : MonoBehaviour
     [Header("Boss Phase")]
     [SerializeField] private EnemyAI boss;
 
+    [Header("Ending Panels")]
+    [SerializeField] private GameObject victoryPanel;
+    [SerializeField] private GameObject defeatPanel;
+
     [SerializeField] private int totalPuzzles;
     private int completedPuzzles = 0;
     private readonly List<CleaningPuzzle> cleaningPuzzles = new List<CleaningPuzzle>();
@@ -36,8 +39,38 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeRemaining;
     private GamePhase currentPhase;
     public GamePhase CurrentPhase => currentPhase;
+    public float CleaningTimeRemaining => Mathf.Max(0f, timeRemaining);
+    public int CompletedCleaningPuzzles => completedPuzzles;
+    public int TotalCleaningPuzzles => totalPuzzles;
+    public Health BossHealth => boss != null ? boss.GetComponent<Health>() : null;
 
     private RunManager runManager;
+    private bool leaving;
+    private GameActionLog actionLog;
+    internal string ReelEffect { get; private set; }
+
+    internal void BeginReelReport()
+    {
+        ReelEffect = "No effect applied (required target or component unavailable).";
+    }
+
+    public void LogAction(string message)
+    {
+        if (actionLog != null)
+            actionLog.Record(message);
+    }
+
+    private void Awake()
+    {
+        actionLog = GetComponent<GameActionLog>();
+        if (actionLog == null)
+            actionLog = gameObject.AddComponent<GameActionLog>();
+
+        if (victoryPanel != null)
+            victoryPanel.SetActive(false);
+        if (defeatPanel != null)
+            defeatPanel.SetActive(false);
+    }
 
     private void Start()
     {
@@ -116,6 +149,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError($"Cleaning requires {totalPuzzles} puzzles but only {availablePuzzles.Count} unique puzzles are assigned; completion is not possible before timeout.", this);
 
         Debug.Log($"Cleaning Phase Started! Required puzzles: {totalPuzzles}; time: {timeRemaining} seconds.");
+        LogAction($"CLEANING — {totalPuzzles} puzzle(s), {timeRemaining:0}s.\nStep on plates; E cleans talismans / lights lanterns.");
     }
 
     public void EndCleaningPhase()
@@ -132,6 +166,7 @@ public class GameManager : MonoBehaviour
                 if (catHappiness != null)
                 {
                     catHappiness.ModifyHappiness(-10 * unfinishedPuzzles);
+                    LogAction($"CLEANING TIME UP — {unfinishedPuzzles} puzzle(s) unfinished.\nHappiness penalty: {-10 * unfinishedPuzzles} (minimum 0).");
                     Debug.Log($"Cleaning timed out with {unfinishedPuzzles} unfinished puzzles; Happiness penalty: {-10 * unfinishedPuzzles}.");
                 }
                 else
@@ -201,6 +236,7 @@ public class GameManager : MonoBehaviour
             Debug.Log($"Encounter enemy activated: {enemy.name}.", enemy);
             enemy.gameObject.SetActive(true);
         }
+        LogAction($"ENCOUNTER — {selectedEncounterEnemies.Count} spirits.\nAttack, or lure into waterfalls and press E to seal.");
     }
 
     public void BoostBossAttackSpeed()
@@ -216,7 +252,10 @@ public class GameManager : MonoBehaviour
 
         DragonAttackCoordinator coordinator = boss.GetComponent<DragonAttackCoordinator>();
         if (coordinator != null)
+        {
             coordinator.ApplyAttackSpeedBoost(1.5f, 12f);
+            ReelEffect = "Dragon attacks 1.5x faster for 12s; new warnings shorter.";
+        }
         else
             Debug.LogWarning("Cannot boost boss attack speed: DragonAttackCoordinator is missing.", boss);
     }
@@ -240,7 +279,9 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log("Good Boss fortune deals 20 damage to the boss.", boss);
+        float healthBefore = bossHealth.CurrentHealth;
         bossHealth.TakeDamage(20f);
+        ReelEffect = $"Offensive: Tianlong took {healthBefore - bossHealth.CurrentHealth:0.##} damage.";
     }
 
     public void StunBossFromReel()
@@ -254,7 +295,11 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        bool preservePillarStun = boss.IsEnvironmentallyStunned;
         boss.Stun(3f, EnemyAI.StunType.Player);
+        ReelEffect = preservePillarStun
+            ? "Peaceful: existing pillar stun preserved."
+            : "Peaceful: Tianlong stunned for at least 3s (not a seal stun).";
         Debug.Log("Good Boss fortune applied a regular stun; an existing environmental stun is preserved.", boss);
     }
 
@@ -271,6 +316,10 @@ public class GameManager : MonoBehaviour
 
         float healthBefore = playerHealth.CurrentHealth;
         playerHealth.Heal(20f);
+        float healed = playerHealth.CurrentHealth - healthBefore;
+        ReelEffect = healed > 0f
+            ? $"Healed {healed:0.##} HP ({playerHealth.CurrentHealth:0.##}/{playerHealth.MaxHealth:0.##})."
+            : "Healed 0 HP (already full or unable to heal).";
         Debug.Log($"{currentPhase} reel healed player by {playerHealth.CurrentHealth - healthBefore:0.##}; health: {playerHealth.CurrentHealth:0.##}/{playerHealth.MaxHealth:0.##}.", playerHealth);
     }
 
@@ -279,6 +328,7 @@ public class GameManager : MonoBehaviour
         if (currentPhase != GamePhase.Encounter)
             return;
 
+        int boostedCount = 0;
         foreach (EnemyAI enemy in selectedEncounterEnemies)
         {
             if (enemy == null || !enemy.gameObject.activeInHierarchy || resolvedEnemySet.Contains(enemy))
@@ -286,10 +336,16 @@ public class GameManager : MonoBehaviour
 
             EnemyMovement movement = enemy.GetComponent<EnemyMovement>();
             if (movement != null)
+            {
                 movement.ApplySpeedBoost(1.5f, 8f);
+                boostedCount++;
+            }
             else
                 Debug.LogWarning($"{enemy.name} cannot receive the speed boost: EnemyMovement is missing.", enemy);
         }
+        ReelEffect = boostedCount > 0
+            ? $"{boostedCount} spirit(s) move 1.5x faster for 8s (refreshed)."
+            : "No active spirits could receive a speed boost.";
     }
 
     public void ApplyGoodEncounterFortune(int karmaDebt)
@@ -322,15 +378,19 @@ public class GameManager : MonoBehaviour
             if (eligibleEnemies.Count == 0)
             {
                 Debug.LogWarning("Good Encounter fortune found no active enemies to stun.", this);
+                ReelEffect = "Peaceful: no active spirits to stun.";
                 return;
             }
 
             EnemyAI target = eligibleEnemies[Random.Range(0, eligibleEnemies.Count)];
             target.Stun(8f, EnemyAI.StunType.Environmental);
+            ReelEffect = "Peaceful: spirit stunned 8s+; face it, E to seal.";
             Debug.Log($"Good Encounter fortune environmentally stuns {target.name} for at least 8 seconds.", target);
             return;
         }
 
+        int damagedCount = 0;
+        float totalDamage = 0f;
         foreach (EnemyAI enemy in selectedEncounterEnemies)
         {
             if (enemy == null || !enemy.gameObject.activeInHierarchy || resolvedEnemySet.Contains(enemy))
@@ -344,8 +404,16 @@ public class GameManager : MonoBehaviour
             }
 
             Debug.Log($"Good Encounter fortune deals 20 damage to {enemy.name}.", enemy);
+            float healthBefore = enemyHealth.CurrentHealth;
             enemyHealth.TakeDamage(20f);
+            float damage = healthBefore - enemyHealth.CurrentHealth;
+            if (damage > 0f)
+            {
+                damagedCount++;
+                totalDamage += damage;
+            }
         }
+        ReelEffect = $"Offensive: {totalDamage:0.##} total damage to {damagedCount} spirit(s).";
     }
 
     public void EnemyResolved(EnemyAI enemy)
@@ -359,6 +427,7 @@ public class GameManager : MonoBehaviour
         resolvedEnemies++;
 
         Debug.Log($"Enemies resolved: {resolvedEnemies}/{selectedEncounterEnemies.Count}");
+        LogAction($"SPIRIT RESOLVED — {resolvedEnemies} / {selectedEncounterEnemies.Count}");
 
         if (resolvedEnemies >= selectedEncounterEnemies.Count)
         {
@@ -378,6 +447,7 @@ public class GameManager : MonoBehaviour
 
         if (boss != null)
             boss.gameObject.SetActive(true);
+        LogAction("BOSS — Tianlong awakened.\nBait a charge into a pillar; weaken it before sealing.");
     }
 
     public void AdjustCleaningTime(float seconds)
@@ -385,7 +455,9 @@ public class GameManager : MonoBehaviour
         if (currentPhase != GamePhase.Cleaning)
             return;
 
+        float timeBefore = timeRemaining;
         timeRemaining = Mathf.Max(0f, timeRemaining + seconds);
+        ReelEffect = $"Cleaning time {timeRemaining - timeBefore:+0.##;-0.##;0}s ({timeRemaining:0.##}s left).";
         //Debug.Log($"Cleaning time adjusted by {seconds:+0.##;-0.##;0} seconds; remaining: {timeRemaining:F1} seconds.");
 
         if (timeRemaining <= 0f)
@@ -410,12 +482,17 @@ public class GameManager : MonoBehaviour
         if (unfinished.Count == 0)
         {
             Debug.LogWarning("Lucky Reel could not complete a puzzle: no unfinished selected puzzles remain.", this);
+            ReelEffect = "No unfinished puzzle available to complete.";
             return;
         }
 
         CleaningPuzzle selected = unfinished[Random.Range(0, unfinished.Count)];
         Debug.Log($"Lucky Reel selected {selected.name} for automatic completion.", selected);
+        int completedBefore = completedPuzzles;
         selected.CompleteFromLuckyReel();
+        ReelEffect = completedPuzzles > completedBefore
+            ? "One cleaning puzzle completed automatically."
+            : "Selected puzzle did not report a new completion.";
     }
 
     public void PuzzleCompleted(CleaningPuzzle puzzle)
@@ -430,6 +507,7 @@ public class GameManager : MonoBehaviour
         }
 
         completedPuzzles++;
+        LogAction($"PUZZLE COMPLETE — {completedPuzzles} / {totalPuzzles}");
 
         //Debug.Log($"Completed: {completedPuzzles}/{totalPuzzles}");
 
@@ -445,11 +523,12 @@ public class GameManager : MonoBehaviour
             return;
 
         currentPhase = GamePhase.Complete;
+        LogAction("VICTORY — Tianlong resolved. Temple cleansed!");
 
         //Debug.Log("Boss Defeated!");
         //Debug.Log("Level Complete!");
 
-        StartCoroutine(LoadEndingScene(GameOverFlow.RunResult.Victory));
+        ShowEndingPanel(victoryPanel);
     }
 
     public void GameOver()
@@ -459,17 +538,49 @@ public class GameManager : MonoBehaviour
             return;
 
         currentPhase = GamePhase.GameOver;
+        LogAction("DEFEAT — the run has ended. Try a new Fortune.");
 
         //Debug.Log("GAME OVER!");
-        StartCoroutine(LoadEndingScene(GameOverFlow.RunResult.Defeat));
+        ShowEndingPanel(defeatPanel);
     }
 
-    private IEnumerator LoadEndingScene(GameOverFlow.RunResult result)
+    private void ShowEndingPanel(GameObject panel)
     {
-        GameOverFlow.SetResult(result);
-        // Let death and sealing callbacks finish before unloading the scene.
-        yield return null;
-        SceneManager.LoadScene("GameOver");
+        PauseManager pauseManager = FindFirstObjectByType<PauseManager>();
+        if (pauseManager != null)
+            pauseManager.EndRun();
+
+        Time.timeScale = 0f;
+
+        if (panel == null)
+        {
+            Debug.LogError("Assign both Victory and Defeat panels to GameManager.", this);
+            return;
+        }
+
+        panel.SetActive(true);
+        panel.transform.SetAsLastSibling();
+    }
+
+    public void PlayAgain()
+    {
+        LeaveRun("OutsideTemple");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        LeaveRun("MainMenu");
+    }
+
+    private void LeaveRun(string sceneName)
+    {
+        if (leaving)
+            return;
+
+        leaving = true;
+        Time.timeScale = 1f;
+        RunManager.ClearPendingFortune();
+        SceneManager.LoadScene(sceneName);
     }
 
 }

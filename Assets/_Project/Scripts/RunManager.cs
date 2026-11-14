@@ -54,17 +54,29 @@ public class RunManager : MonoBehaviour
         EncounterRoll = encounter;
         BossRoll = boss;
 
-        PuzzleCount = CleaningRoll <= 3 ? 3 :
-                      CleaningRoll <= 6 ? 2 : 1;
+        PuzzleCount = PuzzleCountForRoll(CleaningRoll);
 
-        EnemyCount = EncounterRoll <= 3 ? 4 :
-                     EncounterRoll <= 6 ? 3 : 2;
+        EnemyCount = EnemyCountForRoll(EncounterRoll);
 
-        BossSpeedMultiplier = BossRoll <= 3 ? 1.25f :
-                              BossRoll <= 6 ? 1f : 0.75f;
+        BossSpeedMultiplier = BossSpeedMultiplierForRoll(BossRoll);
 
         Debug.Log($"Cleaning: {CleaningRoll} -> {PuzzleCount} puzzles");
         Debug.Log($"Encounter: {EncounterRoll} -> {EnemyCount} enemies");
         Debug.Log($"Boss: {BossRoll} -> {BossSpeedMultiplier}x attack speed");
+    }
+
+    public static int PuzzleCountForRoll(int roll)
+    {
+        return roll <= 3 ? 3 : roll <= 6 ? 2 : 1;
+    }
+
+    public static int EnemyCountForRoll(int roll)
+    {
+        return roll <= 3 ? 6 : roll <= 6 ? 4 : 2;
+    }
+
+    public static float BossSpeedMultiplierForRoll(int roll)
+    {
+        return roll <= 3 ? 1.25f : roll <= 6 ? 1f : 0.75f;
     }
 }

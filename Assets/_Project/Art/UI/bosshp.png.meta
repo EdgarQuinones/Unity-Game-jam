@@ -859,6 +859,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: bosshp_30
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 6
+        width: 177
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04c31bbd899ed2246bd6d58093d44ced
+      internalID: 1350105295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -899,6 +921,7 @@ TextureImporter:
       bosshp_28: 5096776625673683715
       bosshp_29: 4553040276438591083
       bosshp_3: -905039974309277329
+      bosshp_30: 1350105295
       bosshp_4: 4356259229856152802
       bosshp_5: 5247063370958563594
       bosshp_6: -2840011971561546923

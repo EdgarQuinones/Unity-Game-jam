@@ -6,6 +6,9 @@ public class DragonCharge : MonoBehaviour
     private enum ChargeState { Waiting, Warning, Charging, Recovery }
     public bool IsAttacking => state != ChargeState.Waiting;
     public bool IsRestoringPlayerCollision => playerCollisionIgnored;
+    public bool IsPreparingOrCharging => isActiveAndEnabled &&
+        (state == ChargeState.Warning || state == ChargeState.Charging);
+    public Vector2 AttackDirection => chargeDirection;
 
     [Header("Charge Timing")]
     [SerializeField] private float timeBetweenCharges = 4f;

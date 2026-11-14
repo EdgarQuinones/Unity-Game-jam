@@ -36,11 +36,12 @@ public class EnemyAI : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float bossSealHealthThreshold = 0.25f;
     private Health health;
     public bool IsBoss => isBoss;
-    private bool IsEnvironmentallyStunned =>
+    internal bool HasActiveStun =>
         !isSealed &&
         currentState == EnemyState.Stunned &&
-        CurrentStunType == StunType.Environmental &&
         Time.time < stunEndTime;
+    internal bool IsEnvironmentallyStunned =>
+        HasActiveStun && CurrentStunType == StunType.Environmental;
     public bool CanBeSealed => IsEnvironmentallyStunned &&
         (!isBoss || (health != null && health.CurrentHealth > 0f &&
                      health.CurrentHealth <= health.MaxHealth * bossSealHealthThreshold));

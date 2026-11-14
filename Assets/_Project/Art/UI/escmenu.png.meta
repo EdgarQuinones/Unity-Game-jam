@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -105,7 +105,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,12 +146,12 @@ TextureImporter:
       name: escmenu_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 214
-        width: 462
-        height: 273
+        x: 20
+        y: 215
+        width: 460
+        height: 271
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -168,12 +168,12 @@ TextureImporter:
       name: escmenu_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 179
-        width: 18
-        height: 18
+        x: 64
+        y: 180
+        width: 16
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -190,12 +190,12 @@ TextureImporter:
       name: escmenu_2
       rect:
         serializedVersion: 2
-        x: 94
-        y: 180
-        width: 166
-        height: 18
+        x: 95
+        y: 181
+        width: 164
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -212,12 +212,12 @@ TextureImporter:
       name: escmenu_3
       rect:
         serializedVersion: 2
-        x: 285
-        y: 180
-        width: 164
-        height: 18
+        x: 286
+        y: 181
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -234,12 +234,12 @@ TextureImporter:
       name: escmenu_4
       rect:
         serializedVersion: 2
-        x: 94
-        y: 148
-        width: 164
-        height: 18
+        x: 95
+        y: 149
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -256,12 +256,12 @@ TextureImporter:
       name: escmenu_5
       rect:
         serializedVersion: 2
-        x: 285
-        y: 148
-        width: 164
-        height: 18
+        x: 286
+        y: 149
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -278,12 +278,12 @@ TextureImporter:
       name: escmenu_6
       rect:
         serializedVersion: 2
-        x: 93
-        y: 116
-        width: 164
-        height: 18
+        x: 94
+        y: 117
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -300,12 +300,12 @@ TextureImporter:
       name: escmenu_7
       rect:
         serializedVersion: 2
-        x: 285
-        y: 116
-        width: 164
-        height: 18
+        x: 286
+        y: 117
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -322,12 +322,12 @@ TextureImporter:
       name: escmenu_8
       rect:
         serializedVersion: 2
-        x: 93
-        y: 84
-        width: 164
-        height: 18
+        x: 94
+        y: 85
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -344,12 +344,12 @@ TextureImporter:
       name: escmenu_9
       rect:
         serializedVersion: 2
-        x: 285
-        y: 84
-        width: 164
-        height: 18
+        x: 286
+        y: 85
+        width: 162
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -366,12 +366,12 @@ TextureImporter:
       name: escmenu_10
       rect:
         serializedVersion: 2
-        x: 282
-        y: 52
-        width: 167
-        height: 18
+        x: 283
+        y: 53
+        width: 165
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -384,11 +384,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: escmenu_11
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 38
+        width: 162
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c15fb4cb52919d46a574e2c5f1a3ba0
+      internalID: 1637665709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 96d6dfce0f4c31d4e8df72fa4d5a8910
     internalID: 0
     vertices: []
     indices: 
@@ -396,11 +418,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       escmenu_0: 3287953928545913489
       escmenu_1: -877356653649752842
       escmenu_10: 7138906182473845245
+      escmenu_11: 1637665709
       escmenu_2: 3626979959010494828
       escmenu_3: -2851821248087912490
       escmenu_4: -5022868725434644695

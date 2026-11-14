@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 3f79bc71cc49052488d12fcc7130cf05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8493728988297449246
+    second: skillandhealthpng_0
+  - first:
+      213: 5676868510520718059
+    second: skillandhealthpng_1
+  - first:
+      213: -8956453332610610468
+    second: skillandhealthpng_2
+  - first:
+      213: -579212328658850900
+    second: skillandhealthpng_3
+  - first:
+      213: -6340431031829985918
+    second: skillandhealthpng_4
+  - first:
+      213: 7840868729400225626
+    second: skillandhealthpng_5
+  - first:
+      213: -262043892376161103
+    second: skillandhealthpng_6
+  - first:
+      213: -9015416438720315472
+    second: skillandhealthpng_7
+  - first:
+      213: -1219986471071691151
+    second: skillandhealthpng_8
+  - first:
+      213: 4324044185366786018
+    second: skillandhealthpng_9
+  - first:
+      213: 4758362531648471338
+    second: skillandhealthpng_10
+  - first:
+      213: -4454831210693256304
+    second: skillandhealthpng_11
+  - first:
+      213: 6121534523046548746
+    second: skillandhealthpng_12
+  - first:
+      213: -7637782184554393014
+    second: skillandhealthpng_13
+  - first:
+      213: -775716864645644667
+    second: skillandhealthpng_14
+  - first:
+      213: -1074185146636548488
+    second: skillandhealthpng_15
+  - first:
+      213: 4744756781113553462
+    second: skillandhealthpng_16
+  - first:
+      213: -5778240553399287981
+    second: skillandhealthpng_17
+  - first:
+      213: 7138116090138455718
+    second: skillandhealthpng_18
+  - first:
+      213: 2126891644191852712
+    second: skillandhealthpng_19
+  - first:
+      213: -6957343224186404800
+    second: skillandhealthpng_20
+  - first:
+      213: 5539031509750545453
+    second: skillandhealthpng_21
+  - first:
+      213: -5020246527280502551
+    second: skillandhealthpng_22
+  - first:
+      213: 859580552185095097
+    second: skillandhealthpng_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: skillandhealthpng_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 351
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0b712ac76302a80800000000000000
+      internalID: -8493728988297449246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_1
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 361
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2303e35d948ce40800000000000000
+      internalID: 5676868510520718059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_2
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 361
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda8166b52944b380800000000000000
+      internalID: -8956453332610610468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_3
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 346
+        width: 57
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cab23c4b47936f7f0800000000000000
+      internalID: -579212328658850900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 303
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28509e0d1934208a0800000000000000
+      internalID: -6340431031829985918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_5
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 329
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f6e52119c50dc60800000000000000
+      internalID: 7840868729400225626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 320
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4bb5fd7780d5cf0800000000000000
+      internalID: -262043892376161103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_7
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 320
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfbbd3c38ec2e280800000000000000
+      internalID: -9015416438720315472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_8
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 320
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17e4df0b4ccb11fe0800000000000000
+      internalID: -1219986471071691151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_9
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 320
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef61edd647120c30800000000000000
+      internalID: 4324044185366786018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_10
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 313
+        width: 36
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a218f6bf289190240800000000000000
+      internalID: 4758362531648471338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_11
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 304
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b1e48dd924d22c0800000000000000
+      internalID: -4454831210693256304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_12
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 304
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05da76273f04f450800000000000000
+      internalID: 6121534523046548746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_13
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 304
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4214d1e195210690800000000000000
+      internalID: -7637782184554393014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_14
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 304
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58e348c1f991c35f0800000000000000
+      internalID: -775716864645644667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_15
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 297
+        width: 36
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8764ab7ec4ab711f0800000000000000
+      internalID: -1074185146636548488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 288
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63236e35723c8d140800000000000000
+      internalID: 4744756781113553462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_17
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 288
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ff0e3c4d09fcfa0800000000000000
+      internalID: -5778240553399287981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 256
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6aee33eb3ceaf0360800000000000000
+      internalID: 7138116090138455718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_19
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 207
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a84dcf7eac348d10800000000000000
+      internalID: 2126891644191852712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_20
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 159
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04006edf23d827f90800000000000000
+      internalID: -6957343224186404800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_21
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 111
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2c7062afc79edc40800000000000000
+      internalID: 5539031509750545453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_22
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 63
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8ae80c160845ab0800000000000000
+      internalID: -5020246527280502551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skillandhealthpng_23
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 163
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3a3dc35f7ddeb00800000000000000
+      internalID: 859580552185095097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      skillandhealthpng_0: -8493728988297449246
+      skillandhealthpng_1: 5676868510520718059
+      skillandhealthpng_10: 4758362531648471338
+      skillandhealthpng_11: -4454831210693256304
+      skillandhealthpng_12: 6121534523046548746
+      skillandhealthpng_13: -7637782184554393014
+      skillandhealthpng_14: -775716864645644667
+      skillandhealthpng_15: -1074185146636548488
+      skillandhealthpng_16: 4744756781113553462
+      skillandhealthpng_17: -5778240553399287981
+      skillandhealthpng_18: 7138116090138455718
+      skillandhealthpng_19: 2126891644191852712
+      skillandhealthpng_2: -8956453332610610468
+      skillandhealthpng_20: -6957343224186404800
+      skillandhealthpng_21: 5539031509750545453
+      skillandhealthpng_22: -5020246527280502551
+      skillandhealthpng_23: 859580552185095097
+      skillandhealthpng_3: -579212328658850900
+      skillandhealthpng_4: -6340431031829985918
+      skillandhealthpng_5: 7840868729400225626
+      skillandhealthpng_6: -262043892376161103
+      skillandhealthpng_7: -9015416438720315472
+      skillandhealthpng_8: -1219986471071691151
+      skillandhealthpng_9: 4324044185366786018
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

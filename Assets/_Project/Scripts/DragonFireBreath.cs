@@ -5,6 +5,9 @@ public class DragonFireBreath : MonoBehaviour
 {
     private enum BreathState { Waiting, Warning, Burst, Recovery }
     public bool IsAttacking => state != BreathState.Waiting;
+    public bool IsPreparingOrBreathing => isActiveAndEnabled &&
+        (state == BreathState.Warning || state == BreathState.Burst);
+    public Vector2 AttackDirection => lockedDirection;
 
     [Header("Timing")]
     [SerializeField] private float timeBetweenBreaths = 4f;
@@ -23,6 +26,10 @@ public class DragonFireBreath : MonoBehaviour
     [SerializeField] private Color fireColor = new Color(1f, 0.25f, 0f, 0.8f);
     [SerializeField] private string sortingLayer = "Default";
     [SerializeField] private int sortingOrder = 5;
+
+    [Header("Fire Texture (optional)")]
+    [SerializeField] private Texture2D fireTexture;
+    [SerializeField] private Color fireTextureTint = Color.white;
 
     private EnemyAI ai;
     private Rigidbody2D body;
@@ -47,6 +54,7 @@ public class DragonFireBreath : MonoBehaviour
     private bool controlsTaken;
     private bool movementWasEnabled;
     private bool combatWasEnabled;
+    private bool supportsFireTexture;
 
     private void Awake()
     {
@@ -72,6 +80,13 @@ public class DragonFireBreath : MonoBehaviour
         {
             runtimeMaterial = new Material(coneMaterial);
             coneRenderer.material = runtimeMaterial;
+            supportsFireTexture = fireTexture != null && runtimeMaterial.HasProperty("_UseTexture") &&
+                runtimeMaterial.HasProperty("_MainTex");
+            if (supportsFireTexture)
+            {
+                runtimeMaterial.SetTexture("_MainTex", fireTexture);
+                runtimeMaterial.SetFloat("_UseTexture", 0f);
+            }
         }
     }
 
@@ -144,6 +159,8 @@ public class DragonFireBreath : MonoBehaviour
         body.linearVelocity = Vector2.zero;
 
         BuildCone();
+        if (supportsFireTexture)
+            runtimeMaterial.SetFloat("_UseTexture", 0f);
         runtimeMaterial.color = warningColor;
         coneRenderer.enabled = true;
         state = BreathState.Warning;
@@ -155,6 +172,7 @@ public class DragonFireBreath : MonoBehaviour
     {
         const int segments = 40;
         Vector3[] vertices = new Vector3[segments + 2];
+        Vector2[] textureCoordinates = new Vector2[segments + 2];
         int[] triangles = new int[segments * 3];
         float directionAngle = Mathf.Atan2(lockedDirection.y, lockedDirection.x) * Mathf.Rad2Deg;
         for (int i = 0; i <= segments; i++)
@@ -162,6 +180,7 @@ public class DragonFireBreath : MonoBehaviour
             float radians = (directionAngle - lockedAngle * 0.5f + lockedAngle * i / segments) * Mathf.Deg2Rad;
             Vector3 worldPoint = (Vector3)lockedOrigin + new Vector3(Mathf.Cos(radians), Mathf.Sin(radians), 0f) * lockedRange;
             vertices[i + 1] = coneRenderer.transform.InverseTransformPoint(worldPoint);
+            textureCoordinates[i + 1] = new Vector2(1f, (float)i / segments);
             if (i < segments)
             {
                 triangles[i * 3] = 0;
@@ -170,15 +189,19 @@ public class DragonFireBreath : MonoBehaviour
             }
         }
         vertices[0] = coneRenderer.transform.InverseTransformPoint(lockedOrigin);
+        textureCoordinates[0] = new Vector2(0f, 0.5f);
         coneMesh.Clear();
         coneMesh.vertices = vertices;
+        coneMesh.uv = textureCoordinates;
         coneMesh.triangles = triangles;
         coneMesh.RecalculateBounds();
     }
 
     private void BeginBurst()
     {
-        runtimeMaterial.color = fireColor;
+        if (supportsFireTexture)
+            runtimeMaterial.SetFloat("_UseTexture", 1f);
+        runtimeMaterial.color = supportsFireTexture ? fireTextureTint : fireColor;
         Vector2 toPlayer = (Vector2)ai.Target.position - lockedOrigin;
         if (toPlayer.sqrMagnitude <= lockedRange * lockedRange &&
             (toPlayer.sqrMagnitude < 0.0001f || Vector2.Angle(lockedDirection, toPlayer) <= lockedAngle * 0.5f))

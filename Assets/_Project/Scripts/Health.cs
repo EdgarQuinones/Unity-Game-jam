@@ -14,15 +14,23 @@ public class Health : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private float flashDuration = 0.15f;
 
+    [Header("Regular Enemy Stun Feedback")]
+    [SerializeField] private Color stunnedColor = new Color(0.4f, 0.85f, 1f);
+    [SerializeField] private Color sealableColor = new Color(0.45f, 1f, 0.5f);
+
     private Color originalColor;
     private Color baseColor;
     private Coroutine flashCoroutine;
+    private EnemyAI enemyAI;
+    private bool speedBoosted;
 
     public event Action OnDeath;
+    public event Action OnDamaged;
 
     private void Awake()
     {
         CurrentHealth = maxHealth;
+        enemyAI = GetComponent<EnemyAI>();
 
         if (spriteRenderer == null)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -36,7 +44,27 @@ public class Health : MonoBehaviour
 
     public void SetSpeedBoostVisual(bool boosted)
     {
-        baseColor = boosted ? Color.yellow : originalColor;
+        speedBoosted = boosted;
+        RefreshBaseColor();
+    }
+
+    private void LateUpdate()
+    {
+        // Health owns sprite colors so stuns never compete with damage/healing flashes.
+        // The dragon keeps its dedicated animation and existing color behavior.
+        if (enemyAI != null && !enemyAI.IsBoss)
+            RefreshBaseColor();
+    }
+
+    private void RefreshBaseColor()
+    {
+        baseColor = speedBoosted ? Color.yellow : originalColor;
+        if (isActiveAndEnabled && enemyAI != null && !enemyAI.IsBoss && enemyAI.HasActiveStun)
+        {
+            baseColor = enemyAI.CanBeSealed ? sealableColor : stunnedColor;
+            baseColor.a = originalColor.a;
+        }
+
         if (spriteRenderer != null && flashCoroutine == null)
             spriteRenderer.color = baseColor;
     }
@@ -49,6 +77,7 @@ public class Health : MonoBehaviour
             flashCoroutine = null;
         }
 
+        speedBoosted = false;
         baseColor = originalColor;
         if (spriteRenderer != null)
             spriteRenderer.color = originalColor;
@@ -59,6 +88,7 @@ public class Health : MonoBehaviour
         if (CurrentHealth <= 0)
             return;
 
+        float previousHealth = CurrentHealth;
         CurrentHealth = Mathf.Max(0, CurrentHealth - damage);
 
         Debug.Log($"{gameObject.name} took {damage} damage! Health: {CurrentHealth}/{MaxHealth}");
@@ -80,6 +110,9 @@ public class Health : MonoBehaviour
             spriteRenderer.color = baseColor;
             flashCoroutine = StartCoroutine(FlashColor(Color.red));
         }
+
+        if (CurrentHealth < previousHealth)
+            OnDamaged?.Invoke();
 
         if (CurrentHealth <= 0)
         {

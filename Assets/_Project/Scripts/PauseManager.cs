@@ -7,6 +7,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     public static bool IsPaused { get; private set; }
     private bool leaving;
+    private bool runEnded;
     private float previousTimeScale = 1f;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -25,7 +26,7 @@ public class PauseManager : MonoBehaviour
 
     public void OnPause(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || runEnded)
             return;
 
         if (IsPaused)
@@ -36,7 +37,7 @@ public class PauseManager : MonoBehaviour
 
     private void Pause()
     {
-        if (leaving || pausePanel == null)
+        if (leaving || runEnded || pausePanel == null)
             return;
 
         previousTimeScale = Time.timeScale;
@@ -47,11 +48,20 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
-        if (!IsPaused)
+        if (!IsPaused || runEnded)
             return;
 
         IsPaused = false;
         Time.timeScale = previousTimeScale;
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
+    }
+
+    public void EndRun()
+    {
+        runEnded = true;
+        IsPaused = true;
+        Time.timeScale = 0f;
         if (pausePanel != null)
             pausePanel.SetActive(false);
     }
@@ -62,6 +72,7 @@ public class PauseManager : MonoBehaviour
             return;
 
         leaving = true;
+        runEnded = false;
         Resume();
         Time.timeScale = 1f;
         RunManager.ClearPendingFortune();
@@ -70,6 +81,7 @@ public class PauseManager : MonoBehaviour
 
     private void OnDisable()
     {
+        runEnded = false;
         Resume();
     }
 }

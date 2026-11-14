@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2375523176590792919}
   - component: {fileID: 1941253723826774161}
   - component: {fileID: 8700430563353678661}
-  - component: {fileID: 6082061043792744115}
+  - component: {fileID: 6023154407779997736}
   m_Layer: 7
   m_Name: Melee
   m_TagString: Enemy
@@ -226,8 +226,8 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!61 &6082061043792744115
-BoxCollider2D:
+--- !u!58 &6023154407779997736
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -261,14 +261,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.48}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.32, y: 0.48}
-  m_EdgeRadius: 0
+  m_Radius: 0.24

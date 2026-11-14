@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 8794751488409243449}
   - component: {fileID: 1960897511313865736}
   - component: {fileID: 2295662976685564505}
+  - component: {fileID: 8158624981002510472}
   m_Layer: 9
   m_Name: Boss
   m_TagString: Enemy
@@ -93,7 +94,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -2790793353048234215, guid: c01c00c613e7eb04abce647b0243aefa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -289,6 +290,8 @@ MonoBehaviour:
   fireColor: {r: 1, g: 0.25, b: 0, a: 0.8}
   sortingLayer: Ground
   sortingOrder: 5
+  fireTexture: {fileID: 2800000, guid: a9aec5af4b7064c4ab5008d7a26af530, type: 3}
+  fireTextureTint: {r: 1, g: 1, b: 1, a: 0.8}
 --- !u!114 &2295662976685564505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +304,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c77e33e04021141986c292ba1e8231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragonAttackCoordinator
+--- !u!114 &8158624981002510472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2181534650560328327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85eb5578318844979d322a403345c518, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::DragonVisuals
+  dragonRenderer: {fileID: 6019615368598070836}
+  artworkFacesRight: 1
+  idleFrames:
+  - {fileID: -2790793353048234215, guid: c01c00c613e7eb04abce647b0243aefa, type: 3}
+  - {fileID: -1702454768363149656, guid: c01c00c613e7eb04abce647b0243aefa, type: 3}
+  chargeFrames:
+  - {fileID: 5407828247911689162, guid: e40b1ad69f163ba41b1c21401b77ef26, type: 3}
+  - {fileID: 3848250423701093312, guid: e40b1ad69f163ba41b1c21401b77ef26, type: 3}
+  fireBreathFrames:
+  - {fileID: -6434326544627718957, guid: ed83febf28bf4474cbe39e808f723e90, type: 3}
+  - {fileID: 3034140517491845776, guid: ed83febf28bf4474cbe39e808f723e90, type: 3}
+  stunnedFrames:
+  - {fileID: -8603400995518002758, guid: 155d7d588a8a0e24090c2e3c82c14316, type: 3}
+  - {fileID: -6051568802927142438, guid: 155d7d588a8a0e24090c2e3c82c14316, type: 3}
+  - {fileID: 1556644700058028349, guid: 155d7d588a8a0e24090c2e3c82c14316, type: 3}
+  hurtFrames:
+  - {fileID: 3253159667675996032, guid: ed24aeb1de3acd7408b6432f50ad1a25, type: 3}
+  - {fileID: -7931339928244996792, guid: ed24aeb1de3acd7408b6432f50ad1a25, type: 3}
+  - {fileID: -7525320091081174169, guid: ed24aeb1de3acd7408b6432f50ad1a25, type: 3}
+  framesPerSecond: 6
+  hurtFramesPerSecond: 10
 --- !u!1 &5514140957005290113
 GameObject:
   m_ObjectHideFlags: 0
