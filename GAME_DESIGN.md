@@ -1,6 +1,6 @@
-# Help Lucky Cat — final game design
+# Perrfect Fortune — final game design
 
-Completed game reference, updated November 14, 2026. The project owner has confirmed development is complete. This document describes the finished jam scope; the completion record is in `C:\Users\warri\Documents\GitHub\Unity Game jam\TODO.md`. Inspector overrides determine saved runtime tuning. Completion status is not a claim that every edge case was independently tested during this documentation update.
+Completed game reference, updated November 14, 2026. Development is complete. This document describes the finished jam scope; the completion record is in [TODO.md](TODO.md). Inspector overrides determine saved runtime tuning. Completion status is not a claim that every edge case was independently tested during this documentation update.
 
 ## Vision and scope
 
@@ -52,7 +52,7 @@ Happiness and Karma Debt are clamped to 0–100. Happiness biases reel quality; 
 
 ## Presentation and session flow
 
-The completed scope includes art, animation, audio, UI and the full start-to-ending/replay flow, as confirmed by the project owner. Current presentation systems include:
+The completed scope includes art, animation, audio, UI and the full start-to-ending/replay flow. Current presentation systems include:
 
 - An ability bar for attack, stun and manual reel cooldown progress, plus Health and Karma fills. Reel progress includes the shared post-spin gap; stun fill represents combat stun, not all E interactions.
 - A separate Lucky Cat Happiness UI.
@@ -62,4 +62,4 @@ The completed scope includes art, animation, audio, UI and the full start-to-end
 - Settings panels with saved Master/Music/SFX levels; menu music applies saved mixer values at startup.
 - In-game pause and victory/defeat panels, with replay returning to a fresh Opening Fortune.
 
-The separate Settings and GameOver scene assets are retained source assets, not required scene transitions in the current build. A local WebGL export exists at `C:\Users\warri\Documents\GitHub\Unity Game jam\Builds\v1\`; its presence does not establish fresh browser-test coverage. No Unity play test or build execution was performed for this documentation update.
+The separate Settings and GameOver scene assets are retained source assets, not required scene transitions in the current build. A local WebGL export exists at `Builds/v1/` relative to the repository root; its presence does not establish fresh browser-test coverage. Build artifacts are ignored by Git and are not linked as repository files. No Unity play test or build execution was performed for this documentation update.
