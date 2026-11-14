@@ -1,72 +1,55 @@
-# Help Lucky Cat — development status and next steps
+# Help Lucky Cat — completion record
 
-Updated November 13, 2026. [x] means implemented or reported working in play tests as specifically described, not blanket regression coverage. [ ] identifies work or verification still needed. See GAME_DESIGN.md for rules. Verify Inspector overrides and scene wiring before changing behavior.
+**Status: Complete — November 14, 2026.** The project owner has confirmed the game is done. The jam development backlog is closed. This file retains its original name for existing references; it is no longer an active release TODO list.
 
-## Scope and schedule
+Checked items record completed scope, not exhaustive independent regression coverage. Earlier feature-freeze plans and presentation tasks are superseded by the owner's completion confirmation; they have not simply been relabeled as tests that passed.
 
-- [x] Gameplay feature freeze was planned for November 11. Cut or simplify optional unfinished features; focus on presentation and essential fixes.
-- [x] Implement menu, ending and replay navigation; Play Again returns to OutsideTemple for a new Fortune. Pause and the audio sliders were reported working. The complete release loop is reported tested.
-- [ ] Continue art, animation, music, sound, UI and integration; regression and exported-build testing remain. Previously noted jam deadline: Saturday November 14 at 7 AM; timezone not confirmed.
+## Completed scope
 
-## November 13 handoff
+- [x] Opening Fortune and the full Cleaning → Encounter → Boss run structure.
+- [x] Pressure-plate sequences, randomized talismans and timed randomized lanterns, including Lucky Reel puzzle completion support.
+- [x] Player movement, melee, context-sensitive E interactions, stun and sealing.
+- [x] Regular spirit combat, waterfall environmental stuns, Karma and Happiness systems.
+- [x] Dragon charge/fire breath behavior, pillar stuns and both kill/seal victory routes.
+- [x] Phase-specific Bad, Neutral and Good Lucky Reel outcomes, manual/automatic timing and Karma-guided Good combat effects.
+- [x] Ability cooldowns, Health/Karma fills, Lucky Cat Happiness UI, Cleaning time/progress, boss-health UI and runtime event/reel feedback.
+- [x] Main menu, temple introduction, visible Opening Fortune, settings/audio controls and pause.
+- [x] In-game victory/defeat panels, replay with a fresh Fortune and return-to-menu navigation.
+- [x] Art, animation, audio and presentation scope closed by owner confirmation.
+- [x] Documentation updated to describe the completed game rather than work in progress.
 
-- [x] Ability bar v1: independent ATK, STUN and ROLL cooldown fills and Health/Karma fills; user reported it working. Reel fill accounts for the shared spin gap. STUN shows combat stun cooldown, not every E action.
-- [x] Boss-phase E keeps sealing priority but does not trigger player stun or start its cooldown. Verify in play alongside boss sealing and regular Encounter stun.
-- [x] Pressure plate pressed/unpressed sprite references added. Intended unpressed sprite is `floor-wall-candle-plate_6`; pressed sprite is `floor-wall-candle-plate_31`.
-- [ ] Retest pressure-plate sprite changes, wrong-order reset and completion after fixing duplicate IDs. Editor log reported duplicate ID 1; each entry in the puzzle's Plates list must reference the intended plate with a unique ID. Fix was discussed, not independently verified.
-- [x] Lantern puzzle has shared lit/unlit sprite references; user reported it works. Timeout resets selected lantern visuals and Lucky Reel completion lights them in code; verify these specific paths if not yet tested.
-- [ ] Continue HUD/feedback: Cleaning and lantern countdowns, objectives, Fortune/reel results, puzzle clues and seal eligibility. Happiness UI is separate; Lucky Cat hovering on the player is optional, low-priority polish.
-- [ ] Preserve current uncommitted scene, prefab, art and script work; inspect Inspector values and scene overrides before making changes.
+## Final configuration reference
 
-## Completed gameplay milestone
+- Unity editor: **6000.3.9f1**.
+- Saved enabled scene order: **MainMenu → OutsideTemple → InsideTemple**.
+- Settings and endings use panels; separate Settings and GameOver scene assets are retained but not enabled in the current build scene list.
+- Opening Fortune selects **3 / 2 / 1 puzzles**, **6 / 4 / 2 enemies**, and **1.25× / 1× / 0.75× boss attack frequency** for roll bands 1–3 / 4–6 / 7–9.
+- A local WebGL export exists at `C:\Users\warri\Documents\GitHub\Unity Game jam\Builds\v1\`, with archive `C:\Users\warri\Documents\GitHub\Unity Game jam\Builds\v1.zip`. These build artifacts are ignored by Git; their presence is not a fresh browser-test result or a published release link.
 
-- [x] Opening Fortune generates puzzle/enemy counts and boss attack-frequency modifier. Cleaning selects distinct assigned instances, not types.
-- [x] Pressure-plate puzzle, shuffled talisman locations and timed shuffled lantern locations. Play tests confirmed talisman and lantern functionality, including randomized lantern selection. Lantern difficulty was accepted as good enough.
-- [x] E is the spiritual ability: selected talismans and lanterns in Cleaning, stun/seal in combat. Talisman interaction currently takes priority when both are nearby.
-- [x] Waterfall trigger environmentally stuns regular enemies on entry; per-enemy cooldown; excludes boss. Play testing confirmed it works.
-- [x] Encounter reel Bad speed, Neutral heal and Good Peaceful/Offensive effects. Mid-Karma Good now randomly chooses Peaceful or Offensive; the consistency change is approved. Do not assume every boundary and edge case was tested.
-- [x] Boss reel Bad 1.5× frequency for 12 seconds, 25% shorter newly started warnings; Neutral +20 HP; Good high Karma 20 damage; Good low Karma 3-second regular stun; mid Karma randomly chooses either. Play tests confirmed Bad, Neutral and high-Karma damage work. Test low/mid and edge cases separately if not already covered.
-- [x] Boss charge and fire breath choose randomly after initial charge, maximum two of one type in succession. Play testing found it acceptable. Melee range was debugged via Enemy AI attack range; check actual saved values rather than changing test settings.
-- [x] Boss kill/seal resolution and player Game Over states exist in code. Player-death flow and both boss victory routes have been reported working; retest after integration changes.
+## Validation record
 
-## Next: playable start, endings and restart
+- **Owner confirmation:** game development is complete as of November 14, 2026.
+- **Previously reported play tests:** the complete release/replay loop, both boss victory routes, core combat, waterfall stun, talisman and lantern puzzles, lantern visuals, ability bar, and Boss Bad/Neutral/high-Karma Good effects.
+- **This documentation pass:** inspected source, input bindings, relevant saved scene wiring, package/editor configuration, build scene order and local build artifacts. Documentation changes are checked for consistency and whitespace errors.
+- **Not executed in this pass:** Unity compilation, Play mode, automated gameplay tests, a fresh build export or browser execution of the existing WebGL build. Completion does not imply newly verified coverage of every historical edge case.
 
-- [x] Implement Play, Victory/Game Over and Play Again flows using placeholder UI; polish presentation and verify integration.
-- [ ] Ensure gameplay timers, input, fortune and reels do not run behind a start screen. Handle scene loading/reset deliberately rather than assuming adding a panel pauses the game.
-- [ ] Show correct Victory or Game Over once; verify boss kill and seal, player death, and no unintended transition after either end state.
-- [x] The full release loop, including restart, is reported tested.
-- [x] Play Again returns to OutsideTemple, then rolls fresh Fortune.
+## Optional maintenance regression guide
 
-## Essential player-facing feedback and presentation
+There are **no active development tasks recorded here**. The following checks are reference material if the finished game is changed or rebuilt; they are not reopened release blockers or claims of tests already run.
 
-- [ ] Show controls, phase objectives, Cleaning timer, Happiness, Opening Fortune and Lucky Reel numbers/outcomes clearly; Health and Karma fills are implemented and reported working.
-- [ ] Provide a visible readable pressure-plate sequence/clue and progress. The sequence debug log is disabled; Gizmos alone are not enough in a build.
-- [ ] Add lantern timer/countdown and timeout/retry feedback. Lit/unlit sprites are implemented and reported working; Gizmos and Console messages alone are not build UI.
-- [ ] Show talisman and lantern interaction cues, remaining progress and completion feedback; ensure talisman locations are reachable.
-- [ ] Provide visible regular vs environmental/sealable stun and the boss low-health seal window; green/cyan Gizmos are not build UI.
-- [ ] Apply art, animation, music, SFX and UI; confirm gameplay colliders, sorting and timing remain correct after visual replacements.
+1. **Session flow:** start `C:\Users\warri\Documents\GitHub\Unity Game jam\Assets\_Project\Scenes\MainMenu.unity`. Choose Play, complete the OutsideTemple introduction and enter InsideTemple. Confirm Fortune carries into the run, pause/resume works with Escape, and replay produces fresh Fortune. Exercise boss kill, boss seal and player death; expect one appropriate ending panel and working replay/menu buttons. In InsideTemple, inspect the GameManager victory/defeat panel references if flow changes.
+2. **Puzzles:** inspect PressurePlatePuzzle's Plates list for unique IDs and assigned pressed/unpressed sprites. Try correct order, wrong-order reset and retry. Use E near selected talismans and lanterns; verify progress, lantern timeout/retry and Good-reel completion without duplicate rewards. The RunStatusUI Cleaning panel should track overall time and completed/required puzzles.
+3. **Combat and reel:** use left click, E and Q. Recheck waterfall re-entry/cooldown and boss exclusion, pillar stun and the configured boss seal threshold. Boss-phase E must not start player-stun cooldown. If reel logic changes, cover Karma 44/45/55/56, healing at max HP, boost refresh/expiry, regular stun waking on damage, preserved pillar stun and final-enemy/boss reel kills. Multi-collider hitboxes remain a useful damage regression case.
+4. **Presentation and navigation:** confirm AbilityBar, CatHappinessUI, RunStatusUI and the runtime ActionLog remain visible and readable after UI changes. Check enemy navigation and stun/resume after geometry or navigation changes. Do not assume Console messages or Gizmos substitute for runtime UI.
+5. **Audio and browser build:** change Master/Music/SFX levels, reload and confirm persistence and mixer routing before opening Settings. When making a new WebGL export, serve it through a compatible host and repeat the session-flow check in the intended browser. Source inspection and existing build files do not replace that test.
 
-## Targeted tests and release
+Inspect scene/prefab overrides before changing health, damage, timers or sealing thresholds. Preserve accepted tuning, existing assets and navigation data; do not reset values based on old test notes alone.
 
-- [ ] Verify intended scene Happiness/Karma tuning if needed; prefab defaults are 50 and scene overrides may differ. Puzzle and enemy pools are assumed sufficient unless configuration changes.
-- [ ] Recheck Good Cleaning auto-completion for each puzzle, final-puzzle transition, Bad time-to-zero, timeout penalties, and completion counted once. Talisman tests worked; confirm exact edge coverage if needed.
-- [ ] Confirm lantern random combinations remain reachable within the saved time limit; timeout reuses the chosen locations, and reel completion awards once.
-- [ ] Check Encounter high/low/mid Karma boundaries 44/45 and 55/56; selected fate result stays fixed even if a damage kill changes Karma. Test last-enemy reel kill, repeated speed refresh and expiration, and player healing at max health.
-- [ ] Check waterfall re-entry/cooldown and dragon exclusion; test pillar stun, low-health seal, kill, Karma changes and one Victory transition.
-- [ ] Check Boss speed boost refresh/expiry and warnings, stun/wake-on-hit, preserved pillar stun, mid-Karma lethal damage, random attack streak cap and resumed attacks after pillar stun.
-- [ ] Check attack hitboxes for duplicate damage with multiple colliders; preserve combat and input behavior while adding UI.
-- [ ] Verify regular enemy navigation and stun/resume after map changes. Navigation assets and rebakes need care; do not delete unfamiliar assets or change geometry without review.
-- [x] Complete release loop and both boss victory routes are reported tested.
+## Outside the finished jam scope
 
-## Deferred / cut-first
+Triple-match gameplay bonuses, a hovering/shoulder Lucky Cat companion, extra rooms, new puzzle systems and upgrades are not unfinished commitments. Triple matches use normal reel average classification. Any future additions or maintenance work require a new, explicitly agreed task.
 
-Special triple combinations currently only log and use ordinary average classification. Additional puzzle systems, rooms, upgrades and other unapproved features are not required for this freeze. Do not add packages or architecture without approval.
+## Related documentation
 
-## Final code review: concrete checks
-
-- [ ] Confirm intended Player attack damage in the InsideTemple Inspector: the saved Player prefab has attackDamage 1000, potentially a test value; Boss prefab max HP is 100. Do not overwrite tuning without agreement.
-- [ ] Verify saved Master/Music/SFX settings are applied after a fresh launch before opening Settings. Settings scene has AudioSettings wired; no AudioSettings component was found in the saved MainMenu scene. Verify mixer routing and WebGL persistence in a build.
-- [ ] Check duplicate collider damage: player and enemy overlap attacks process colliders individually. Enemy melee uses Health on the hit object, so child-collider configurations also require testing.
-- [x] Treat puzzle and enemy pools as sufficient unless the scene configuration changes.
-- [ ] Ensure all key gameplay information has runtime UI: OutsideTemple Fortune is currently logged; pressure-plate clues, lantern countdown and sealing feedback must be readable without the Editor.
-- [ ] Export and test the intended build. The complete release loop is reported tested; no build or Unity play test was run during this documentation update.
+- `C:\Users\warri\Documents\GitHub\Unity Game jam\README.md` — completed-game overview, controls, setup and local build information.
+- `C:\Users\warri\Documents\GitHub\Unity Game jam\GAME_DESIGN.md` — final mechanics and reel outcomes.
